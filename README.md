@@ -1,2 +1,2 @@
-# empty-cpp
-empty c++ repository except for .gitignore and a readme
+# Classes and Objects
+Classes and Objects refresher assignment.
