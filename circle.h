@@ -25,11 +25,10 @@ public:
     double getDiameter();
     double getSurfaceArea();
 
-    void setCircumference(double);
     void setRadius(double);
 
 protected:
-    double circumference, radius;
+    double radius;
 };
 
 
