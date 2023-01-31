@@ -5,3 +5,38 @@ Purpose: Assignment 03 - "Classes and Objects" program that is part of COSC-2436
 **********************/
 
 #include "circle.h"
+
+Circle::Circle() {
+    setRadius(MIN);
+}
+
+Circle::Circle(double radius) {
+    setRadius(radius);
+}
+
+Circle::~Circle() {
+}
+
+double Circle::getRadius() {
+    return radius;
+}
+
+double Circle::getDiameter() {
+    return radius * 2.0;
+}
+
+double Circle::getCircumference() {
+    return 2 * PI * radius;
+}
+
+double Circle::getSurfaceArea() {
+    return PI * radius * radius;
+}
+
+void Circle::setRadius(double enteredRadius) {
+    if(radius > MIN) {
+        radius = enteredRadius
+    } else {
+        radius = MIN
+    }
+}
