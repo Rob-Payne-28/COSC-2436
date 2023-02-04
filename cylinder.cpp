@@ -27,16 +27,16 @@ double Cylinder::getHeight() {
     return height;
 }
 
-double Cylinder::getVolume() {
-    return 0; // TODO: figure this equation out
+double Cylinder::getArea() {
+    return (2 * PI * radius * height) + (2 * PI * radius * radius);
 }
 
-double Cylinder::getArea() {
-    return 0; // TODO: figure this equation out
+double Cylinder::getVolume() {
+    return PI * (radius * radius) * height;
 }
 
 void Cylinder::setHeight(double customHeight) {
-    if(customHeight > MIN) {
+    if (customHeight > MIN) {
         height = customHeight;
     } else {
         height = MIN;
