@@ -4,13 +4,13 @@ Coding 02
 Purpose: Assignment 03 - "Classes and Objects" program that is part of COSC-2436.
 **********************/
 
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+#ifndef CYLINDER_FUNCTIONS_H
+#define CYLINDER_FUNCTIONS_H
 
+#include <iostream>
+#include "cylinder.h"
 
-class Functions {
+void displayCircle(Circle*);
+void displayCylinder(Cylinder*);
 
-};
-
-
-#endif //FUNCTIONS_H
+#endif //CYLINDER_FUNCTIONS_H
