@@ -15,7 +15,6 @@ public:
     Cylinder(double, double);
     ~Cylinder();
 
-    double getRadius();
     double getHeight();
     double getArea();
     double getVolume();

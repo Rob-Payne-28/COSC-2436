@@ -34,9 +34,9 @@ double Circle::getArea() {
 }
 
 void Circle::setRadius(double enteredRadius) {
-    if(radius > MIN) {
-        radius = enteredRadius
+    if (enteredRadius > MIN) {
+        radius = enteredRadius;
     } else {
-        radius = MIN
+        radius = MIN;
     }
 }

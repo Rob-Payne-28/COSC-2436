@@ -19,10 +19,6 @@ Cylinder::Cylinder(double customRadius, double customHeight) {
 Cylinder::~Cylinder() {
 }
 
-double Cylinder::getRadius() {
-    return radius;
-}
-
 double Cylinder::getHeight() {
     return height;
 }
