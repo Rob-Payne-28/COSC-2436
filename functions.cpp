@@ -18,6 +18,7 @@ void displayCircle(Circle *myCircle){
 void displayCylinder(Cylinder *myCylinder){
     std::cout << "Displaying Cylinder- " << std::endl;
     std::cout << " Radius: " << myCylinder->getRadius() << std::endl;
+    std::cout << " Height: " << myCylinder->getHeight() << std::endl;
     std::cout << " Diameter: " << myCylinder->getDiameter() << std::endl;
     std::cout << " Circumference: " << myCylinder->getCircumference() << std::endl;
     std::cout << " Area: " << myCylinder->getArea() << std::endl;
