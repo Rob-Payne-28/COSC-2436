@@ -23,7 +23,6 @@ public:
 
 private:
     double height;
-
 };
 
 #endif //CYLINDER_H
