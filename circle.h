@@ -20,9 +20,9 @@ public:
 
     ~Circle();
 
-    double getCircumference();
     double getRadius();
     double getDiameter();
+    double getCircumference();
     double getArea();
 
     void setRadius(double);
