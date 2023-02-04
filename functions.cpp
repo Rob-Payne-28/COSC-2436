@@ -6,6 +6,7 @@ Purpose: Assignment 03 - "Classes and Objects" program that is part of COSC-2436
 
 #include "functions.h"
 
+// Calls the getters on a circle and displays their values
 void displayCircle(Circle *myCircle){
     std::cout << "Diplaying Circle- " << std::endl;
     std::cout << " Radius: " << myCircle->getRadius() << std::endl;
@@ -15,6 +16,7 @@ void displayCircle(Circle *myCircle){
     std::cout << std::endl;
 }
 
+// Calls the getters on a cylinder and displays their values
 void displayCylinder(Cylinder *myCylinder){
     std::cout << "Displaying Cylinder- " << std::endl;
     std::cout << " Radius: " << myCylinder->getRadius() << std::endl;

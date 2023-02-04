@@ -16,15 +16,18 @@ Purpose: Assignment 03 - "Classes and Objects" program that is part of COSC-2436
 class Circle {
 
 public:
+    // Constructors/Deconstructor
     Circle();
     Circle(double);
     ~Circle();
 
+    // Getters
     double getRadius();
     double getDiameter();
     double getCircumference();
     double getArea();
 
+    // Setters
     void setRadius(double);
 
 protected:
