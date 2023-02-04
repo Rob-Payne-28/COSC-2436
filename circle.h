@@ -23,7 +23,7 @@ public:
     double getCircumference();
     double getRadius();
     double getDiameter();
-    double getSurfaceArea();
+    double getArea();
 
     void setRadius(double);
 

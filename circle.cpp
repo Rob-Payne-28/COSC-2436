@@ -29,7 +29,7 @@ double Circle::getCircumference() {
     return 2 * PI * radius;
 }
 
-double Circle::getSurfaceArea() {
+double Circle::getArea() {
     return PI * radius * radius;
 }
 
