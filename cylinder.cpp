@@ -24,11 +24,11 @@ double Cylinder::getHeight() {
 }
 
 double Cylinder::getArea() {
-    return (2 * PI * radius * height) + (2 * PI * radius * radius);
+    return (2 * PI * radius * height) + (2 * PI * pow(radius, 2));
 }
 
 double Cylinder::getVolume() {
-    return PI * (radius * radius) * height;
+    return PI * pow(radius, 2) * height;
 }
 
 void Cylinder::setHeight(double customHeight) {

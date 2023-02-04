@@ -30,7 +30,7 @@ double Circle::getCircumference() {
 }
 
 double Circle::getArea() {
-    return PI * radius * radius;
+    return PI * pow(radius, 2);
 }
 
 void Circle::setRadius(double enteredRadius) {
