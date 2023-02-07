@@ -1,2 +1,2 @@
-# empty
-empty repository with only a readme
+# Int Stack
+Simple int stack assignment that introduces Abstract Data Types. 
