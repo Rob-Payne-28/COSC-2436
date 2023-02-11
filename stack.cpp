@@ -24,13 +24,14 @@ void Stack::setTop(int customTop) {
     top = customTop;
 }
 
-void Stack::push(int x) {
-    if (top >= 10) {
-        std::cout << "Stack Overflow \n" << std::endl;
-    } else {
+bool Stack::push(int x) {
+    bool isSuccessful = (top >= 10);
+
+    if (isSuccessful) {
         a[++top] = x;
-        std::cout << "Element Inserted \n" << std::endl;
     }
+
+    return isSuccessful;
 }
 
 // function to remove data from the top of the stack
@@ -44,11 +45,6 @@ int Stack::pop() {
     }
 }
 
-// function to check if stack is empty
-void Stack::isEmpty() {
-    if (top < 0) {
-        std::cout << "Stack is empty \n" << std::endl;
-    } else {
-        std::cout << "Stack is not empty \n" << std::endl;
-    }
+bool Stack::isEmpty() {
+    return top < 0;
 }

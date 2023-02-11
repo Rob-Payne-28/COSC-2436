@@ -15,8 +15,8 @@ public:
     ~Stack();
 
     void setTop(int);
-    void push(int);
-    void isEmpty();
+    bool push(int);
+    bool isEmpty();
     int pop();
 
 protected:
