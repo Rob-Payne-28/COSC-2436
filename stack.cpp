@@ -5,65 +5,50 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 **********************/
 
 #include "stack.h"
+#include<iostream>
 
-# include<iostream>
+#define MIN -1
 
-using namespace std;
+Stack::Stack() {
+    setTop(-1);
+}
 
-class Stack
-{
-    int top;
-public:
-    int a[10];  //Maximum size of Stack
-    Stack()
-    {
-        top = -1;
-    }
+Stack::Stack(int customTop) {
+    setTop(customTop);
+}
 
-    // declaring all the function
-    void push(int x);
-    int pop();
-    void isEmpty();
-};
+Stack::~Stack(){
+}
 
-// function to insert data into stack
-void Stack::push(int x)
-{
-    if(top >= 10)
-    {
-        cout << "Stack Overflow \n";
-    }
-    else
-    {
+void Stack::setTop(int customTop) {
+    top = customTop;
+}
+
+void Stack::push(int x) {
+    if (top >= 10) {
+        std::cout << "Stack Overflow \n" << std::endl;
+    } else {
         a[++top] = x;
-        cout << "Element Inserted \n";
+        std::cout << "Element Inserted \n" << std::endl;
     }
 }
 
 // function to remove data from the top of the stack
-int Stack::pop()
-{
-    if(top < 0)
-    {
-        cout << "Stack Underflow \n";
+int Stack::pop() {
+    if (top < 0) {
+        std::cout << "Stack Underflow \n" << std::endl;
         return 0;
-    }
-    else
-    {
+    } else {
         int d = a[top--];
         return d;
     }
 }
 
 // function to check if stack is empty
-void Stack::isEmpty()
-{
-    if(top < 0)
-    {
-        cout << "Stack is empty \n";
-    }
-    else
-    {
-        cout << "Stack is not empty \n";
+void Stack::isEmpty() {
+    if (top < 0) {
+        std::cout << "Stack is empty \n" << std::endl;
+    } else {
+        std::cout << "Stack is not empty \n" << std::endl;
     }
 }
