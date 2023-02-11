@@ -7,8 +7,7 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #include "main.h"
 
 int main(int argc, char** argv) {
-    cout << "Hello World" << endl;
-
+    std::cout << "Hello World" << std::endl;
 
     return 0;
 }
