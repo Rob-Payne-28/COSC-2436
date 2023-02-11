@@ -14,7 +14,6 @@ public:
     Stack(int);
     ~Stack();
 
-    void setTop(int);
     bool push(int);
     bool isEmpty();
     int pop();
@@ -22,6 +21,8 @@ public:
 protected:
     int top;
     int a[10];
+
+    void setTop(int);
 };
 
 #endif //STACK_STACK_H
