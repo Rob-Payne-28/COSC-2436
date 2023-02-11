@@ -17,6 +17,7 @@ public:
     bool push(int);
     bool isEmpty();
     int pop();
+    int peek();
 
 protected:
     int top;

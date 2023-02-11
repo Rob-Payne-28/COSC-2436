@@ -36,15 +36,21 @@ bool Stack::push(int x) {
 
 // function to remove data from the top of the stack
 int Stack::pop() {
-    if (top < 0) {
-        std::cout << "Stack Underflow \n" << std::endl;
-        return 0;
-    } else {
-        int d = a[top--];
-        return d;
+    int value = -1;
+    if(top > -1){
+        value = a[top--];
     }
+    return value;
 }
 
 bool Stack::isEmpty() {
     return top < 0;
+}
+
+int Stack::peek() {
+    int value = -1;
+    if(top > -1){
+        value = a[top];
+    }
+    return value;
 }
