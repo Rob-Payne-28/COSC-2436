@@ -33,8 +33,8 @@ void Stack::setTop(int customTop) {
 bool Stack::push(int x) {
     bool isSuccessful = (top < 10);
     if (isSuccessful) {
-        a[top] = x;
-        top++;
+        a[++top] = x;
+        setTop(top++);
     }
     return isSuccessful;
 }
@@ -54,7 +54,7 @@ bool Stack::isEmpty() {
 int Stack::peek() {
     int value = -1;
     if(top > -1){
-        value = a[top];
+        value = a[top++];
     }
     return value;
 }
