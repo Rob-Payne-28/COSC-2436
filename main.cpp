@@ -7,7 +7,7 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #include "main.h"
 
 int main(int argc, char** argv) {
-    // Generates a random seed
+    // Generates a random seed for random testing
     srand(time(NULL));
 
     std::cout << "Creating stack..." << std::endl;

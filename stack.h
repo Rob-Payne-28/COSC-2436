@@ -21,7 +21,7 @@ public:
 
 protected:
     int top;
-    int *a;
+    int *array;
 
     void setTop(int);
 };

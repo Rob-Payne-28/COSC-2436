@@ -10,20 +10,20 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 
 Stack::Stack() {
     setTop(MIN);
-    a = new int[MAX];
+    array = new int[MAX];
 }
 
 Stack::Stack(int size) {
     setTop(MIN);
     if(size > MAX){
-        a = new int[MAX];
+        array = new int[MAX];
     } else {
-        a = new int[size];
+        array = new int[size];
     }
 }
 
 Stack::~Stack(){
-    delete[] a;
+    delete[] array;
 }
 
 void Stack::setTop(int newTop) {
@@ -33,7 +33,7 @@ void Stack::setTop(int newTop) {
 bool Stack::push(int newNum) {
     bool isSuccessful = (top < 10);
     if (isSuccessful) {
-        a[++top] = newNum;
+        array[++top] = newNum;
         setTop(top++);
     }
     return isSuccessful;
@@ -42,7 +42,7 @@ bool Stack::push(int newNum) {
 int Stack::pop() {
     int value = -1;
     if(top > -1){
-        value = a[top];
+        value = array[top];
         setTop(--top);
     }
     return value;
@@ -55,7 +55,7 @@ bool Stack::isEmpty() {
 int Stack::peek() {
     int value = -1;
     if(top > -1){
-        value = a[top];
+        value = array[top];
     }
     return value;
 }
