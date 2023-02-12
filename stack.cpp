@@ -5,22 +5,23 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 **********************/
 
 #include "stack.h"
-#define MIN -1
+#define STARTING_INDEX -1
 #define DEFAULT_STACK_SIZE 10
 
 Stack::Stack() {
-    top = MIN;
+    top = STARTING_INDEX;
     array = new int[DEFAULT_STACK_SIZE];
+    size = DEFAULT_STACK_SIZE;
 }
 
-Stack::Stack(int size) {
-    top = MIN;
-    if(size >= 2){
-        array = new int[size];
-        size = size-1;
+Stack::Stack(int customSize) {
+    top = STARTING_INDEX;
+    if(customSize >= 2){
+        array = new int[customSize];
+        size = customSize;
     } else {
         array = new int[DEFAULT_STACK_SIZE];
-        size = DEFAULT_STACK_SIZE-1;
+        size = DEFAULT_STACK_SIZE;
     }
 }
 
@@ -29,17 +30,21 @@ Stack::~Stack(){
 }
 
 bool Stack::push(int newNum) {
-    bool isSuccessful = (top < size);
+    bool isSuccessful = (top < size-1);
     if (isSuccessful) {
-        array[top + 1] = newNum;
         top = top + 1;
+        array[top] = newNum;
+    } else {
+        throw std::runtime_error("Push error - OVERFLOW CONDITION!");
     }
     return isSuccessful;
 }
 
 int Stack::pop() {
     int value = -1;
-    if(top > -1){
+    if(isEmpty()){
+        // Error
+    } else {
         value = array[top];
         top = top - 1;
     }
@@ -47,13 +52,22 @@ int Stack::pop() {
 }
 
 bool Stack::isEmpty() {
-    return top < 0;
+    return top == -1;
 }
 
 int Stack::peek() {
     int value = -1;
-    if(top > -1){
+    if(isEmpty()){
+        // Error
+    } else {
         value = array[top];
     }
     return value;
+}
+
+// For debugging!
+void Stack::dumpstack() {
+    for (int i = 0; i < top + 1; ++i) {
+        std::cout << "Position " << i << " contains " << array[i] << std::endl;
+    }
 }
