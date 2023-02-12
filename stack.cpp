@@ -30,32 +30,36 @@ void Stack::setTop(int newTop) {
     top = newTop;
 }
 
+int Stack::getTop() {
+    return top;
+}
+
 bool Stack::push(int newNum) {
-    bool isSuccessful = (top < 10);
+    bool isSuccessful = (getTop() < 10);
     if (isSuccessful) {
-        array[++top] = newNum;
-        setTop(top++);
+        array[getTop() + 1] = newNum;
+        setTop(getTop() + 1);
     }
     return isSuccessful;
 }
 
 int Stack::pop() {
     int value = -1;
-    if(top > -1){
-        value = array[top];
-        setTop(--top);
+    if(getTop() > -1){
+        value = array[getTop()];
+        setTop(getTop() - 1);
     }
     return value;
 }
 
 bool Stack::isEmpty() {
-    return top < 0;
+    return getTop() < 0;
 }
 
 int Stack::peek() {
     int value = -1;
-    if(top > -1){
-        value = array[top];
+    if(getTop() > -1){
+        value = array[getTop()];
     }
     return value;
 }

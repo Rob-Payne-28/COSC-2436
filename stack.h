@@ -24,6 +24,7 @@ protected:
     int *array;
 
     void setTop(int);
+    int getTop();
 };
 
 #endif //STACK_STACK_H

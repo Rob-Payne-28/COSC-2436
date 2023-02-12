@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
     std::cout << std::endl;
 
     // Checks the isEmpty method when stack is not empty
-    std::cout << "Testing isEmpty method when stack is empty. Should be false." << std::endl;
+    std::cout << "Testing isEmpty method when stack is not empty. Should be false." << std::endl;
     for (int i = 0; i < 11; ++i){
         std::cout << "Is empty? " << std::boolalpha << s1.isEmpty() << std::endl;
     }
@@ -79,6 +79,7 @@ int main(int argc, char** argv) {
         std::cout << "Peeking "<< i <<" -> " << s1.peek() << std::endl;
         std::cout << "isEmpty -> " << std::boolalpha << s1.isEmpty() << std::endl;
         std::cout << "Popping "<< i <<" -> " << s1.pop() << std::endl;
+        std::cout << "Peeking "<< i <<" -> " << s1.peek() << std::endl;
         std::cout << std::endl;
     }
 
