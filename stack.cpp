@@ -42,7 +42,8 @@ bool Stack::push(int newNum) {
 int Stack::pop() {
     int value = -1;
     if(top > -1){
-        value = a[--top];
+        value = a[top];
+        setTop(--top);
     }
     return value;
 }
