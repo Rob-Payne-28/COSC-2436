@@ -98,28 +98,27 @@ int main(int argc, char** argv) {
                 break;
             case 1:
                 if(s1.isEmpty()){
-                    std::cout << "Cannot pop! Stack currently empty!" << std::endl;
+                    std::cout << "Cannot pop! Stack in underflow state!" << std::endl;
                 } else {
-                    std::cout << "Popping " << s1.pop() << "!" << std::endl;
+                    std::cout << "Popping " << s1.pop() << std::endl;
                 }
                 break;
             case 2:
-                pushNum = rand() % 10;
+                pushNum = rand() % 25;
                 if(s1.push(pushNum)){
-                    std::cout << "Pushed " << s1.push(pushNum) << "!" << std::endl;
+                    std::cout << "Pushed: " << pushNum << std::endl;
                 } else {
                     std::cout << "Cannot push! Stack in overflow state!" << std::endl;
                 }
                 break;
             case 3:
                 if(s1.peek() == -1){
-                    std::cout << "Stack is currently empty" << std::endl;
+                    std::cout << "Stack is currently empty! Cannot peek!" << std::endl;
                 } else {
-                    std::cout << "Top of stack is: " << s1.peek() << std::endl;
+                    std::cout << "Peeking: " << s1.peek() << std::endl;
                 }
                 break;
         }
-
     }
 
     return 0;
