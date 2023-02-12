@@ -42,19 +42,19 @@ bool Stack::push(int x) {
 int Stack::pop() {
     int value = -1;
     if(top > -1){
-        value = a[top--];
+        value = a[--top];
     }
     return value;
 }
 
 bool Stack::isEmpty() {
-    return top < 0;
+    return top <= 0;
 }
 
 int Stack::peek() {
     int value = -1;
     if(top > -1){
-        value = a[top++];
+        value = a[top];
     }
     return value;
 }
