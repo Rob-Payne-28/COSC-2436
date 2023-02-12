@@ -6,21 +6,21 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 
 #include "stack.h"
 #define MIN -1
-#define MAX 10
+#define DEFAULT_STACK_SIZE 10
 
 Stack::Stack() {
     top = MIN;
-    array = new int[MAX];
+    array = new int[DEFAULT_STACK_SIZE];
 }
 
 Stack::Stack(int size) {
     top = MIN;
-    if(size > MAX){
-        array = new int[MAX];
-        size = MAX-1;
-    } else {
+    if(size >= 2){
         array = new int[size];
         size = size-1;
+    } else {
+        array = new int[DEFAULT_STACK_SIZE];
+        size = DEFAULT_STACK_SIZE-1;
     }
 }
 
