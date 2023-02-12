@@ -24,6 +24,15 @@ int main(int argc, char** argv) {
     }
     std::cout << std::endl;
 
+    // Also checked the input of the number of tests to run. If it is below 1, default to 1 run.
+    std::cout << "Checking TEST_RUNS..." << std::endl;
+    int numberOfTestsToRun = TEST_RUNS;
+    if(numberOfTestsToRun < 1){
+        std::cout << " TEST_RUNS below minimum size. Falling back to minimum of 1." << std::endl;
+        numberOfTestsToRun = 1;
+    }
+    std::cout << std::endl;
+
     // Test isEmpty function when empty
     std::cout << "Testing that stack is empty" << std::endl;
     if(stack.isEmpty()){
@@ -41,6 +50,7 @@ int main(int argc, char** argv) {
         } catch (const std::runtime_error& error) {
             std::cerr << " " << error.what() << std::endl;
         }
+        std::cout << " Pushed " << i << " onto stack" << std::endl;
         std::cout << " Peeking: " << stack.peek() << std::endl;
     }
     std::cout << std::endl;
@@ -56,7 +66,7 @@ int main(int argc, char** argv) {
 
     // Test push in overflow condition
     std::cout << "Testing push in overflow conditions" << std::endl;
-    for (int i = 0; i < TEST_RUNS; ++i) {
+    for (int i = 0; i < numberOfTestsToRun; ++i) {
         try {
             stack.push(i);
         } catch (const std::runtime_error& error) {
@@ -83,7 +93,7 @@ int main(int argc, char** argv) {
 
     // Tests pop in underflow
     std::cout << "Testing pop in underflow" << std::endl;
-    for (int i = 0; i < TEST_RUNS; ++i) {
+    for (int i = 0; i < numberOfTestsToRun; ++i) {
         try {
             std::cout << " Popping: " << stack.pop() << std::endl;
         } catch (const std::runtime_error& error) {
@@ -94,7 +104,7 @@ int main(int argc, char** argv) {
 
     // Tests peek in underflow
     std::cout << "Testing peek in underflow" << std::endl;
-    for (int i = 0; i < TEST_RUNS; ++i) {
+    for (int i = 0; i < numberOfTestsToRun; ++i) {
         try {
             std::cout << " Peeking: " << stack.peek() << std::endl;
         } catch (const std::runtime_error& error) {
@@ -104,8 +114,9 @@ int main(int argc, char** argv) {
     std::cout << std::endl;
 
     // Runs tests in random order. Number of times run is adjusted with the TEST_RUNS directive.
+    // Will default to 1 test run if TEST_RUNS is below 1.
     std::cout << "Testing methods in a random order" << std::endl;
-    for (int i = 0; i < TEST_RUNS; ++i) {
+    for (int i = 0; i < numberOfTestsToRun; ++i) {
         // Generates random number with 4 possible outcomes (0-3)
         int randomNum = rand() % 4;
 
@@ -121,7 +132,7 @@ int main(int argc, char** argv) {
                 break;
             case 1:
                 try {
-                    std::cout << " Popping: " << stack.pop() << std::endl;
+                    std::cout << " Popping " << stack.pop() << " off of stack" << std::endl;
                 } catch (const std::runtime_error& error) {
                     std::cerr << " " << error.what() << std::endl;
                 }
@@ -133,10 +144,11 @@ int main(int argc, char** argv) {
                 } catch (const std::runtime_error& error) {
                     std::cerr << " " << error.what() << std::endl;
                 }
+                std::cout << " Pushed " << pushNum << " onto stack" << std::endl;
                 break;
             case 3:
                 try {
-                    std::cout << " Peeking: " << stack.peek() << std::endl;
+                    std::cout << " Peeking " << stack.peek() << " on stack" << std::endl;
                 } catch (const std::runtime_error& error) {
                     std::cerr << " " << error.what() << std::endl;
                 }
@@ -144,7 +156,6 @@ int main(int argc, char** argv) {
         }
     }
     std::cout << std::endl;
-
 
     std::cout << "Program completed without any unhandled exceptions!" << std::endl;
 
