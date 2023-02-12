@@ -5,8 +5,6 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 **********************/
 
 #include "main.h"
-#define SIZE 1
-#define TEST_RUNS 10
 
 int main(int argc, char** argv) {
     // Generates a random seed for random testing
