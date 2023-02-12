@@ -38,6 +38,11 @@ int main(int argc, char** argv) {
 
     // Test is empty function when stack isn't empty
     std::cout << "Testing that stack is not empty" << std::endl;
+    if(stack.isEmpty()){
+        std::cout << " Stack is empty" << std::endl;
+    } else {
+        std::cout << " Stack is not empty" << std::endl;
+    }
 
     // Test overflow condition
     std::cout << "Testing push in overflow conditions" << std::endl;
