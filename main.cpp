@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
     for (int i = 0; i < 100; ++i) {
         //generates random number with 4 possible outcomes (0-3)
         int randomNum = rand() % 4;
-
+        int pushNum;
         switch (randomNum) {
             case 0:
                 if(s1.isEmpty()){
@@ -104,14 +104,19 @@ int main(int argc, char** argv) {
                 }
                 break;
             case 2:
-                int pushNum = rand() % 10;
+                pushNum = rand() % 10;
                 if(s1.push(pushNum)){
                     std::cout << "Pushed " << s1.push(pushNum) << "!" << std::endl;
                 } else {
                     std::cout << "Cannot push! Stack in overflow state!" << std::endl;
                 }
-                    break;
+                break;
             case 3:
+                if(s1.peek() == -1){
+                    std::cout << "Stack is currently empty" << std::endl;
+                } else {
+                    std::cout << "Top of stack is: " << s1.peek() << std::endl;
+                }
                 break;
         }
 
