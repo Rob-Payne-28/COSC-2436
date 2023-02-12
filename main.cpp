@@ -6,7 +6,7 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 
 #include "main.h"
 #define SIZE_TOO_SMALL 1
-#define SIZE 100
+#define SIZE 10
 #define TEST_RUNS 10
 
 int main(int argc, char** argv) {
@@ -16,6 +16,7 @@ int main(int argc, char** argv) {
     // Create stack
     std::cout << "Creating stack with size of " << SIZE << "..." << std::endl;
     Stack stack(SIZE);
+    std::cout << std::endl;
 
     // Test is empty function when empty
     std::cout << "Testing that stack is empty" << std::endl;
@@ -24,6 +25,7 @@ int main(int argc, char** argv) {
     } else {
         std::cout << " Stack is not empty" << std::endl;
     }
+    std::cout << std::endl;
 
     // Fills stack
     std::cout << "Filling stack" << std::endl;
@@ -35,6 +37,7 @@ int main(int argc, char** argv) {
         }
         std::cout << "Peeking: " << stack.peek() << std::endl;
     }
+    std::cout << std::endl;
 
     // Test is empty function when stack isn't empty
     std::cout << "Testing that stack is not empty" << std::endl;
@@ -43,8 +46,9 @@ int main(int argc, char** argv) {
     } else {
         std::cout << " Stack is not empty" << std::endl;
     }
+    std::cout << std::endl;
 
-    // Test overflow condition
+    // Test push in overflow condition
     std::cout << "Testing push in overflow conditions" << std::endl;
     for (int i = 0; i < TEST_RUNS; ++i) {
         try {
@@ -53,6 +57,24 @@ int main(int argc, char** argv) {
             std::cerr << error.what() << std::endl;
         }
     }
+    std::cout << std::endl;
+
+    // Empties Stack
+    std::cout << "Emptying stack" << std::endl;
+    for (int i = SIZE; i > 0; --i) {
+        try {
+            std::cout << "Peeking: " << stack.peek() << std::endl;
+        } catch (const std::runtime_error& error) {
+            std::cerr << error.what() << std::endl;
+        }
+        try {
+            std::cout << "Popping: " << stack.pop() << std::endl;
+        } catch (const std::runtime_error& error) {
+            std::cerr << error.what() << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
 
     // Runs tests in random order
     std::cout << "Testing methods in a random order" << std::endl;
