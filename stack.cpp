@@ -51,10 +51,6 @@ int Stack::pop() {
     return value;
 }
 
-bool Stack::isEmpty() {
-    return top == -1;
-}
-
 int Stack::peek() {
     int value;
     if(isEmpty()){
@@ -63,6 +59,10 @@ int Stack::peek() {
         value = array[top];
     }
     return value;
+}
+
+bool Stack::isEmpty() {
+    return top == -1;
 }
 
 // For debugging!
