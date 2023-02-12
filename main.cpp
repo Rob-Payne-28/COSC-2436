@@ -27,11 +27,17 @@ int main(int argc, char** argv) {
 
     // Fills stack
     std::cout << "Filling stack" << std::endl;
-
+    for (int i = 0; i < SIZE; ++i) {
+        try {
+            stack.push(i);
+        } catch (const std::runtime_error& error) {
+            std::cerr << error.what() << std::endl;
+        }
+        std::cout << "Peeking: " << stack.peek() << std::endl;
+    }
 
     // Test is empty function when stack isn't empty
     std::cout << "Testing that stack is not empty" << std::endl;
-
 
     // Test overflow condition
     std::cout << "Testing push in overflow conditions" << std::endl;
