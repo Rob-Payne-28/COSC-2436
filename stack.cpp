@@ -41,7 +41,7 @@ bool Stack::push(int newNum) {
 }
 
 int Stack::pop() {
-    int value = -1;
+    int value;
     if(isEmpty()){
         throw std::runtime_error("UNDERFLOW CONDITION!");
     } else {
@@ -56,7 +56,7 @@ bool Stack::isEmpty() {
 }
 
 int Stack::peek() {
-    int value = -1;
+    int value;
     if(isEmpty()){
         throw std::runtime_error("UNDERFLOW CONDITION!");
     } else {
