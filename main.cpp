@@ -104,7 +104,13 @@ int main(int argc, char** argv) {
                 }
                 break;
             case 2:
-                break;
+                int pushNum = rand() % 10;
+                if(s1.push(pushNum)){
+                    std::cout << "Pushed " << s1.push(pushNum) << "!" << std::endl;
+                } else {
+                    std::cout << "Cannot push! Stack in overflow state!" << std::endl;
+                }
+                    break;
             case 3:
                 break;
         }
