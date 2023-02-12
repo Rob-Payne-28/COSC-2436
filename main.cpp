@@ -19,15 +19,23 @@ int main(int argc, char** argv) {
 
     // Test is empty function when empty
     std::cout << "Testing that stack is empty" << std::endl;
+    if(stack.isEmpty()){
+        std::cout << " Stack is empty" << std::endl;
+    } else {
+        std::cout << " Stack is not empty" << std::endl;
+    }
 
     // Fills stack
     std::cout << "Filling stack" << std::endl;
 
+
     // Test is empty function when stack isn't empty
     std::cout << "Testing that stack is not empty" << std::endl;
 
+
     // Test overflow condition
     std::cout << "Testing push in overflow conditions" << std::endl;
+
 
     // Runs tests in random order
     std::cout << "Testing methods in a random order" << std::endl;
@@ -37,32 +45,32 @@ int main(int argc, char** argv) {
         int pushNum;
         switch (randomNum) {
             case 0:
-                if(s1.isEmpty()){
+                if(stack.isEmpty()){
                     std::cout << "Stack is currently empty" << std::endl;
                 } else {
                     std::cout << "Stack is not empty" << std::endl;
                 }
                 break;
             case 1:
-                if(s1.isEmpty()){
+                if(stack.isEmpty()){
                     std::cout << "Cannot pop! Stack in underflow state!" << std::endl;
                 } else {
-                    std::cout << "Popping " << s1.pop() << std::endl;
+                    std::cout << "Popping " << stack.pop() << std::endl;
                 }
                 break;
             case 2:
                 pushNum = rand() % 25;
-                if(s1.push(pushNum)){
+                if(stack.push(pushNum)){
                     std::cout << "Pushed: " << pushNum << std::endl;
                 } else {
                     std::cout << "Cannot push! Stack in overflow state!" << std::endl;
                 }
                 break;
             case 3:
-                if(s1.peek() == -1){
+                if(stack.peek() == -1){
                     std::cout << "Stack is currently empty! Cannot peek!" << std::endl;
                 } else {
-                    std::cout << "Peeking: " << s1.peek() << std::endl;
+                    std::cout << "Peeking: " << stack.peek() << std::endl;
                 }
                 break;
         }
