@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
                 }
                 break;
             case 2:
-                pushNum = rand() % 25;
+                pushNum = INT_MIN + rand() % RANGE;
                 try {
                     stack.push(pushNum);
                 } catch (const std::runtime_error& error) {
