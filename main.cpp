@@ -5,7 +5,7 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 **********************/
 
 #include "main.h"
-#define SIZE 10
+#define SIZE 1
 #define TEST_RUNS 10
 
 int main(int argc, char** argv) {
@@ -15,6 +15,14 @@ int main(int argc, char** argv) {
     // Create stack
     std::cout << "Creating stack with size of " << SIZE << "..." << std::endl;
     Stack stack(SIZE);
+
+    int stackSize;
+    if(SIZE >= 2){
+        stackSize = SIZE;
+    } else {
+        std::cout << " Stack below minimum size. Falling back to default stack size of 10." << std::endl;
+        stackSize = 10;
+    }
     std::cout << std::endl;
 
     // Test is empty function when empty
@@ -28,13 +36,13 @@ int main(int argc, char** argv) {
 
     // Fills stack
     std::cout << "Filling stack" << std::endl;
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < stackSize; ++i) {
         try {
             stack.push(i);
         } catch (const std::runtime_error& error) {
-            std::cerr << error.what() << std::endl;
+            std::cerr << " " << error.what() << std::endl;
         }
-        std::cout << "Peeking: " << stack.peek() << std::endl;
+        std::cout << " Peeking: " << stack.peek() << std::endl;
     }
     std::cout << std::endl;
 
@@ -53,23 +61,23 @@ int main(int argc, char** argv) {
         try {
             stack.push(i);
         } catch (const std::runtime_error& error) {
-            std::cerr << error.what() << std::endl;
+            std::cerr << " " << error.what() << std::endl;
         }
     }
     std::cout << std::endl;
 
     // Empties Stack
     std::cout << "Emptying stack" << std::endl;
-    for (int i = SIZE; i > 0; --i) {
+    for (int i = stackSize; i > 0; --i) {
         try {
-            std::cout << "Peeking: " << stack.peek() << std::endl;
+            std::cout << " Peeking: " << stack.peek() << std::endl;
         } catch (const std::runtime_error& error) {
-            std::cerr << error.what() << std::endl;
+            std::cerr << " " << error.what() << std::endl;
         }
         try {
-            std::cout << "Popping: " << stack.pop() << std::endl;
+            std::cout << " Popping: " << stack.pop() << std::endl;
         } catch (const std::runtime_error& error) {
-            std::cerr << error.what() << std::endl;
+            std::cerr << " " << error.what() << std::endl;
         }
     }
     std::cout << std::endl;
@@ -78,9 +86,9 @@ int main(int argc, char** argv) {
     std::cout << "Testing pop in underflow" << std::endl;
     for (int i = 0; i < TEST_RUNS; ++i) {
         try {
-            std::cout << "Popping: " << stack.pop() << std::endl;
+            std::cout << " Popping: " << stack.pop() << std::endl;
         } catch (const std::runtime_error& error) {
-            std::cerr << error.what() << std::endl;
+            std::cerr << " " << error.what() << std::endl;
         }
     }
     std::cout << std::endl;
@@ -89,9 +97,9 @@ int main(int argc, char** argv) {
     std::cout << "Testing peek in underflow" << std::endl;
     for (int i = 0; i < TEST_RUNS; ++i) {
         try {
-            std::cout << "Peeking: " << stack.peek() << std::endl;
+            std::cout << " Peeking: " << stack.peek() << std::endl;
         } catch (const std::runtime_error& error) {
-            std::cerr << error.what() << std::endl;
+            std::cerr << " " << error.what() << std::endl;
         }
     }
     std::cout << std::endl;
