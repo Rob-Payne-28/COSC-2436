@@ -12,6 +12,8 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #include <cstdlib>
 // Adds time function used for random seed generation
 #include <ctime>
+// Adds exception handling
+#include <stdexcept>
 #include "stack.h"
 
 #endif //STACK_MAIN_H
