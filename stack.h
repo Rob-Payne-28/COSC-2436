@@ -23,10 +23,6 @@ protected:
     int top;
     int *array;
     int size;
-
-    void setTop(int);
-    int getTop();
-    void setSize(int);
 };
 
 #endif //STACK_STACK_H

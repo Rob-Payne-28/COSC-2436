@@ -9,18 +9,18 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #define MAX 10
 
 Stack::Stack() {
-    setTop(MIN);
+    top = MIN;
     array = new int[MAX];
 }
 
 Stack::Stack(int size) {
-    setTop(MIN);
+    top = MIN;
     if(size > MAX){
         array = new int[MAX];
-        setSize(MAX-1);
+        size = MAX-1;
     } else {
         array = new int[size];
-        setSize(size-1);
+        size = size-1;
     }
 }
 
@@ -28,44 +28,32 @@ Stack::~Stack(){
     delete[] array;
 }
 
-void Stack::setTop(int newTop) {
-    top = newTop;
-}
-
-int Stack::getTop() {
-    return top;
-}
-
-void Stack::setSize(int customSize) {
-    size = customSize;
-}
-
 bool Stack::push(int newNum) {
-    bool isSuccessful = (getTop() < size);
+    bool isSuccessful = (top < size);
     if (isSuccessful) {
-        array[getTop() + 1] = newNum;
-        setTop(getTop() + 1);
+        array[top + 1] = newNum;
+        top = top + 1;
     }
     return isSuccessful;
 }
 
 int Stack::pop() {
     int value = -1;
-    if(getTop() > -1){
-        value = array[getTop()];
-        setTop(getTop() - 1);
+    if(top > -1){
+        value = array[top];
+        top = top - 1;
     }
     return value;
 }
 
 bool Stack::isEmpty() {
-    return getTop() < 0;
+    return top < 0;
 }
 
 int Stack::peek() {
     int value = -1;
-    if(getTop() > -1){
-        value = array[getTop()];
+    if(top > -1){
+        value = array[top];
     }
     return value;
 }
