@@ -8,9 +8,51 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 
 int main(int argc, char** argv) {
 
+    std::cout << "Creating stack..." << std::endl;
     Stack s1;
-    s1.push(10);
-    s1.push(100);
+
+    // Checks isEmpty method when stack is empty
+    std::cout << "Testing isEmpty method when stack is empty" << std::endl;
+    for (int i = 0; i < 11; ++i){
+        std::cout << "Is empty? " << std::boolalpha << s1.isEmpty() << std::endl;
+    }
+
+    // Testing pop in underflow conditions
+    std::cout << "Testing pop method in underflow conditions, should return -1" << std::endl;
+    for (int i = 0; i < 11; ++i){
+        std::cout << "Popping." << s1.pop() << std::endl;
+    }
+
+    // Testing peek in underflow conditions
+    std::cout << "Testing peek method in underflow conditions, should return -1" << std::endl;
+    for (int i = 0; i < 11; ++i){
+        std::cout << "Peeking." << s1.peek() << std::endl;
+    }
+
+    // Checks the push and peek methods until they start to enter overflow conditions
+    std::cout << "Testing push and peek method under normal circumstances" << std::endl;
+    for (int i = 0; i < 11; ++i) {
+        std::cout << "Pushing. Successful? " << std::boolalpha << s1.push(i) << std::endl;
+        std::cout << "Peeking "<< i <<", Value: " << s1.peek() << std::endl;
+    }
+
+    // Checks the push and peek method during overflow conditions
+    // Checks whether the stack accepted the last push and verifies the last entered value
+    std::cout << "Testing push and peek method under overflow conditions" << std::endl;
+    for (int i = 0; i < 10; ++i) {
+        if(s1.push(i)){
+            std::cout << "Failed! Accepted an overflow condition! " << std::endl;
+        } else {
+            std::cout << "Successfully handled overflow condition." << std::endl;
+            std::cout << "Verifying top is still 10: " << s1.peek() << std::endl;
+        }
+    }
+
+    // Checks the isEmpty method when stack is not empty
+    std::cout << "Testing isEmpty method when stack is empty. Should be false." << std::endl;
+    for (int i = 0; i < 11; ++i){
+        std::cout << "Is empty? " << std::boolalpha << s1.isEmpty() << std::endl;
+    }
 
     return 0;
 }

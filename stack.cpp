@@ -26,14 +26,14 @@ Stack::~Stack(){
     delete[] a;
 }
 
-void Stack::setTop(int customTop) {
-    top = customTop;
+void Stack::setTop(int newTop) {
+    top = newTop;
 }
 
-bool Stack::push(int x) {
+bool Stack::push(int newNum) {
     bool isSuccessful = (top < 10);
     if (isSuccessful) {
-        a[++top] = x;
+        a[++top] = newNum;
         setTop(top++);
     }
     return isSuccessful;
