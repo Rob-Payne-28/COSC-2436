@@ -17,8 +17,10 @@ Stack::Stack(int size) {
     setTop(MIN);
     if(size > MAX){
         array = new int[MAX];
+        setSize(MAX-1);
     } else {
         array = new int[size];
+        setSize(size-1);
     }
 }
 
@@ -34,8 +36,12 @@ int Stack::getTop() {
     return top;
 }
 
+void Stack::setSize(int customSize) {
+    size = customSize;
+}
+
 bool Stack::push(int newNum) {
-    bool isSuccessful = (getTop() < 10);
+    bool isSuccessful = (getTop() < size);
     if (isSuccessful) {
         array[getTop() + 1] = newNum;
         setTop(getTop() + 1);
