@@ -85,9 +85,20 @@ int main(int argc, char** argv) {
     // Runs 100 tests in random order
     std::cout << "Testing methods in random order" << std::endl;
     for (int i = 0; i < 100; ++i) {
-        //generate random number
+        //generates random number with 4 possible outcomes (0-3)
+        int randomNum = rand() % 4;
 
-        //switch() based on number that calls one of the four functions
+        switch (randomNum) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+
     }
 
     return 0;
