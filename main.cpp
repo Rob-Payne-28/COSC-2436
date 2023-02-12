@@ -46,7 +46,13 @@ int main(int argc, char** argv) {
 
     // Test overflow condition
     std::cout << "Testing push in overflow conditions" << std::endl;
-
+    for (int i = 0; i < TEST_RUNS; ++i) {
+        try {
+            stack.push(i);
+        } catch (const std::runtime_error& error) {
+            std::cerr << error.what() << std::endl;
+        }
+    }
 
     // Runs tests in random order
     std::cout << "Testing methods in a random order" << std::endl;
