@@ -48,7 +48,7 @@ int Stack::pop() {
 }
 
 bool Stack::isEmpty() {
-    return top <= 0;
+    return top < 0;
 }
 
 int Stack::peek() {
