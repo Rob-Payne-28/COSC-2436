@@ -7,8 +7,6 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #include "main.h"
 
 int main(int argc, char** argv) {
-    // Generates a random seed for random testing
-    srand(time(NULL));
 
     // Create stack
     std::cout << "Creating stack with size of " << SIZE << "..." << std::endl;
@@ -118,7 +116,7 @@ int main(int argc, char** argv) {
     std::cout << "Testing methods in a random order" << std::endl;
     for (int i = 0; i < numberOfTestsToRun; ++i) {
         // Generates random number with 4 possible outcomes (0-3)
-        int randomNum = rand() % 4;
+        int randomNum = arc4random() % 4;
 
         // Used as a random number to push onto the stack in case 2.
         int pushNum;
@@ -138,7 +136,7 @@ int main(int argc, char** argv) {
                 }
                 break;
             case 2:
-                pushNum = INT_MIN + rand() % RANGE;
+                pushNum = arc4random();
                 try {
                     stack.push(pushNum);
                 } catch (const std::runtime_error& error) {
