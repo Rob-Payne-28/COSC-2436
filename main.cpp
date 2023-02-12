@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     }
     std::cout << std::endl;
 
-    // Test is empty function when empty
+    // Test isEmpty function when empty
     std::cout << "Testing that stack is empty" << std::endl;
     if(stack.isEmpty()){
         std::cout << " Stack is empty" << std::endl;
@@ -103,44 +103,50 @@ int main(int argc, char** argv) {
     }
     std::cout << std::endl;
 
-//    // Runs tests in random order
-//    std::cout << "Testing methods in a random order" << std::endl;
-//    for (int i = 0; i < TEST_RUNS; ++i) {
-//        //generates random number with 4 possible outcomes (0-3)
-//        int randomNum = rand() % 4;
-//        int pushNum;
-//        switch (randomNum) {
-//            case 0:
-//                if(stack.isEmpty()){
-//                    std::cout << "Stack is currently empty" << std::endl;
-//                } else {
-//                    std::cout << "Stack is not empty" << std::endl;
-//                }
-//                break;
-//            case 1:
-//                if(stack.isEmpty()){
-//                    std::cout << "Cannot pop! Stack in underflow state!" << std::endl;
-//                } else {
-//                    std::cout << "Popping " << stack.pop() << std::endl;
-//                }
-//                break;
-//            case 2:
-//                pushNum = rand() % 25;
-//                if(stack.push(pushNum)){
-//                    std::cout << "Pushed: " << pushNum << std::endl;
-//                } else {
-//                    std::cout << "Cannot push! Stack in overflow state!" << std::endl;
-//                }
-//                break;
-//            case 3:
-//                if(stack.peek() == -1){
-//                    std::cout << "Stack is currently empty! Cannot peek!" << std::endl;
-//                } else {
-//                    std::cout << "Peeking: " << stack.peek() << std::endl;
-//                }
-//                break;
-//        }
-//    }
+    // Runs tests in random order. Number of times run is adjusted with the TEST_RUNS directive.
+    std::cout << "Testing methods in a random order" << std::endl;
+    for (int i = 0; i < TEST_RUNS; ++i) {
+        // Generates random number with 4 possible outcomes (0-3)
+        int randomNum = rand() % 4;
+
+        // Used as a random number to push onto the stack in case 2.
+        int pushNum;
+        switch (randomNum) {
+            case 0:
+                if(stack.isEmpty()){
+                    std::cout << " Stack is empty" << std::endl;
+                } else {
+                    std::cout << " Stack is not empty" << std::endl;
+                }
+                break;
+            case 1:
+                try {
+                    std::cout << " Popping: " << stack.pop() << std::endl;
+                } catch (const std::runtime_error& error) {
+                    std::cerr << " " << error.what() << std::endl;
+                }
+                break;
+            case 2:
+                pushNum = rand() % 25;
+                try {
+                    stack.push(pushNum);
+                } catch (const std::runtime_error& error) {
+                    std::cerr << " " << error.what() << std::endl;
+                }
+                break;
+            case 3:
+                try {
+                    std::cout << " Peeking: " << stack.peek() << std::endl;
+                } catch (const std::runtime_error& error) {
+                    std::cerr << " " << error.what() << std::endl;
+                }
+                break;
+        }
+    }
+    std::cout << std::endl;
+
+
+    std::cout << "Program completed without any unhandled exceptions!" << std::endl;
 
     return 0;
 }
