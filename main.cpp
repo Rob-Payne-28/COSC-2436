@@ -90,8 +90,14 @@ int main(int argc, char** argv) {
 
         switch (randomNum) {
             case 0:
+                if(s1.isEmpty()){
+                    std::cout << "Stack is currently empty" << std::endl;
+                } else {
+                    std::cout << "Stack is not empty" << std::endl;
+                }
                 break;
             case 1:
+
                 break;
             case 2:
                 break;
