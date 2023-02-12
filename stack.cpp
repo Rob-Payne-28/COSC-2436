@@ -35,7 +35,7 @@ bool Stack::push(int newNum) {
         top = top + 1;
         array[top] = newNum;
     } else {
-        throw std::runtime_error("Push error - OVERFLOW CONDITION!");
+        throw std::runtime_error("OVERFLOW CONDITION!");
     }
     return isSuccessful;
 }
@@ -43,7 +43,7 @@ bool Stack::push(int newNum) {
 int Stack::pop() {
     int value = -1;
     if(isEmpty()){
-        // Error
+        throw std::runtime_error("UNDERFLOW CONDITION!");
     } else {
         value = array[top];
         top = top - 1;
@@ -58,7 +58,7 @@ bool Stack::isEmpty() {
 int Stack::peek() {
     int value = -1;
     if(isEmpty()){
-        // Error
+        throw std::runtime_error("UNDERFLOW CONDITION!");
     } else {
         value = array[top];
     }
