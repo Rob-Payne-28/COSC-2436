@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
     }
 
     // Runs 100 tests in random order
-    std::cout << "Testing methods in random order" << std::endl;
+    std::cout << "Testing methods in a random order" << std::endl;
     for (int i = 0; i < 100; ++i) {
         //generates random number with 4 possible outcomes (0-3)
         int randomNum = rand() % 4;
@@ -97,7 +97,11 @@ int main(int argc, char** argv) {
                 }
                 break;
             case 1:
-
+                if(s1.isEmpty()){
+                    std::cout << "Cannot pop! Stack currently empty!" << std::endl;
+                } else {
+                    std::cout << "Popping " << s1.pop() << "!" << std::endl;
+                }
                 break;
             case 2:
                 break;
