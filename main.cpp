@@ -14,10 +14,11 @@ int main(int argc, char** argv) {
     std::cout << "Creating stack with size of " << SIZE << "..." << std::endl;
     Stack stack(SIZE);
 
-    int stackSize;
-    if(SIZE >= 2){
-        stackSize = SIZE;
-    } else {
+    // Since the constructor will not accept any value less than 2, I had to make sure the testing
+    // also handled that condition. This ensures that the testing is based off of the stack size
+    // even if the stack size is overridden by the constructor to the default value of 10.
+    int stackSize = SIZE;
+    if(stackSize < 2){
         std::cout << " Stack below minimum size. Falling back to default stack size of 10." << std::endl;
         stackSize = 10;
     }
