@@ -15,8 +15,8 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #include "stack.h"
 
 // Defines how large you want the stack to be. Adjust to test other sizes.
-#define SIZE 100
+#define SIZE 10000
 // Defines how many times you want the tests to run in certain states (underflow/overflow).
-#define TEST_RUNS 10000
+#define TEST_RUNS (SIZE * 10)
 
 #endif //STACK_MAIN_H
