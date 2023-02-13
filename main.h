@@ -7,12 +7,11 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #ifndef STACK_MAIN_H
 #define STACK_MAIN_H
 
-#include <iostream>
-// Adds random number generation using arc4random(). I had trouble with rand() so I opened the docs
-// and it said it was deprecated.
+// Adds random number generation using arc4random().
 #include <stdlib.h>
 // Adds exception handling
 #include <stdexcept>
+#include <iostream>
 #include "stack.h"
 
 // Defines how large you want the stack to be. Adjust to test other sizes.

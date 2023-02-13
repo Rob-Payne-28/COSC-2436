@@ -64,10 +64,3 @@ int Stack::peek() {
 bool Stack::isEmpty() {
     return top == -1;
 }
-
-// For debugging!
-void Stack::dumpstack() {
-    for (int i = 0; i < top + 1; ++i) {
-        std::cout << "Position " << i << " contains " << array[i] << std::endl;
-    }
-}
