@@ -9,6 +9,9 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 #ifndef STACK_STACK_H
 #define STACK_STACK_H
 
+#define STARTING_INDEX -1
+#define DEFAULT_STACK_SIZE 10
+
 class Stack {
 
 public:

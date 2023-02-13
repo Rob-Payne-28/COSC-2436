@@ -18,16 +18,16 @@ int main(int argc, char** argv) {
     int stackSize = SIZE;
     if(stackSize < 2){
         std::cout << " Stack below minimum size. Falling back to default stack size of 10." << std::endl;
-        stackSize = 10;
+        stackSize = DEFAULT_STACK_SIZE;
     }
     std::cout << std::endl;
 
-    // Also checked the input of the number of tests to run. If it is below 1, default to 1 run.
+    // Also checked the input of the number of tests to run. If it is below 2, default to 10 stack size.
     std::cout << "Checking TEST_RUNS..." << std::endl;
     int numberOfTestsToRun = TEST_RUNS;
-    if(numberOfTestsToRun < 1){
-        std::cout << " TEST_RUNS below minimum size. Falling back to minimum of 1." << std::endl;
-        numberOfTestsToRun = 1;
+    if(numberOfTestsToRun < 20){
+        std::cout << " TEST_RUNS below minimum amount. Adjusting tests based on stack size." << std::endl;
+        numberOfTestsToRun = stackSize * 10;
     }
     std::cout << std::endl;
 
@@ -112,7 +112,7 @@ int main(int argc, char** argv) {
     std::cout << std::endl;
 
     // Runs tests in random order. Number of times run is adjusted with the TEST_RUNS directive.
-    // Will default to 1 test run if TEST_RUNS is below 1.
+    // Will default to be based off of stack size if below 2.
     std::cout << "Testing methods in a random order" << std::endl;
     for (int i = 0; i < numberOfTestsToRun; ++i) {
         // Generates random number with 4 possible outcomes (0-3)

@@ -5,8 +5,6 @@ Purpose: Assignment 04 - Simple Int Stack program that is part of COSC-2436.
 **********************/
 
 #include "stack.h"
-#define STARTING_INDEX -1
-#define DEFAULT_STACK_SIZE 10
 
 Stack::Stack() {
     top = STARTING_INDEX;
