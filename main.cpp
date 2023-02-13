@@ -33,10 +33,12 @@ int main(int argc, char** argv) {
 
     // Test isEmpty function when empty
     std::cout << "Testing that stack is empty" << std::endl;
-    if(stack.isEmpty()){
-        std::cout << " Stack is empty" << std::endl;
-    } else {
-        std::cout << " Stack is not empty" << std::endl;
+    for (int i = 0; i < numberOfTestsToRun; ++i) {
+        if (stack.isEmpty()) {
+            std::cout << " Stack is empty" << std::endl;
+        } else {
+            std::cout << " Stack is not empty" << std::endl;
+        }
     }
     std::cout << std::endl;
 
@@ -55,10 +57,12 @@ int main(int argc, char** argv) {
 
     // Test is empty function when stack isn't empty
     std::cout << "Testing that stack is not empty" << std::endl;
-    if(stack.isEmpty()){
-        std::cout << " Stack is empty" << std::endl;
-    } else {
-        std::cout << " Stack is not empty" << std::endl;
+    for (int i = 0; i < numberOfTestsToRun; ++i) {
+        if (stack.isEmpty()) {
+            std::cout << " Stack is empty" << std::endl;
+        } else {
+            std::cout << " Stack is not empty" << std::endl;
+        }
     }
     std::cout << std::endl;
 
