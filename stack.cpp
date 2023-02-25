@@ -8,7 +8,7 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 
 Stack::Stack(int customSize){
     top = EMPTY;
-    size = customSize;
+    size = (customSize >= 2) ? customSize : DEFAULT_SIZE;
     stack = new Data*[size];
 }
 
@@ -60,7 +60,7 @@ bool Stack::pop(Data& returnData){
 bool Stack::push(int newId, string& newInformation){
     bool success = false;
 
-    if(top < size && newId > 0 && !newInformation.empty()){
+    if(top < size && newId <= EMPTY && !newInformation.empty()){
         Data* data = new Data;
         data->id = newId;
         data->information = newInformation;

@@ -9,6 +9,7 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 
 #define EMPTY -1
 #define EMPTY_STRING ""
+#define DEFAULT_SIZE 10
 
 #include "data.h"
 
