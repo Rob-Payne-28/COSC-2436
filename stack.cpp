@@ -12,7 +12,10 @@ Stack::Stack(int customSize){
 }
 
 Stack::~Stack(){
-    delete stack;
+    for (int i = 0; i <= top; ++i) {
+        delete [i];
+    }
+    delete stack[];
 }
 
 int Stack::getSize(){
