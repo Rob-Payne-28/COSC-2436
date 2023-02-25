@@ -18,10 +18,10 @@ class Stack {
 
 public:
 
-    Stack();
+    Stack(int);
     ~Stack();
 
-    bool push();
+    bool push(int, std::string& information);
     void peek();
     bool pop();
     bool isEmpty();

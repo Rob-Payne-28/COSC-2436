@@ -6,31 +6,43 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 
 #include "stack.h"
 
-Stack::Stack(int customSize) {
+Stack::Stack(int customSize){
     top = -1;
     size = customSize;
 }
 
-int Stack::getSize() {
+Stack::~Stack(){
+    delete stack;
+}
+
+int Stack::getSize(){
     return size;
 }
 
-bool Stack::isEmpty() {
+bool Stack::isEmpty(){
     return top < 0;
 }
 
-bool Stack::peek() {
+void Stack::peek(){
     // ToDo: Make peek function
-    return true;
 }
 
-bool Stack::pop() {
+bool Stack::pop(){
     // ToDo: Make pop function
     return true;
 }
 
-bool Stack::push() {
-    // ToDo: Make push function
-    return true;
+bool Stack::push(int newId, string& newInformation){
+    bool success = false;
+
+    if(top < size && newId > 0 && !newInformation.empty()){
+        Data* data = new Data;
+        data->id = newId;
+        data->information = newInformation;
+        stack[top++] = data;
+        success = true;
+    }
+
+    return success;
 }
 
