@@ -24,7 +24,7 @@ void rand_string(std::string *str){
     *str = buffer;
 
     // clean up
-    delete buffer;
+    delete[] buffer;
     return;
 }
 
