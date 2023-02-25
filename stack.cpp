@@ -30,7 +30,10 @@ void Stack::peek(){
 bool Stack::pop(Data& returnData){
     bool success = false;
 
-    if(!isEmpty()){
+    if(isEmpty()){
+        returnData.id = -1;
+        returnData.information = "";
+    } else {
         returnData = *stack[top];
         delete stack[top];
         top -= 1;
