@@ -7,14 +7,14 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #include "stack.h"
 
 Stack::Stack(int customSize){
-    top = -1;
+    top = EMPTY;
     size = customSize;
     stack = new Data*[size];
 }
 
 Stack::~Stack(){
     for (int i = 0; i <= top; ++i) {
-        delete [i];
+        delete stack[i];
     }
     delete [] stack;
 }
@@ -31,8 +31,8 @@ bool Stack::peek(Data& returnData){
     bool success = false;
 
     if(!isEmpty()){
-        returnData.id = -1;
-        returnData.information = "";
+        returnData.id = EMPTY;
+        returnData.information = EMPTY_STRING;
     } else {
         returnData = *stack[top];
         success = true;
@@ -45,8 +45,8 @@ bool Stack::pop(Data& returnData){
     bool success = false;
 
     if(isEmpty()){
-        returnData.id = -1;
-        returnData.information = "";
+        returnData.id = EMPTY;
+        returnData.information = EMPTY_STRING;
     } else {
         returnData = *stack[top];
         delete stack[top];

@@ -7,10 +7,8 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #ifndef STACK_H
 #define STACK_H
 
-/*
- * there are no other includes here because they are not needed.
- * if you do need other things included, they would go here
- */
+#define EMPTY -1
+#define EMPTY_STRING ""
 
 #include "data.h"
 
