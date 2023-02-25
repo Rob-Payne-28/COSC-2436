@@ -13,10 +13,9 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #include <string>     /* string */
 #include "functions.h"
 
-/*
- * additional directives here
- * 
- */
+// Adds exception handling
+#include <stdexcept>
+#include <stack.h>
 
 
 #endif /* STACKS_MAIN_H */

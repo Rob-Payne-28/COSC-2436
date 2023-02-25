@@ -21,7 +21,24 @@ int main(int argc, char **argv) {
      * Remember, you may not use more than one return, even in main()
      * and you may not use exit() or anything like that.
      * ***************************************************************/
-    
+    bool error = true;
+
+    int stackSize;
+
+    if (argc == 2) {
+        std::cout << "The first argument is: " << argv[1] << std::endl;
+        try{
+            stackSize = std::stoi(argv[1]);
+            error = false;
+        } catch(const std::invalid_argument& error){
+            std::cout << "You've provided an argument that is not an integer. This program is designed to take only one argument as an integer." << std::endl;
+        }
+    } else if(argc > 2){
+        std::cout << "You've provided too many arguments! This program is designed to take only one argument as an integer." << std::endl;
+    } else if(argc < 2) {
+        std::cout << "Please enter a valid stack size as an argument to this program. Stack size must be an integer." << std::endl;
+    }
+
     /* ***************************************************************
      * Use the number passed in from the command line and declare a stack
      * that uses that number as the size of the stack. NOTE: Make sure
@@ -36,7 +53,6 @@ int main(int argc, char **argv) {
      * pre-defined default value. This will be tested during grading.
      * ***************************************************************/
 
-    
     /* ***************************************************************
      * Throughly test your stack. You must perform an exhaustive series
      * of tests on your stack. Show all possible ways your stack can be used
