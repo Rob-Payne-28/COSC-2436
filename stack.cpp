@@ -23,7 +23,7 @@ bool Stack::isEmpty(){
     return top < 0;
 }
 
-void Stack::peek(Data& returnData){
+bool Stack::peek(Data& returnData){
     bool success = false;
 
     if(!isEmpty()){

@@ -23,7 +23,7 @@ public:
 
     bool push(int, std::string& information);
     bool pop(Data&);
-    void peek();
+    bool peek(Data&);
     bool isEmpty();
 
     int getSize();
