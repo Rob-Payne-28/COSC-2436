@@ -1,7 +1,8 @@
-/*
- * your header here
- * 
- */
+/*********************
+Name: Robert Payne
+Coding 05
+Purpose: Assignment 05 - Stack program that is part of COSC-2436.
+**********************/
 
 #include "main.h"
 

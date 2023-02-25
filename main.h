@@ -1,13 +1,12 @@
-/*
- * your header here
- * 
- */
+/*********************
+Name: Robert Payne
+Coding 05
+Purpose: Assignment 05 - Stack program that is part of COSC-2436.
+**********************/
 
 #ifndef STACKS_MAIN_H
 #define STACKS_MAIN_H
 
-// you probably need all these,
-// but if you don't get rid of what you don't need
 #include <stdlib.h>   /* srand, rand */
 #include <time.h>     /* time */
 #include <iostream>   /* cout, endl */

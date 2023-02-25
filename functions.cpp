@@ -1,7 +1,8 @@
-/*
- * Your comment header here
- * modify this file as needed to complete the assignment
- */
+/*********************
+Name: Robert Payne
+Coding 05
+Purpose: Assignment 05 - Stack program that is part of COSC-2436.
+**********************/
 
 #include "functions.h"
 
