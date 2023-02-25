@@ -22,8 +22,8 @@ public:
     ~Stack();
 
     bool push(int, std::string& information);
+    bool pop(Data&);
     void peek();
-    bool pop();
     bool isEmpty();
 
     int getSize();

@@ -27,9 +27,17 @@ void Stack::peek(){
     // ToDo: Make peek function
 }
 
-bool Stack::pop(){
-    // ToDo: Make pop function
-    return true;
+bool Stack::pop(Data& returnData){
+    bool success = false;
+
+    if(!isEmpty()){
+        returnData = *stack[top];
+        delete stack[top];
+        top -= 1;
+        success = true;
+    }
+
+    return success;
 }
 
 bool Stack::push(int newId, string& newInformation){
