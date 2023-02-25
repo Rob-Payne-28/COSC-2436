@@ -23,8 +23,18 @@ bool Stack::isEmpty(){
     return top < 0;
 }
 
-void Stack::peek(){
-    // ToDo: Make peek function
+void Stack::peek(Data& returnData){
+    bool success = false;
+
+    if(!isEmpty()){
+        returnData.id = -1;
+        returnData.information = "";
+    } else {
+        returnData = *stack[top];
+        success = true;
+    }
+
+    return success;
 }
 
 bool Stack::pop(Data& returnData){
