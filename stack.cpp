@@ -9,13 +9,14 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 Stack::Stack(int customSize){
     top = -1;
     size = customSize;
+    stack = new Data*[size];
 }
 
 Stack::~Stack(){
     for (int i = 0; i <= top; ++i) {
         delete [i];
     }
-    delete stack[];
+    delete [] stack;
 }
 
 int Stack::getSize(){
