@@ -61,6 +61,15 @@ int main(int argc, char **argv) {
         std::cout << "=====================================================" << std::endl;
         std::cout << std::endl;
 
+        std::cout << "Testing isEmpty on empty stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            if (stack->isEmpty()) {
+                std::cout << "Stack is empty" << std::endl;
+            } else {
+                std::cout << "Stack is NOT empty" << std::endl;
+            }
+        }
+
         std::cout << "Testing peek on empty stack" << std::endl;
         for (int i = 0; i < TEST_AMOUNT; ++i) {
             Data peekedData;
@@ -72,6 +81,45 @@ int main(int argc, char **argv) {
                 std::cout << " Stack is empty." << std::endl;
             }
         }
+
+
+
+
+
+        std::string information = "Very important information";
+        int id = 1;
+        bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
+
+        if (pushSuccess) {
+            std::cout << "Pushed data with id " << id << " and information " << information << " onto the stack"
+                      << std::endl;
+        } else {
+            std::cout << "Failed to push data onto the stack" << std::endl;
+        }
+
+        Data peekedData;
+        if (stack->peek(peekedData)) {
+            std::cout << "Peeked element: " << std::endl;
+            std::cout << "    id- " << peekedData.id << std::endl;
+            std::cout << "    information- " << peekedData.information << std::endl;
+        } else {
+            std::cout << "Stack is empty." << std::endl;
+        }
+
+//
+//        // Test stack creation size
+//        std::cout << "Testing stack creation with variable stack size." << std::endl;
+//        for (int i = STANDARD_SIZE - 20; i <= STANDARD_SIZE; ++i) {
+//            std::cout << "Testing stack creation with a stack size of " << i << std::endl;
+//            Stack* variableStack = new Stack(i);
+//            std::cout << "Resulted in a stack size of " << variableStack->getSize() << std::endl;
+//            delete variableStack;
+//        }
+
+        std::string strtemp;
+        rand_string(&strtemp);
+        std::cout << strtemp << std::endl;
+
 
 
 
