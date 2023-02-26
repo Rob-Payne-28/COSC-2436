@@ -51,8 +51,8 @@ bool Stack::pop(Data& returnData){
         returnData.id = EMPTY;
         returnData.information = EMPTY_STRING;
     } else {
-        Data* dataToDelete = stack[top];
-        returnData = *dataToDelete;
+        Data* dataToSend = stack[top];
+        returnData = *dataToSend;
         delete stack[top];
         top -= 1;
         success = true;
