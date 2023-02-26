@@ -71,6 +71,12 @@ int main(int argc, char **argv) {
         }
         std::cout << std::endl;
 
+        std::cout << "Testing getSize on empty stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+                std::cout << " Stack size: " << stack->getSize() << std::endl;
+        }
+        std::cout << std::endl;
+
         std::cout << "Testing peek on empty stack" << std::endl;
         for (int i = 0; i < TEST_AMOUNT; ++i) {
             Data peekedData;
@@ -95,6 +101,7 @@ int main(int argc, char **argv) {
                 std::cout << " Stack is empty - Cannot pop!" << std::endl;
             }
         }
+        std::cout << std::endl;
 
         /************************************************
         *********** FILLING AND FULL TESTS *************
@@ -124,6 +131,13 @@ int main(int argc, char **argv) {
         }
         std::cout << std::endl;
 
+
+        std::cout << "Testing getSize on full stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            std::cout << " Stack size: " << stack->getSize() << std::endl;
+        }
+        std::cout << std::endl;
+
         std::cout << "Testing isEmpty() when full" << std::endl;
         for (int i = 0; i < TEST_AMOUNT; ++i) {
             if (stack->isEmpty()) {
@@ -138,18 +152,19 @@ int main(int argc, char **argv) {
         for (int i = 0; i < TEST_AMOUNT; ++i) {
             Data peekedData;
             if (stack->peek(peekedData)) {
-                std::cout << " Peeked element: " << "id- " << peekedData.id << "information- " << peekedData.information << std::endl;
+                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- " << peekedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot peek!" << std::endl;
             }
 
             Data poppedData;
             if (stack->pop(poppedData)) {
-                std::cout << " Popped element: " << "id- " << poppedData.id << "information- " << poppedData.information << std::endl;
+                std::cout << " Popped element: " << "id- " << poppedData.id << " information- " << poppedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot pop!" << std::endl;
             }
         }
+        std::cout << std::endl;
 
         /************************************************
          *************** MID-STACK TESTS ****************
@@ -179,14 +194,72 @@ int main(int argc, char **argv) {
         }
         std::cout << std::endl;
 
+        std::cout << "Testing getSize on mid-stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            std::cout << " Stack size: " << stack->getSize() << std::endl;
+        }
+        std::cout << std::endl;
 
+        std::cout << "Testing isEmpty() on mid-stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            if (stack->isEmpty()) {
+                std::cout << " Stack is empty" << std::endl;
+            } else {
+                std::cout << " Stack is NOT empty" << std::endl;
+            }
+        }
+        std::cout << std::endl;
 
+        std::cout << "Testing peek, pop, and push on mid-stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            int id = arc4random();
+            std::string information;
+            rand_string(&information);
 
+            bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
 
+            if (pushSuccess) {
+                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack" << std::endl;
+            } else {
+                std::cout << " Overflow Error: Failed to push data with id "
+                          << id << " and information "
+                          << information << " onto the stack"
+                          << std::endl;
+            }
 
+            Data peekedData;
+            if (stack->peek(peekedData)) {
+                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- " << peekedData.information << std::endl;
+            } else {
+                std::cout << " Underflow error - Cannot peek!" << std::endl;
+            }
 
+            Data poppedData;
+            if (stack->pop(poppedData)) {
+                std::cout << " Popped element: " << "id- " << poppedData.id << " information- " << poppedData.information << std::endl;
+            } else {
+                std::cout << " Underflow error - Cannot pop!" << std::endl;
+            }
+        }
+        std::cout << std::endl;
 
+        std::cout << "Testing peek and pop on mid-stack to empty" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            Data peekedData;
+            if (stack->peek(peekedData)) {
+                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- " << peekedData.information << std::endl;
+            } else {
+                std::cout << " Underflow error - Cannot peek!" << std::endl;
+            }
 
+            Data poppedData;
+            if (stack->pop(poppedData)) {
+                std::cout << " Popped element: " << "id- " << poppedData.id << " information- " << poppedData.information << std::endl;
+            } else {
+                std::cout << " Underflow error - Cannot pop!" << std::endl;
+            }
+        }
+        std::cout << std::endl;
 
 
 
