@@ -64,10 +64,10 @@ bool Stack::push(int newId, string& newInformation){
         Data* data = new Data;
         data->id = newId;
         data->information = newInformation;
-        stack[top++] = data;
+        top += 1;
+        stack[top] = data;
         success = true;
     }
 
     return success;
 }
-
