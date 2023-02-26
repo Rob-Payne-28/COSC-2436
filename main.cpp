@@ -24,22 +24,27 @@ int main(int argc, char **argv) {
     std::cout << std::endl;
 
     // if there are too few arguments, let the user know
-    if(argc < 2) {
-        std::cout << "Please enter a valid stack size as an argument to this program. Stack size must be an integer." << std::endl;
-    // if there are too many arguments, let the user know
-    } else if(argc > 2){
-        std::cout << "You've provided too many arguments! This program is designed to take only one argument as an integer." << std::endl;
+    if (argc < 2) {
+        std::cout << "Please enter a valid stack size as an argument to this program. Stack size must be an integer."
+                  << std::endl;
+        // if there are too many arguments, let the user know
+    } else if (argc > 2) {
+        std::cout
+                << "You've provided too many arguments! This program is designed to take only one argument as an integer."
+                << std::endl;
     } else {
         // if the program received a stack size, attempt to create the stack
         std::cout << "The requested stack size is: " << argv[1] << std::endl;
-        try{
+        try {
             // convert the string from the input to an integer and set the error condition to false so the
             // rest of the program operates
             stackSize = std::atoi(argv[1]);
             error = false;
-        } catch(const std::invalid_argument& error){
+        } catch (const std::invalid_argument &error) {
             // if the user provides a string instead of an integer, let the user know
-            std::cout << "You've provided an argument that is not an integer. This program is designed to take only one argument as an integer." << std::endl;
+            std::cout
+                    << "You've provided an argument that is not an integer. This program is designed to take only one argument as an integer."
+                    << std::endl;
         }
 
     }
@@ -48,7 +53,7 @@ int main(int argc, char **argv) {
     if (!error) {
 
         // Create stack using entered stack size
-        Stack* stack = new Stack(stackSize);
+        Stack *stack = new Stack(stackSize);
 
         std::cout << "Created a stack with a size of " << stack->getSize() << std::endl;
         std::cout << std::endl;
@@ -67,14 +72,14 @@ int main(int argc, char **argv) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
-                std::cout << " Stack is NOT empty" << std::endl;
+                std::cout << " Stack is not empty" << std::endl;
             }
         }
         std::cout << std::endl;
 
         std::cout << "Testing getSize on empty stack" << std::endl;
         for (int i = 0; i < TEST_AMOUNT; ++i) {
-                std::cout << " Stack size: " << stack->getSize() << std::endl;
+            std::cout << " Stack size: " << stack->getSize() << std::endl;
         }
         std::cout << std::endl;
 
@@ -122,12 +127,13 @@ int main(int argc, char **argv) {
             bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
 
             if (pushSuccess) {
-                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack" << std::endl;
+                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
+                          << std::endl;
             } else {
                 std::cout << " Overflow Error: Failed to push data with id "
-                << id << " and information "
-                << information << " onto the stack"
-                << std::endl;
+                          << id << " and information "
+                          << information << " onto the stack"
+                          << std::endl;
             }
         }
         std::cout << std::endl;
@@ -143,7 +149,7 @@ int main(int argc, char **argv) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
-                std::cout << " Stack is NOT empty" << std::endl;
+                std::cout << " Stack is not empty" << std::endl;
             }
         }
         std::cout << std::endl;
@@ -152,14 +158,16 @@ int main(int argc, char **argv) {
         for (int i = 0; i < TEST_AMOUNT; ++i) {
             Data peekedData;
             if (stack->peek(peekedData)) {
-                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- " << peekedData.information << std::endl;
+                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- "
+                          << peekedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot peek!" << std::endl;
             }
 
             Data poppedData;
             if (stack->pop(poppedData)) {
-                std::cout << " Popped element: " << "id- " << poppedData.id << " information- " << poppedData.information << std::endl;
+                std::cout << " Popped element: " << "id- " << poppedData.id << " information- "
+                          << poppedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot pop!" << std::endl;
             }
@@ -176,7 +184,7 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Filling stack halfway" << std::endl;
-        for (int i = 0; i < (TEST_AMOUNT/2); ++i) {
+        for (int i = 0; i < (TEST_AMOUNT / 2); ++i) {
             int id = arc4random();
             std::string information;
             rand_string(&information);
@@ -184,7 +192,8 @@ int main(int argc, char **argv) {
             bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
 
             if (pushSuccess) {
-                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack" << std::endl;
+                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
+                          << std::endl;
             } else {
                 std::cout << " Overflow Error: Failed to push data with id "
                           << id << " and information "
@@ -205,7 +214,7 @@ int main(int argc, char **argv) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
-                std::cout << " Stack is NOT empty" << std::endl;
+                std::cout << " Stack is not empty" << std::endl;
             }
         }
         std::cout << std::endl;
@@ -219,7 +228,8 @@ int main(int argc, char **argv) {
             bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
 
             if (pushSuccess) {
-                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack" << std::endl;
+                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
+                          << std::endl;
             } else {
                 std::cout << " Overflow Error: Failed to push data with id "
                           << id << " and information "
@@ -229,14 +239,16 @@ int main(int argc, char **argv) {
 
             Data peekedData;
             if (stack->peek(peekedData)) {
-                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- " << peekedData.information << std::endl;
+                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- "
+                          << peekedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot peek!" << std::endl;
             }
 
             Data poppedData;
             if (stack->pop(poppedData)) {
-                std::cout << " Popped element: " << "id- " << poppedData.id << " information- " << poppedData.information << std::endl;
+                std::cout << " Popped element: " << "id- " << poppedData.id << " information- "
+                          << poppedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot pop!" << std::endl;
             }
@@ -247,14 +259,16 @@ int main(int argc, char **argv) {
         for (int i = 0; i < TEST_AMOUNT; ++i) {
             Data peekedData;
             if (stack->peek(peekedData)) {
-                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- " << peekedData.information << std::endl;
+                std::cout << " Peeked element: " << "id- " << peekedData.id << " information- "
+                          << peekedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot peek!" << std::endl;
             }
 
             Data poppedData;
             if (stack->pop(poppedData)) {
-                std::cout << " Popped element: " << "id- " << poppedData.id << " information- " << poppedData.information << std::endl;
+                std::cout << " Popped element: " << "id- " << poppedData.id << " information- "
+                          << poppedData.information << std::endl;
             } else {
                 std::cout << " Underflow error - Cannot pop!" << std::endl;
             }
@@ -272,17 +286,109 @@ int main(int argc, char **argv) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
-                std::cout << " Stack is NOT empty" << std::endl;
+                std::cout << " Stack is not empty" << std::endl;
             }
         }
         std::cout << std::endl;
 
 
+        /************************************************
+        ************** RANDOM ORDER TESTS ***************
+        ************************************************/
+
+        std::cout << "=====================================================" << std::endl;
+        std::cout << "Executing operations in random order..." << std::endl;
+        std::cout << "=====================================================" << std::endl;
+        std::cout << std::endl;
+
+        // clear stack
+        while (!stack->isEmpty()) {
+            Data poppedData;
+            stack->pop(poppedData);
+        }
+
+        std::cout << "Filling stack halfway" << std::endl;
+        for (int i = 0; i < (TEST_AMOUNT / 2); ++i) {
+            int id = arc4random();
+            std::string information;
+            rand_string(&information);
+
+            bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
+
+            if (pushSuccess) {
+                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
+                          << std::endl;
+            } else {
+                std::cout << " Overflow Error: Failed to push data with id "
+                          << id << " and information "
+                          << information << " onto the stack"
+                          << std::endl;
+            }
+        }
+        std::cout << std::endl;
+
+        int randNum = arc4random();
+        int selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
+        for (int i = 0; i < stackSize * 2; i++) {
+
+            int id;
+            std::string information;
+            bool pushSuccess;
+            Data data;
+
+            switch (selection) {
+                case 1:
+                case 2:
+                    id = arc4random();
+                    rand_string(&information);
+
+                    pushSuccess = stack->push(id, information); // call the push method on the stack instance
+
+                    if (pushSuccess) {
+                        std::cout << " Pushed data with id " << id << " and information " << information
+                                  << " onto the stack" << std::endl;
+                    } else {
+                        std::cout << " Overflow Error: Failed to push data with id "
+                                  << id << " and information "
+                                  << information << " onto the stack"
+                                  << std::endl;
+                    }
+                    break;
+                case 3:
+                case 4:
+                    if (stack->pop(data)) {
+                        std::cout << " Popped element: " << "id- " << data.id << " information- "
+                                  << data.information << std::endl;
+                    } else {
+                        std::cout << " Underflow error - Cannot pop!" << std::endl;
+                    }
+                    break;
+                case 5:
+                    if (stack->peek(data)) {
+                        std::cout << " Peeked element: " << "id- " << data.id << " information- "
+                                  << data.information << std::endl;
+                    } else {
+                        std::cout << " Underflow error - Cannot peek!" << std::endl;
+                    }
+                    break;
+                case 6:
+                    if (stack->isEmpty()) {
+                        std::cout << " Stack is empty" << std::endl;
+                    } else {
+                        std::cout << " Stack is not empty" << std::endl;
+                    }
+                    break;
+                case 7:
+                    std::cout << " Stack size: " << stack->getSize() << std::endl;
+                    break;
+            }
+            selection = rand() % POSSIBLE_SELECTIONS + 1;
+
+        }
+        std::cout << std::endl;
 
 
-
+        return 0;
 
     }
-    
-    return 0;
 }
