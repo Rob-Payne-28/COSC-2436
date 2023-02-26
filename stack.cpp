@@ -30,7 +30,7 @@ bool Stack::isEmpty(){
 bool Stack::peek(Data& returnData){
     bool success = false;
 
-    if(!isEmpty()){
+    if(isEmpty()){
         returnData.id = EMPTY;
         returnData.information = EMPTY_STRING;
     } else {
