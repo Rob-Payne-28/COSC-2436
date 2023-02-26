@@ -47,6 +47,7 @@ int main(int argc, char **argv) {
     // Don't execute any other code if the stack size wasn't properly entered
     if (!error) {
 
+        // Create stack using entered stack size
         Stack* stack = new Stack(stackSize);
 
         std::cout << "Created a stack with a size of " << stack->getSize() << std::endl;
@@ -130,7 +131,6 @@ int main(int argc, char **argv) {
             }
         }
         std::cout << std::endl;
-
 
         std::cout << "Testing getSize on full stack" << std::endl;
         for (int i = 0; i < TEST_AMOUNT; ++i) {
@@ -261,36 +261,28 @@ int main(int argc, char **argv) {
         }
         std::cout << std::endl;
 
+        std::cout << "Testing getSize on emptied stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            std::cout << " Stack size: " << stack->getSize() << std::endl;
+        }
+        std::cout << std::endl;
+
+        std::cout << "Testing isEmpty() on emptied stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            if (stack->isEmpty()) {
+                std::cout << " Stack is empty" << std::endl;
+            } else {
+                std::cout << " Stack is NOT empty" << std::endl;
+            }
+        }
+        std::cout << std::endl;
+
+
 
 
 
 
     }
-    /* ***************************************************************
-     * Throughly test your stack. You must perform an exhaustive series
-     * of tests on your stack. Show all possible ways your stack can be used
-     * and abused and prove that your stack can gracefully handle ALL cases.
-     * You must use automated testing (no user input). First cover all
-     * explicit cases which you can think of, then execute random operations.
-     * When generating test data, use random ints for ids and random short
-     * strings for string. There is a string generator made for you in the
-     * functions module. You are free to use it or make your own.
-     * ***************************************************************/
-
-    /* ***************************************************************
-     * Below is some sample code for the random string function. It's
-     * only here to demonstrate the function. DELETE it once you study
-     * it and understand it and can use it yourself in your code.
-     * ***************************************************************/
-
-    
-    /* ***************************************************************
-     * Your code will be tested by applying your stack to a custom main
-     * designed to break your code. If it can be broken, you risk a
-     * substantially reduced grade, up to and including a zero.
-     * ***************************************************************/
-    
-    // WHEN YOU SUBMIT, DELETE ALL THESE INSTRUCTIONALCOMMENTS
     
     return 0;
 }
