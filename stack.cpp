@@ -60,7 +60,7 @@ bool Stack::pop(Data& returnData){
 bool Stack::push(int newId, string& newInformation){
     bool success = false;
 
-    if(top < size && newId <= EMPTY && !newInformation.empty()){
+    if(top < size && newId >= 0 && !newInformation.empty()){
         Data* data = new Data;
         data->id = newId;
         data->information = newInformation;
