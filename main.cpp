@@ -150,11 +150,45 @@ int main(int argc, char **argv) {
                 std::cout << " Underflow error - Cannot pop!" << std::endl;
             }
         }
-//
-//        std::string strtemp;
-//        rand_string(&strtemp);
-//        std::cout << strtemp << std::endl;
-//
+
+        /************************************************
+         *************** MID-STACK TESTS ****************
+         ************************************************/
+
+        std::cout << "=====================================================" << std::endl;
+        std::cout << "Filling stack halfway and testing mid-stack operations..." << std::endl;
+        std::cout << "=====================================================" << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Filling stack halfway" << std::endl;
+        for (int i = 0; i < (TEST_AMOUNT/2); ++i) {
+            int id = arc4random();
+            std::string information;
+            rand_string(&information);
+
+            bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
+
+            if (pushSuccess) {
+                std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack" << std::endl;
+            } else {
+                std::cout << " Overflow Error: Failed to push data with id "
+                          << id << " and information "
+                          << information << " onto the stack"
+                          << std::endl;
+            }
+        }
+        std::cout << std::endl;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
