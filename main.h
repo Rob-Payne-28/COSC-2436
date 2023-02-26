@@ -17,5 +17,7 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #include <stdexcept>
 #include <stack.h>
 
+#define STANDARD_SIZE 10
+#define TEST_AMOUNT (STANDARD_SIZE * 10)
 
 #endif /* STACKS_MAIN_H */

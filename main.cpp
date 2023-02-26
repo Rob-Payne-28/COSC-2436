@@ -7,52 +7,75 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #include "main.h"
 
 int main(int argc, char **argv) {
-    // here for the rand_string() function
-    // if you don't use it, get rid of this
+    // ToDo: Get rid of this if you don't use it
     srand(time(NULL));
 
-    /* ***************************************************************
-     * First get your arguments from the command line. Your program must
-     * accept one and only one argument not including the program name
-     * itself. That argument must be an integer. If anything else is entered
-     * in any way, terminate the program with a suitable error message
-     * telling the user how to use your program correctly.
-     * 
-     * Remember, you may not use more than one return, even in main()
-     * and you may not use exit() or anything like that.
-     * ***************************************************************/
+
+    int stackSize = STANDARD_SIZE;
     bool error = true;
 
-    int stackSize;
+    /************************************************
+    ******* INPUT TESTS *****************************
+    ************************************************/
 
-    if (argc == 2) {
-        std::cout << "The first argument is: " << argv[1] << std::endl;
-        try{
-            stackSize = std::stoi(argv[1]);
-            error = false;
-        } catch(const std::invalid_argument& error){
-            std::cout << "You've provided an argument that is not an integer. This program is designed to take only one argument as an integer." << std::endl;
-        }
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "Beginning tests..." << std::endl << "Testing input..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+
+    // if there are too few arguments, let the user know
+    if(argc < 2) {
+        std::cout << "Please enter a valid stack size as an argument to this program. Stack size must be an integer." << std::endl;
+    // if there are too many arguments, let the user know
     } else if(argc > 2){
         std::cout << "You've provided too many arguments! This program is designed to take only one argument as an integer." << std::endl;
-    } else if(argc < 2) {
-        std::cout << "Please enter a valid stack size as an argument to this program. Stack size must be an integer." << std::endl;
+    } else {
+        // if the program received a stack size, attempt to create the stack
+        std::cout << "The requested stack size is: " << argv[1] << std::endl;
+        try{
+            // convert the string from the input to an integer and set the error condition to false so the
+            // rest of the program operates
+            stackSize = std::atoi(argv[1]);
+            error = false;
+        } catch(const std::invalid_argument& error){
+            // if the user provides a string instead of an integer, let the user know
+            std::cout << "You've provided an argument that is not an integer. This program is designed to take only one argument as an integer." << std::endl;
+        }
+
     }
 
-    /* ***************************************************************
-     * Use the number passed in from the command line and declare a stack
-     * that uses that number as the size of the stack. NOTE: Make sure
-     * your stack checks the number passed in to it. You cannot rely
-     * on main checking the number first, each part of every program and
-     * ADT is always responsible for it's own error checking. Main must
-     * check the user gave it an int. The stack must check main()
-     * gave it a good number. This is proper error checking, no part of
-     * any program can assume it's caller is behaving correctly. To do this,
-     * try passing -1 or 0 or some other "bad" number to the stack from
-     * main and make sure your stack rejects it, or defaults to some
-     * pre-defined default value. This will be tested during grading.
-     * ***************************************************************/
+    // Don't execute any other code if the stack size wasn't properly entered
+    if (!error) {
 
+        Stack* stack = new Stack(stackSize);
+
+        std::cout << "Created a stack with a size of " << stack->getSize() << std::endl;
+        std::cout << std::endl;
+
+        /************************************************
+        ******* EMPTY TESTS *****************************
+        ************************************************/
+
+        std::cout << std::endl;
+        std::cout << "=====================================================" << std::endl;
+        std::cout << "Beginning tests..." << std::endl << "Testing empty operations." << std::endl;
+        std::cout << "=====================================================" << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Testing peek on empty stack" << std::endl;
+        for (int i = 0; i < TEST_AMOUNT; ++i) {
+            Data peekedData;
+            if (stack->peek(peekedData)) {
+                std::cout << " Peeked element: " << std::endl;
+                std::cout << "    id- " << peekedData.id << std::endl;
+                std::cout << "    information- " << peekedData.information << std::endl;
+            } else {
+                std::cout << " Stack is empty." << std::endl;
+            }
+        }
+
+
+
+    }
     /* ***************************************************************
      * Throughly test your stack. You must perform an exhaustive series
      * of tests on your stack. Show all possible ways your stack can be used
@@ -69,13 +92,7 @@ int main(int argc, char **argv) {
      * only here to demonstrate the function. DELETE it once you study
      * it and understand it and can use it yourself in your code.
      * ***************************************************************/
-    
-    // make 20 random strings, store them, display them
-    std::string strtemp;
-    for(int i=0; i<20; i++){
-        rand_string(&strtemp);
-        std::cout << strtemp << std::endl;
-    }
+
     
     /* ***************************************************************
      * Your code will be tested by applying your stack to a custom main
