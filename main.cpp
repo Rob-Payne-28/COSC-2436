@@ -391,7 +391,22 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Finished testing without any unhandled errors!" << std::endl;
+        std::cout << std::endl;
 
+        std::cout << "Clearing stack..." << std::endl;
+        while (!stack->isEmpty()) {
+            Data poppedData;
+            stack->pop(poppedData);
+        }
+
+        if (stack->isEmpty()) {
+            std::cout << "Stack is empty" << std::endl;
+        } else {
+            std::cout << "Stack is not empty" << std::endl;
+        }
+
+        std::cout << "Deleting stack..." << std::endl;
+        delete stack;
     }
 
     return 0;
