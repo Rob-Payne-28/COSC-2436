@@ -36,7 +36,8 @@ bool Stack::peek(Data& returnData){
         returnData.id = EMPTY;
         returnData.information = EMPTY_STRING;
     } else {
-        returnData = *stack[top];
+        Data* dataToSend = stack[top];
+        returnData = *dataToSend;
         success = true;
     }
 
@@ -50,7 +51,8 @@ bool Stack::pop(Data& returnData){
         returnData.id = EMPTY;
         returnData.information = EMPTY_STRING;
     } else {
-        returnData = *stack[top];
+        Data* dataToDelete = stack[top];
+        returnData = *dataToDelete;
         delete stack[top];
         top -= 1;
         success = true;
