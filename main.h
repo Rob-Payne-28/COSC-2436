@@ -8,7 +8,6 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #define STACKS_MAIN_H
 
 #include <stdlib.h>   /* srand, rand */
-#include <time.h>     /* time */
 #include <iostream>   /* cout, endl */
 #include <string>     /* string */
 #include "functions.h"
@@ -20,9 +19,11 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 // Adds abs function
 #include <cmath>
 
-// Standard size to use as a fallback
+// Standard stack size to use as a fallback
 #define STANDARD_SIZE 10
+// How many tests to execute based off of the size of the stack
 #define TEST_MULTIPLIER 10
+// Possible selections for the functions in the stack
 #define POSSIBLE_SELECTIONS 7
 
 #endif /* STACKS_MAIN_H */

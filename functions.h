@@ -10,7 +10,6 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #define MAXSTRSIZE 8
 
 #include <stdlib.h>   /* srand, rand */
-#include <time.h>     /* time */
 #include <string>     /* string */
 
 void rand_string(std::string*);

@@ -15,3 +15,11 @@ Example:
 ```shell
 ./a.out 10
 ```
+
+## Test
+
+You can automate CLI testing after compilation by running this script:
+
+```shell
+for i in {-5..5}; do ./a.out $i; done
+```

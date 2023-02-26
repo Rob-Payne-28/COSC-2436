@@ -331,7 +331,7 @@ int main(int argc, char **argv) {
 
         int randNum = arc4random();
         int selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
-        for (int i = 0; i < stackSize * 2; i++) {
+        for (int i = 0; i < testAmount * 2; i++) {
 
             int id;
             std::string information;
@@ -389,8 +389,10 @@ int main(int argc, char **argv) {
 
         }
         std::cout << std::endl;
-    }
 
+        std::cout << "Finished testing without any unhandled errors!" << std::endl;
+
+    }
 
     return 0;
 }
