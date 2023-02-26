@@ -186,7 +186,7 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Filling stack halfway" << std::endl;
-        for (int i = 0; i < (testAmount / 2); ++i) {
+        for (int i = 0; i < (stackSize/2); ++i) {
             int id = arc4random();
             std::string information;
             rand_string(&information);
@@ -310,7 +310,7 @@ int main(int argc, char **argv) {
         }
 
         std::cout << "Filling stack halfway" << std::endl;
-        for (int i = 0; i < (testAmount / 2); ++i) {
+        for (int i = 0; i < (stackSize / 2); ++i) {
             int id = arc4random();
             std::string information;
             rand_string(&information);

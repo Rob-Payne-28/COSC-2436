@@ -22,7 +22,7 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 // Standard stack size to use as a fallback
 #define STANDARD_SIZE 10
 // How many tests to execute based off of the size of the stack
-#define TEST_MULTIPLIER 10
+#define TEST_MULTIPLIER 100
 // Possible selections for the functions in the stack
 #define POSSIBLE_SELECTIONS 7
 
