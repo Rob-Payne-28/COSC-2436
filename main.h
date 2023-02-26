@@ -15,9 +15,14 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 
 // Adds exception handling
 #include <stdexcept>
+// Adds stack ADT
 #include <stack.h>
+// Adds abs function
+#include <cmath>
 
+// Standard size to use as a fallback
 #define STANDARD_SIZE 10
-#define TEST_AMOUNT (STANDARD_SIZE * 10)
+#define TEST_MULTIPLIER 10
+#define POSSIBLE_SELECTIONS 7
 
 #endif /* STACKS_MAIN_H */

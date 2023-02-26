@@ -7,9 +7,6 @@ Purpose: Assignment 05 - Stack program that is part of COSC-2436.
 #include "main.h"
 
 int main(int argc, char **argv) {
-    // ToDo: Get rid of this if you don't use it
-    srand(time(NULL));
-
 
     int stackSize = STANDARD_SIZE;
     bool error = true;
@@ -52,6 +49,11 @@ int main(int argc, char **argv) {
     // Don't execute any other code if the stack size wasn't properly entered
     if (!error) {
 
+        if(stackSize < 2){
+            stackSize = DEFAULT_SIZE;
+        }
+        int testAmount = stackSize * TEST_MULTIPLIER;
+
         // Create stack using entered stack size
         Stack *stack = new Stack(stackSize);
 
@@ -68,7 +70,7 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing isEmpty on empty stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
@@ -78,13 +80,13 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing getSize on empty stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             std::cout << " Stack size: " << stack->getSize() << std::endl;
         }
         std::cout << std::endl;
 
         std::cout << "Testing peek on empty stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             Data peekedData;
             if (stack->peek(peekedData)) {
                 std::cout << " Peeked element: " << std::endl;
@@ -97,7 +99,7 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing pop on empty stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             Data poppedData;
             if (stack->pop(poppedData)) {
                 std::cout << " Popped element: " << std::endl;
@@ -119,12 +121,12 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Filling stack and testing push on overflow" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             int id = arc4random();
             std::string information;
             rand_string(&information);
 
-            bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
+            bool pushSuccess = stack->push(id, information);
 
             if (pushSuccess) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
@@ -139,13 +141,13 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing getSize on full stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             std::cout << " Stack size: " << stack->getSize() << std::endl;
         }
         std::cout << std::endl;
 
         std::cout << "Testing isEmpty() when full" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
@@ -155,7 +157,7 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing peek and pop on full stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             Data peekedData;
             if (stack->peek(peekedData)) {
                 std::cout << " Peeked element: " << "id- " << peekedData.id << " information- "
@@ -184,12 +186,12 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Filling stack halfway" << std::endl;
-        for (int i = 0; i < (TEST_AMOUNT / 2); ++i) {
+        for (int i = 0; i < (testAmount / 2); ++i) {
             int id = arc4random();
             std::string information;
             rand_string(&information);
 
-            bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
+            bool pushSuccess = stack->push(id, information);
 
             if (pushSuccess) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
@@ -204,13 +206,13 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing getSize on mid-stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             std::cout << " Stack size: " << stack->getSize() << std::endl;
         }
         std::cout << std::endl;
 
         std::cout << "Testing isEmpty() on mid-stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
@@ -220,12 +222,12 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing peek, pop, and push on mid-stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             int id = arc4random();
             std::string information;
             rand_string(&information);
 
-            bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
+            bool pushSuccess = stack->push(id, information);
 
             if (pushSuccess) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
@@ -256,7 +258,7 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing peek and pop on mid-stack to empty" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             Data peekedData;
             if (stack->peek(peekedData)) {
                 std::cout << " Peeked element: " << "id- " << peekedData.id << " information- "
@@ -276,13 +278,13 @@ int main(int argc, char **argv) {
         std::cout << std::endl;
 
         std::cout << "Testing getSize on emptied stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             std::cout << " Stack size: " << stack->getSize() << std::endl;
         }
         std::cout << std::endl;
 
         std::cout << "Testing isEmpty() on emptied stack" << std::endl;
-        for (int i = 0; i < TEST_AMOUNT; ++i) {
+        for (int i = 0; i < testAmount; ++i) {
             if (stack->isEmpty()) {
                 std::cout << " Stack is empty" << std::endl;
             } else {
@@ -308,12 +310,12 @@ int main(int argc, char **argv) {
         }
 
         std::cout << "Filling stack halfway" << std::endl;
-        for (int i = 0; i < (TEST_AMOUNT / 2); ++i) {
+        for (int i = 0; i < (testAmount / 2); ++i) {
             int id = arc4random();
             std::string information;
             rand_string(&information);
 
-            bool pushSuccess = stack->push(id, information); // call the push method on the stack instance
+            bool pushSuccess = stack->push(id, information);
 
             if (pushSuccess) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
@@ -342,7 +344,7 @@ int main(int argc, char **argv) {
                     id = arc4random();
                     rand_string(&information);
 
-                    pushSuccess = stack->push(id, information); // call the push method on the stack instance
+                    pushSuccess = stack->push(id, information);
 
                     if (pushSuccess) {
                         std::cout << " Pushed data with id " << id << " and information " << information
@@ -382,13 +384,13 @@ int main(int argc, char **argv) {
                     std::cout << " Stack size: " << stack->getSize() << std::endl;
                     break;
             }
-            selection = rand() % POSSIBLE_SELECTIONS + 1;
+            randNum = arc4random();
+            selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
 
         }
         std::cout << std::endl;
-
-
-        return 0;
-
     }
+
+
+    return 0;
 }
