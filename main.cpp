@@ -132,7 +132,7 @@ int main(int argc, char **argv) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
                           << std::endl;
             } else {
-                std::cout << " Overflow Error: Failed to push data with id "
+                std::cout << " Failed to push data with id "
                           << id << " and information "
                           << information << " onto the stack"
                           << std::endl;
@@ -197,7 +197,7 @@ int main(int argc, char **argv) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
                           << std::endl;
             } else {
-                std::cout << " Overflow Error: Failed to push data with id "
+                std::cout << " Failed to push data with id "
                           << id << " and information "
                           << information << " onto the stack"
                           << std::endl;
@@ -233,7 +233,7 @@ int main(int argc, char **argv) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
                           << std::endl;
             } else {
-                std::cout << " Overflow Error: Failed to push data with id "
+                std::cout << " Failed to push data with id "
                           << id << " and information "
                           << information << " onto the stack"
                           << std::endl;
@@ -321,7 +321,7 @@ int main(int argc, char **argv) {
                 std::cout << " Pushed data with id " << id << " and information " << information << " onto the stack"
                           << std::endl;
             } else {
-                std::cout << " Overflow Error: Failed to push data with id "
+                std::cout << " Failed to push data with id "
                           << id << " and information "
                           << information << " onto the stack"
                           << std::endl;
@@ -350,7 +350,7 @@ int main(int argc, char **argv) {
                         std::cout << " Pushed data with id " << id << " and information " << information
                                   << " onto the stack" << std::endl;
                     } else {
-                        std::cout << " Overflow Error: Failed to push data with id "
+                        std::cout << " Failed to push data with id "
                                   << id << " and information "
                                   << information << " onto the stack"
                                   << std::endl;
