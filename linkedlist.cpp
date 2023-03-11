@@ -51,31 +51,50 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
             if (previous == nullptr) {
                 // beginning of the list
                 head = newNode;
-                isSuccessful = true;
             } else {
                 // middle or at the end of the list
+                // link previous and new nodes
                 previous->next = newNode;
                 newNode->prev = previous;
-                isSuccessful = true;
             }
+            // set links to the new node
             newNode->next = currentNode;
             currentNode->prev = newNode;
+            isSuccessful = true;
         }
     }
     return isSuccessful;
 };
 
 bool LinkedList::deleteNode(int id) {
+    bool isSuccessful = false;
+
+
     // ToDo: Pass in an id, look for it and delete it in one loop. Return bool for success.
-    return false;
+    return isSuccessful;
 };
 
-bool LinkedList::getNode(int id, Data *data) {
-    // ToDo: Pass in an id and an empty struct Data by ref. Return bool to indicate success.
+bool LinkedList::getNode(int targetId, Data *data) {
+    bool isSuccessful = false;
+
+    Node *currentNode = head;
+
+    // while not the tail node and less than current, move to the next
+    while (currentNode != nullptr && currentNode->data.id != targetId) {
+        currentNode = currentNode->next;
+    }
+
     // If not found, return -1 and empty string.
-    // Remember to not pass the pointer from inside the linked list :)
-    // Do not use exists method
-    return false;
+    if (currentNode == nullptr) {
+        data->id = -1;
+        data->data = "";
+    } else {
+        data->id = currentNode->data.id;
+        data->data = currentNode->data.data;
+        isSuccessful = true;
+    }
+
+    return isSuccessful;
 };
 
 void printList(bool backward) {
