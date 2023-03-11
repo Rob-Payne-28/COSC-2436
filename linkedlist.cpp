@@ -102,8 +102,15 @@ void printList(bool backward) {
 };
 
 int LinkedList::getCount() {
-    // ToDo: Calculate the count of nodes in the list.
-    return -1;
+    int count = 0;
+
+    Node *currentNode = head;
+    while (currentNode != nullptr) {
+        count++;
+        currentNode = currentNode->next;
+    }
+
+    return count;
 };
 
 bool LinkedList::clearList() {
@@ -112,7 +119,6 @@ bool LinkedList::clearList() {
 };
 
 bool LinkedList::exists(int targetId) {
-    // ToDo: Start at the beginning and go until until searched id is larger than id OR we hit the id we're looking for.
     bool doesExist = false;
 
     Node *currentNode = head;
