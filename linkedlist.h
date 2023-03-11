@@ -24,6 +24,9 @@ public:
 
 private:
 
+    // Private helper functions are allowed
+
+    // head is the only attribute allowed
     Node *head;
 
 };
