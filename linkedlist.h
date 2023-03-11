@@ -13,9 +13,17 @@ class LinkedList {
 
 public:
 
+    bool addNode(int, string*);
+    bool deleteNode(int);
+    bool getNode(int, Data*);
+    void printList(bool = false);
+    int getCount();
+    bool clearList();
+    bool exists(int);
 
 private:
-    
+
+    Node *head;
 
 };
 
