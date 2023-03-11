@@ -111,7 +111,19 @@ bool LinkedList::clearList() {
     return false;
 };
 
-bool LinkedList::exists(int id) {
+bool LinkedList::exists(int targetId) {
     // ToDo: Start at the beginning and go until until searched id is larger than id OR we hit the id we're looking for.
-    return false;
+    bool doesExist = false;
+
+    Node *currentNode = head;
+    // while not the tail node and not equal to the targetId, move to the next
+    while (currentNode != nullptr && currentNode->data.id != targetId) {
+        currentNode = currentNode->next;
+    }
+
+    if(currentNode != nullptr) {
+        doesExist = true;
+    }
+
+    return doesExist;
 };
