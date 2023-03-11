@@ -14,7 +14,7 @@ LinkedList::~LinkedList(){
     // ToDo: Call clearList() and destroy LinkedList
 }
 
-bool LinkedList::addNode(int, string*){
+bool LinkedList::addNode(int id, string* newNodeData){
     // ToDo: pass int Id by reference. Return bool indicating success.
     // The id must be unique and a positive number greater than 0.
     // Nodes added must be stored in ascending order of id.
@@ -30,12 +30,12 @@ bool LinkedList::addNode(int, string*){
     return false;
 };
 
-bool LinkedList::deleteNode(int){
+bool LinkedList::deleteNode(int id){
     // ToDo: Pass in an id, look for it and delete it in one loop. Return bool for success.
     return false;
 };
 
-bool LinkedList::getNode(int, Data*){
+bool LinkedList::getNode(int id, Data* data){
     // ToDo: Pass in an id and an empty struct Data by ref. Return bool to indicate success.
     // If not found, return -1 and empty string.
     // Remember to not pass the pointer from inside the linked list :)
@@ -49,7 +49,7 @@ void printList(bool backward){
 
 int LinkedList::getCount(){
     // ToDo: Calculate the count of nodes in the list.
-    return false;
+    return -1;
 };
 
 bool LinkedList::clearList(){
@@ -57,7 +57,7 @@ bool LinkedList::clearList(){
     return false;
 };
 
-bool LinkedList::exists(int){
+bool LinkedList::exists(int id){
     // ToDo: Start at the beginning and go until until searched id is larger than id OR we hit the id we're looking for.
     return false;
 };
