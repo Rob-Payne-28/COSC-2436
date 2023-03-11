@@ -7,11 +7,12 @@ Purpose: Assignment 06 - Doubly Linked List that is part of COSC-2436.
 #include "linkedlist.h"
 
 LinkedList::LinkedList(){
-    // ToDo: Initialize head
+    head = nullptr;
 }
 
 LinkedList::~LinkedList(){
-    // ToDo: Call clearList() and destroy LinkedList
+    clearList();
+    delete head;
 }
 
 bool LinkedList::addNode(int id, string* newNodeData){
