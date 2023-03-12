@@ -27,50 +27,48 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
         Node *currentNode = head;
         Node *previous = nullptr;
 
-        // while not the tail node and less than current, move to the next
         while (currentNode != nullptr && currentNode->data.id < newId) {
             previous = currentNode;
             currentNode = currentNode->next;
         }
 
-        // we only get here if the current node is null (the end of the list/empty)
-        // or the id of the currentNode is larger than or equal to the target
-        // Since we've found the insertion point, we can create our new node
-        Node *newNode = new Node;
-        newNode->data.id = newId;
-        newNode->data.data = *newNodeData;
-        newNode->next = nullptr;
-        newNode->prev = nullptr;
+        if (currentNode != nullptr && currentNode->data.id == newId) {
+            // noop - I've tried switching this conditional; it keeps allowing
+            // duplicate values so I'm leaving this as a no-op for now. I know why,
+            // I'm just having trouble implementing it within the constraints given.
+            // Perhaps it'll become easier once this method is broken up to helper
+            // functions.
+        } else {
+            Node *newNode = new Node();
+            newNode->data.id = newId;
+            newNode->data.data = *newNodeData;
+            newNode->next = nullptr;
+            newNode->prev = nullptr;
 
-        if (currentNode == nullptr) {
-            head = newNode;
-            isSuccessful = true;
-        } else if (currentNode->data.id != newId) {
-            // if previous is a null pointer, we need to assign the head to here
-            // because we're at a node that's larger than the target
             if (previous == nullptr) {
-                // beginning of the list
+                if (head != nullptr) {
+                    head->prev = newNode;
+                }
+                newNode->next = head;
                 head = newNode;
             } else {
-                // middle or at the end of the list
-                // link previous and new nodes
+                newNode->next = previous->next;
                 previous->next = newNode;
+                if (newNode->next != nullptr) {
+                    newNode->next->prev = newNode;
+                }
                 newNode->prev = previous;
             }
-            // set links to the new node
-            newNode->next = currentNode;
-            currentNode->prev = newNode;
             isSuccessful = true;
         }
     }
     return isSuccessful;
 };
 
-bool LinkedList::deleteNode(int id) {
+
+bool LinkedList::deleteNode(int targetId) {
     bool isSuccessful = false;
 
-
-    // ToDo: Pass in an id, look for it and delete it in one loop. Return bool for success.
     return isSuccessful;
 };
 
@@ -102,7 +100,7 @@ void LinkedList::printList(bool backward) {
         std::cout << "List is empty" << std::endl;
     } else if (backward) {
         Node* currentNode = head;
-        int nodeCount = 0;
+        int nodeCount = 1;
 
         while (currentNode->next != nullptr) {
             currentNode = currentNode->next;
@@ -110,16 +108,16 @@ void LinkedList::printList(bool backward) {
         }
 
         while (currentNode != nullptr) {
-            std::cout << nodeCount << ": " << currentNode->data.data << std::endl;
+            std::cout << nodeCount << ": " << currentNode->data.id << ": "<< currentNode->data.data << std::endl;
             currentNode = currentNode->prev;
             nodeCount--;
         }
     } else {
         Node* currentNode = head;
-        int nodeCount = 0;
+        int nodeCount = 1;
 
         while (currentNode != nullptr) {
-            std::cout << nodeCount << ": " << currentNode->data.data << std::endl;
+            std::cout << nodeCount << ": " << currentNode->data.id << ": "<< currentNode->data.data << std::endl;
             currentNode = currentNode->next;
             nodeCount++;
         }
