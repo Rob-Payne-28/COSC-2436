@@ -34,6 +34,7 @@ private:
     Node* createNewNode(int, string*);
     void insertAsHead(Node*);
     void insertAfter(Node*, Node*);
+    Node* findTailNode(int*);
 
     // head is the only attribute allowed
     Node *head;

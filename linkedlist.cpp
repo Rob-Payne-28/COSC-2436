@@ -86,28 +86,19 @@ bool LinkedList::getNode(int targetId, Data *data) {
 void LinkedList::printList(bool backward) {
     if (head == nullptr) {
         std::cout << "List is empty" << std::endl;
-    } else if (backward) {
-        Node* currentNode = head;
-        int nodeCount = MIN_NODE_COUNT;
-
-        while (currentNode->next != nullptr) {
-            currentNode = currentNode->next;
-            nodeCount++;
-        }
-
-        while (currentNode != nullptr) {
-            std::cout << nodeCount << ": " << currentNode->data.id << ": "<< currentNode->data.data << std::endl;
-            currentNode = currentNode->prev;
-            nodeCount--;
-        }
     } else {
-        Node* currentNode = head;
         int nodeCount = MIN_NODE_COUNT;
+        Node *currentNode = backward ? findTailNode(&nodeCount) : head;
 
         while (currentNode != nullptr) {
-            std::cout << nodeCount << ": " << currentNode->data.id << ": "<< currentNode->data.data << std::endl;
-            currentNode = currentNode->next;
-            nodeCount++;
+            std::cout << nodeCount << ": " << currentNode->data.id << ": " << currentNode->data.data << std::endl;
+            if (backward) {
+                currentNode = currentNode->prev;
+                nodeCount--;
+            } else {
+                currentNode = currentNode->next;
+                nodeCount++;
+            }
         }
     }
 }
@@ -158,7 +149,7 @@ bool LinkedList::exists(int targetId) {
 // Private helper methods
 //
 
-Node* LinkedList::createNewNode(int newId, string *newNodeData) {
+Node *LinkedList::createNewNode(int newId, string *newNodeData) {
     Node *newNode = new Node();
     newNode->data.id = newId;
     newNode->data.data = *newNodeData;
@@ -182,4 +173,15 @@ void LinkedList::insertAfter(Node *previous, Node *newNode) {
         newNode->next->prev = newNode;
     }
     newNode->prev = previous;
+}
+
+Node* LinkedList::findTailNode(int *nodeCount) {
+    Node* currentNode = head;
+
+    while (currentNode->next != nullptr) {
+        currentNode = currentNode->next;
+        (*nodeCount)++;
+    }
+
+    return currentNode;
 }
