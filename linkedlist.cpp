@@ -52,15 +52,12 @@ bool LinkedList::deleteNode(int targetId) {
     }
 
     if (currentNode != nullptr) {
-        if (previous == nullptr) {
-            head = currentNode->next;
-        } else {
-            previous->next = currentNode->next;
-        }
+        previous == nullptr ? head = currentNode->next : previous->next = currentNode->next;
+
         if (currentNode->next != nullptr) {
-            Node *nextNode = currentNode->next;
-            nextNode->prev = previous;
+            currentNode->next->prev = previous;
         }
+
         delete currentNode;
         isSuccessful = true;
     }
