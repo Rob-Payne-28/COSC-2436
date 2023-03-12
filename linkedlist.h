@@ -29,7 +29,6 @@ public:
     bool exists(int);
 
 private:
-
     // Private helper functions
     Node* createNewNode(int, string*);
     void insertAsHead(Node*);
@@ -39,7 +38,6 @@ private:
 
     // head is the only attribute allowed
     Node *head;
-
 };
 
 #endif //LINKED_LIST_H

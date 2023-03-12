@@ -40,18 +40,15 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
 bool LinkedList::deleteNode(int targetId) {
     bool isSuccessful = false;
 
-    Node *currentNode = head;
-    Node *previous = nullptr;
-    while (currentNode != nullptr && currentNode->data.id != targetId) {
-        previous = currentNode;
-        currentNode = currentNode->next;
-    }
-
+    Node *currentNode = findTargetNode(targetId);
     if (currentNode != nullptr) {
-        previous == nullptr ? head = currentNode->next : previous->next = currentNode->next;
+        Node *next = currentNode->next;
+        Node *previous = currentNode->prev;
 
-        if (currentNode->next != nullptr) {
-            currentNode->next->prev = previous;
+        previous == nullptr ? head = next : previous->next = next;
+
+        if (next != nullptr) {
+            next->prev = previous;
         }
 
         delete currentNode;
@@ -86,7 +83,7 @@ void LinkedList::printList(bool backward) {
         Node *currentNode = backward ? findTailNode(&nodeCount) : head;
 
         while (currentNode != nullptr) {
-            std::cout << nodeCount << ": " << currentNode->data.id << ": " << currentNode->data.data << std::endl;
+            std::cout << "\t" << nodeCount << ": " << currentNode->data.id << ": " << currentNode->data.data << std::endl;
             if (backward) {
                 currentNode = currentNode->prev;
                 nodeCount--;
