@@ -69,6 +69,28 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
 bool LinkedList::deleteNode(int targetId) {
     bool isSuccessful = false;
 
+    Node *currentNode = head;
+    Node *previous = nullptr;
+
+    while (currentNode != nullptr && currentNode->data.id != targetId) {
+        previous = currentNode;
+        currentNode = currentNode->next;
+    }
+
+    if (currentNode != nullptr) {
+        if (previous == nullptr) {
+            head = currentNode->next;
+        } else {
+            previous->next = currentNode->next;
+        }
+        if (currentNode->next != nullptr) {
+            Node *nextNode = currentNode->next;
+            nextNode->prev = previous;
+        }
+        delete currentNode;
+        isSuccessful = true;
+    }
+
     return isSuccessful;
 };
 
