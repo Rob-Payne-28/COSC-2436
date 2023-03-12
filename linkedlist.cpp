@@ -20,10 +20,8 @@ LinkedList::~LinkedList() {
 bool LinkedList::addNode(int newId, string *newNodeData) {
     bool isSuccessful = false;
 
-    // parameter check for pos number, non-nullptr data, and non-empty strings
     if (newId > 0 && newNodeData != nullptr && !(newNodeData->empty())) {
 
-        // create node to store values of where we are in the list
         Node *currentNode = head;
         Node *previous = nullptr;
 
@@ -99,12 +97,10 @@ bool LinkedList::getNode(int targetId, Data *data) {
 
     Node *currentNode = head;
 
-    // while not the tail node and less than current, move to the next
     while (currentNode != nullptr && currentNode->data.id != targetId) {
         currentNode = currentNode->next;
     }
 
-    // If not found, return -1 and empty string.
     if (currentNode == nullptr) {
         data->id = -1;
         data->data = "";
@@ -159,7 +155,6 @@ int LinkedList::getCount() {
 };
 
 bool LinkedList::clearList() {
-    // ToDo: Delete all allocated memory and set head to NULL.
 
     Node *currentNode = head;
 
@@ -178,7 +173,6 @@ bool LinkedList::exists(int targetId) {
     bool doesExist = false;
 
     Node *currentNode = head;
-    // while not the tail node and not equal to the targetId, move to the next
     while (currentNode != nullptr && currentNode->data.id != targetId) {
         currentNode = currentNode->next;
     }
