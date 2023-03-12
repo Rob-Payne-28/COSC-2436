@@ -7,6 +7,11 @@ Purpose: Assignment 06 - Doubly Linked List that is part of COSC-2436.
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
+#define EMPTY_STRING ""
+#define ZERO 0
+#define MIN_NODE_COUNT 1
+#define ERROR_VALUE -1
+
 #include "data.h"
 #include "iostream"
 

@@ -20,7 +20,7 @@ LinkedList::~LinkedList() {
 bool LinkedList::addNode(int newId, string *newNodeData) {
     bool isSuccessful = false;
 
-    if (newId > 0 && newNodeData != nullptr && !(newNodeData->empty())) {
+    if (newId > ZERO && newNodeData != nullptr && !(newNodeData->empty())) {
 
         Node *currentNode = head;
         Node *previous = nullptr;
@@ -102,8 +102,8 @@ bool LinkedList::getNode(int targetId, Data *data) {
     }
 
     if (currentNode == nullptr) {
-        data->id = -1;
-        data->data = "";
+        data->id = ERROR_VALUE;
+        data->data = EMPTY_STRING;
     } else {
         data->id = currentNode->data.id;
         data->data = currentNode->data.data;
@@ -118,7 +118,7 @@ void LinkedList::printList(bool backward) {
         std::cout << "List is empty" << std::endl;
     } else if (backward) {
         Node* currentNode = head;
-        int nodeCount = 1;
+        int nodeCount = MIN_NODE_COUNT;
 
         while (currentNode->next != nullptr) {
             currentNode = currentNode->next;
@@ -126,16 +126,22 @@ void LinkedList::printList(bool backward) {
         }
 
         while (currentNode != nullptr) {
-            std::cout << nodeCount << ": " << currentNode->data.id << ": "<< currentNode->data.data << std::endl;
+            std::cout << nodeCount
+            << ": " << currentNode->data.id
+            << ": "<< currentNode->data.data
+            << std::endl;
             currentNode = currentNode->prev;
             nodeCount--;
         }
     } else {
         Node* currentNode = head;
-        int nodeCount = 1;
+        int nodeCount = MIN_NODE_COUNT;
 
         while (currentNode != nullptr) {
-            std::cout << nodeCount << ": " << currentNode->data.id << ": "<< currentNode->data.data << std::endl;
+            std::cout << nodeCount
+            << ": " << currentNode->data.id
+            << ": "<< currentNode->data.data
+            << std::endl;
             currentNode = currentNode->next;
             nodeCount++;
         }
@@ -143,7 +149,7 @@ void LinkedList::printList(bool backward) {
 };
 
 int LinkedList::getCount() {
-    int count = 0;
+    int count = ZERO;
 
     Node *currentNode = head;
     while (currentNode != nullptr) {
