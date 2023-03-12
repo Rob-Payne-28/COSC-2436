@@ -32,7 +32,7 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
 
         if (currentNode != nullptr && currentNode->data.id == newId) {
             // noop - I've tried switching this conditional; it keeps allowing
-            // duplicate values so I'm leaving this as a no-op for now. I know why,
+            // duplicate values, so I'm leaving this as a no-op for now. I know why,
             // I'm just having trouble implementing it within the constraints given.
             // Perhaps it'll become easier once this method is broken up to helper
             // functions.
@@ -61,7 +61,7 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
         }
     }
     return isSuccessful;
-};
+}
 
 
 bool LinkedList::deleteNode(int targetId) {
@@ -90,7 +90,7 @@ bool LinkedList::deleteNode(int targetId) {
     }
 
     return isSuccessful;
-};
+}
 
 bool LinkedList::getNode(int targetId, Data *data) {
     bool isSuccessful = false;
@@ -111,7 +111,7 @@ bool LinkedList::getNode(int targetId, Data *data) {
     }
 
     return isSuccessful;
-};
+}
 
 void LinkedList::printList(bool backward) {
     if (head == nullptr) {
@@ -146,7 +146,7 @@ void LinkedList::printList(bool backward) {
             nodeCount++;
         }
     }
-};
+}
 
 int LinkedList::getCount() {
     int count = ZERO;
@@ -158,7 +158,7 @@ int LinkedList::getCount() {
     }
 
     return count;
-};
+}
 
 bool LinkedList::clearList() {
 
@@ -173,7 +173,7 @@ bool LinkedList::clearList() {
     head = nullptr;
 
     return true;
-};
+}
 
 bool LinkedList::exists(int targetId) {
     bool doesExist = false;
@@ -188,4 +188,4 @@ bool LinkedList::exists(int targetId) {
     }
 
     return doesExist;
-};
+}
