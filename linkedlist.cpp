@@ -40,11 +40,7 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
             Node *newNode = createNewNode(newId, newNodeData);
 
             if (previous == nullptr) {
-                if (head != nullptr) {
-                    head->prev = newNode;
-                }
-                newNode->next = head;
-                head = newNode;
+                insertAsHead(newNode);
             } else {
                 newNode->next = previous->next;
                 previous->next = newNode;
@@ -193,4 +189,12 @@ Node* LinkedList::createNewNode(int newId, string *newNodeData) {
     newNode->next = nullptr;
     newNode->prev = nullptr;
     return newNode;
+}
+
+void LinkedList::insertAsHead(Node *newNode) {
+    if (head != nullptr) {
+        head->prev = newNode;
+    }
+    newNode->next = head;
+    head = newNode;
 }

@@ -32,8 +32,8 @@ private:
 
     // Private helper functions
     Node* createNewNode(int, string*);
+    void insertAsHead(Node*);
 
-    
     // head is the only attribute allowed
     Node *head;
 
