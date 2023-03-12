@@ -15,8 +15,6 @@ LinkedList::~LinkedList() {
     delete head;
 }
 
-
-// ToDo: Clean up the comments used for walking through the logic
 bool LinkedList::addNode(int newId, string *newNodeData) {
     bool isSuccessful = false;
 
@@ -31,19 +29,10 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
         }
 
         if (currentNode != nullptr && currentNode->data.id == newId) {
-            // noop - I've tried switching this conditional; it keeps allowing
-            // duplicate values, so I'm leaving this as a no-op for now. I know why,
-            // I'm just having trouble implementing it within the constraints given.
-            // Perhaps it'll become easier once this method is broken up to helper
-            // functions.
+            // noop
         } else {
             Node *newNode = createNewNode(newId, newNodeData);
-
-            if (previous == nullptr) {
-                insertAsHead(newNode);
-            } else {
-                insertAfter(previous, newNode);
-            }
+            previous == nullptr ? insertAsHead(newNode) : insertAfter(previous, newNode);
             isSuccessful = true;
         }
     }
@@ -176,6 +165,10 @@ bool LinkedList::exists(int targetId) {
 
     return doesExist;
 }
+
+//
+// Private helper methods
+//
 
 Node* LinkedList::createNewNode(int newId, string *newNodeData) {
     Node *newNode = new Node();
