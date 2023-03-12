@@ -115,7 +115,18 @@ int LinkedList::getCount() {
 
 bool LinkedList::clearList() {
     // ToDo: Delete all allocated memory and set head to NULL.
-    return false;
+
+    Node *currentNode = head;
+
+    while (currentNode != nullptr) {
+        Node *nextNode = currentNode->next;
+        delete currentNode;
+        currentNode = nextNode;
+    }
+
+    head = nullptr;
+
+    return true;
 };
 
 bool LinkedList::exists(int targetId) {
@@ -127,7 +138,7 @@ bool LinkedList::exists(int targetId) {
         currentNode = currentNode->next;
     }
 
-    if(currentNode != nullptr) {
+    if (currentNode != nullptr) {
         doesExist = true;
     }
 
