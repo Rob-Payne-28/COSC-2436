@@ -26,9 +26,7 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
             currentNode = currentNode->next;
         }
 
-        if (currentNode != nullptr && currentNode->data.id == newId) {
-            // noop
-        } else {
+        if (currentNode == nullptr || currentNode->data.id != newId) {
             Node *newNode = createNewNode(newId, newNodeData);
             previous == nullptr ? insertAsHead(newNode) : insertAfter(previous, newNode);
             isSuccessful = true;
