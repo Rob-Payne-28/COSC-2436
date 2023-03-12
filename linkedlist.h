@@ -30,8 +30,10 @@ public:
 
 private:
 
-    // Private helper functions are allowed
+    // Private helper functions
+    Node* createNewNode(int, string*);
 
+    
     // head is the only attribute allowed
     Node *head;
 

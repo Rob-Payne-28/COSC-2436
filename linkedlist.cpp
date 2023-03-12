@@ -37,11 +37,7 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
             // Perhaps it'll become easier once this method is broken up to helper
             // functions.
         } else {
-            Node *newNode = new Node();
-            newNode->data.id = newId;
-            newNode->data.data = *newNodeData;
-            newNode->next = nullptr;
-            newNode->prev = nullptr;
+            Node *newNode = createNewNode(newId, newNodeData);
 
             if (previous == nullptr) {
                 if (head != nullptr) {
@@ -188,4 +184,13 @@ bool LinkedList::exists(int targetId) {
     }
 
     return doesExist;
+}
+
+Node* LinkedList::createNewNode(int newId, string *newNodeData) {
+    Node *newNode = new Node();
+    newNode->data.id = newId;
+    newNode->data.data = *newNodeData;
+    newNode->next = nullptr;
+    newNode->prev = nullptr;
+    return newNode;
 }
