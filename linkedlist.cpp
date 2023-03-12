@@ -12,7 +12,6 @@ LinkedList::LinkedList() {
 
 LinkedList::~LinkedList() {
     clearList();
-    delete head;
 }
 
 bool LinkedList::addNode(int newId, string *newNodeData) {
@@ -37,7 +36,6 @@ bool LinkedList::addNode(int newId, string *newNodeData) {
     }
     return isSuccessful;
 }
-
 
 bool LinkedList::deleteNode(int targetId) {
     bool isSuccessful = false;
@@ -66,10 +64,7 @@ bool LinkedList::deleteNode(int targetId) {
 bool LinkedList::getNode(int targetId, Data *data) {
     bool isSuccessful = false;
 
-    Node *currentNode = head;
-    while (currentNode != nullptr && currentNode->data.id != targetId) {
-        currentNode = currentNode->next;
-    }
+    Node* currentNode = findTargetNode(targetId);
 
     if (currentNode == nullptr) {
         data->id = ERROR_VALUE;
@@ -133,10 +128,7 @@ bool LinkedList::clearList() {
 bool LinkedList::exists(int targetId) {
     bool doesExist = false;
 
-    Node *currentNode = head;
-    while (currentNode != nullptr && currentNode->data.id != targetId) {
-        currentNode = currentNode->next;
-    }
+    Node* currentNode = findTargetNode( targetId);
 
     if (currentNode != nullptr) {
         doesExist = true;
@@ -183,5 +175,13 @@ Node* LinkedList::findTailNode(int *nodeCount) {
         (*nodeCount)++;
     }
 
+    return currentNode;
+}
+
+Node* LinkedList::findTargetNode(int targetId) {
+    Node* currentNode = head;
+    while (currentNode != nullptr && currentNode->data.id != targetId) {
+        currentNode = currentNode->next;
+    }
     return currentNode;
 }
