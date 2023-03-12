@@ -97,8 +97,33 @@ bool LinkedList::getNode(int targetId, Data *data) {
     return isSuccessful;
 };
 
-void printList(bool backward) {
-    // ToDo: Print entire list either forwards (default) or backwards (if backward == true).
+void LinkedList::printList(bool backward) {
+    if (head == nullptr) {
+        std::cout << "List is empty" << std::endl;
+    } else if (backward) {
+        Node* currentNode = head;
+        int nodeCount = 0;
+
+        while (currentNode->next != nullptr) {
+            currentNode = currentNode->next;
+            nodeCount++;
+        }
+
+        while (currentNode != nullptr) {
+            std::cout << nodeCount << ": " << currentNode->data.data << std::endl;
+            currentNode = currentNode->prev;
+            nodeCount--;
+        }
+    } else {
+        Node* currentNode = head;
+        int nodeCount = 0;
+
+        while (currentNode != nullptr) {
+            std::cout << nodeCount << ": " << currentNode->data.data << std::endl;
+            currentNode = currentNode->next;
+            nodeCount++;
+        }
+    }
 };
 
 int LinkedList::getCount() {

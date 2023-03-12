@@ -8,6 +8,7 @@ Purpose: Assignment 06 - Doubly Linked List that is part of COSC-2436.
 #define LINKED_LIST_H
 
 #include "data.h"
+#include "iostream"
 
 class LinkedList {
 
