@@ -75,18 +75,19 @@ bool LinkedList::getNode(int targetId, Data *data) {
 
 void LinkedList::printList(bool backward) {
     if (head == nullptr) {
-        std::cout << "List is empty" << std::endl;
+        std::cout << "List is empty";
     } else {
         int nodeCount = MIN_NODE_COUNT;
         Node *currentNode = backward ? findTailNode(&nodeCount) : head;
 
         while (currentNode != nullptr) {
-            std::cout << "\t" << nodeCount << ": " << currentNode->data.id << ": " << currentNode->data.data << std::endl;
+            std::cout << currentNode->data.id;
             if (backward) {
                 currentNode = currentNode->prev;
                 nodeCount--;
             } else {
                 currentNode = currentNode->next;
+                if(currentNode != nullptr) std::cout << " -> ";
                 nodeCount++;
             }
         }
