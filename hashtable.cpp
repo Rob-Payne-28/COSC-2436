@@ -61,7 +61,7 @@ int HashTable::getCount() {
 void HashTable::printTable() {
     std::cout << "Printing Table..." << std::endl;
     for(int i = ZERO; i < HASH_TABLE_SIZE; i++){
-        std::cout << " Entry " << (i+1) << ": " << std::endl;
+        std::cout << " Entry " << (i+1) << ": ";
         hashTable[i].printList();
         std::cout << std::endl;
     }

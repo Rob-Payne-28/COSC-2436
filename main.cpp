@@ -60,7 +60,15 @@ int main() {
 
     std::cout << "Number of entries in the hash table: " << hashTable.getCount() << std::endl;
     std::cout << std::endl;
-    
+
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "                    Printing table..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    hashTable.printTable();
+    std::cout << std::endl;
+
     // try and put ALL the test data into the table and show what happens
 
     // continue using and testing your table, add and remove data,
