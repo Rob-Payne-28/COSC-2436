@@ -58,7 +58,7 @@ bool HashTable::removeEntry(int id) {
 }
 
 int HashTable::getCount() {
-    // ToDo: Return total number of entries in the hash table by returning the value in the count attribute
+    return count;
 }
 
 void HashTable::printTable() {
