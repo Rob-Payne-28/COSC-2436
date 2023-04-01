@@ -8,7 +8,7 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 
 HashTable::HashTable() {
     count = 0;
-    hashTable = new LinkedList[HASHTABLESIZE];
+    hashTable = new LinkedList[HASH_TABLE_SIZE];
 }
 
 HashTable::~HashTable() {
@@ -60,7 +60,7 @@ int HashTable::getCount() {
 
 void HashTable::printTable() {
     std::cout << "Printing Table..." << std::endl;
-    for(int i = 0; i < HASHTABLESIZE; i++){
+    for(int i = 0; i < HASH_TABLE_SIZE; i++){
         std::cout << " Entry " << (i+1) << ": " << std::endl;
         hashtable[i].printList();
         std::cout << std::endl;
@@ -69,5 +69,5 @@ void HashTable::printTable() {
 }
 
 int HashTable::hash(int id) {
-    return id % HASHTABLESIZE;
+    return id % HASH_TABLE_SIZE;
 }
