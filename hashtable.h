@@ -7,15 +7,23 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 #ifndef HASH_TABLE_H
 #define HASH_TABLE_H
 
+#define HASH_TABLE_SIZE 15
+
 #include "data.h"
 
 class HashTable {
 
 public:
-
+    HashTable();
+    ~HashTable();
+    bool insertEntry(int, string*);
+    string getData(int);
+    bool removeEntry(int);
+    int getCount();
+    void printTable();
 
 private:
-
+    int hash(int);
 
 };
 
