@@ -11,6 +11,7 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <string>       /* string */
+#include "hashtable.h"
 
 #define BUFFERSIZE 8
 #define MAXID 100

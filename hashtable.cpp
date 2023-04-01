@@ -12,7 +12,7 @@ HashTable::HashTable() {
 }
 
 HashTable::~HashTable() {
-    delete[] hashtable;
+    delete[] hashTable;
 }
 
 bool HashTable::insertEntry(int id, string* inputData) {
@@ -20,8 +20,8 @@ bool HashTable::insertEntry(int id, string* inputData) {
     int hashedId = hash(id);
 
     if(id > ZERO && *inputData != EMPTY_STRING) {
-        if(!hashtable[hashedId].exists(id)) {
-            success = hashtable[hashedId].addNode(id, inputData);
+        if(!hashTable[hashedId].exists(id)) {
+            success = hashTable[hashedId].addNode(id, inputData);
         }
     }
 
@@ -35,18 +35,18 @@ string HashTable::getData(int id) {
     int hashedId = hash(id);
     Data data;
 
-    if(!hashtable[hashedId].getNode(id, &data)){
-        data.value = "";
+    if(!hashTable[hashedId].getNode(id, &data)){
+        data.data = "";
     }
 
-    return data.value;
+    return data.data;
 }
 
 bool HashTable::removeEntry(int id) {
     bool success = false;
     int hashedId = hash(id);
 
-    if(hashtable[hashedId].deleteNode(id)){
+    if(hashTable[hashedId].deleteNode(id)){
         count--;
         success = true;
     }
@@ -62,7 +62,7 @@ void HashTable::printTable() {
     std::cout << "Printing Table..." << std::endl;
     for(int i = ZERO; i < HASH_TABLE_SIZE; i++){
         std::cout << " Entry " << (i+1) << ": " << std::endl;
-        hashtable[i].printList();
+        hashTable[i].printList();
         std::cout << std::endl;
     }
     std::cout << std::endl;

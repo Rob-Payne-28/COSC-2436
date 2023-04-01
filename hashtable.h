@@ -12,6 +12,8 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 #define ZERO 0
 
 #include "data.h"
+#include "linkedlist.h"
+#include <string>
 
 class HashTable {
 
@@ -26,7 +28,7 @@ public:
 
 private:
     int count;
-    LinkedList *hashtable;
+    LinkedList *hashTable;
 
     int hash(int);
 };
