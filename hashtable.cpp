@@ -35,15 +35,13 @@ bool HashTable::insertEntry(int id, string* inputData) {
 }
 
 string HashTable::getData(int id) {
-    // ToDo: Look up id in linked list and return data string associated with that id
     int hashedId = hash(id);
     Data data;
 
     if(!hashtable[hashedId].getNode(id, &data)){
-        // ToDo: Return empty string if the id doesn't exist
         data.value = "";
     }
-    
+
     return data.value;
 }
 
