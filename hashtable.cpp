@@ -46,9 +46,16 @@ string HashTable::getData(int id) {
 }
 
 bool HashTable::removeEntry(int id) {
+    bool success = false;
+    int hashedId = hash(id);
     // ToDo: Delegate to deleteNode method
+    if(hashtable[hashedId].deleteNode(id)){
+        // ToDo: Decrement count attribute on hash table implementation
+        count--;
+        success = true
+    }
     // ToDo: Return true or false to indicate success
-    // ToDo: Decrement count attribute on hash table implementation
+    return success;
 }
 
 int HashTable::getCount() {
