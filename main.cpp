@@ -67,9 +67,38 @@ int main() {
     std::cout << std::endl;
 
     hashTable.printTable();
+
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "                    Filling table..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
 
     // try and put ALL the test data into the table and show what happens
+    for (int i = ZERO; i < testdatasize; i++) {
+        bool success = hashTable.insertEntry(ids[i], &strs[i]);
+        if (success) {
+            std::cout << "Inserted entry with id " << ids[i] << " and data \"" << strs[i] << "\"" << std::endl;
+        } else {
+            std::cout << "Failed to insert entry with id " << ids[i] << " and data \"" << strs[i] << "\"" << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "                    Getting count..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "Number of entries in the hash table: " << hashTable.getCount() << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "                    Printing table..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    hashTable.printTable();
+    std::cout << std::endl;
 
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
