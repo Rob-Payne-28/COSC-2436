@@ -50,8 +50,16 @@ int main() {
      */
     
     // create your hash table object here
-    
+    HashTable hashTable;
+
     // show it is empty by calling getCount and printTable
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "                    Getting count..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "Number of entries in the hash table: " << hashTable.getCount() << std::endl;
+    std::cout << std::endl;
     
     // try and put ALL the test data into the table and show what happens
 
@@ -59,7 +67,7 @@ int main() {
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
 
-    
+
     
     
     
