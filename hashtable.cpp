@@ -15,7 +15,7 @@ HashTable::HashTable() {
 }
 
 HashTable::~HashTable() {
-    // ToDo: Destroy each linked list object and deallocate the hash table itself
+    delete[] hashtable;
 }
 
 bool HashTable::insertEntry(int id, string* inputData) {
