@@ -8,10 +8,7 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 
 HashTable::HashTable() {
     count = 0;
-
-    for (int i = 0; i < HASHTABLESIZE; i++){
-        hashTable = new LinkedList[HASHTABLESIZE];
-    }
+    hashTable = new LinkedList[HASHTABLESIZE];
 }
 
 HashTable::~HashTable() {
