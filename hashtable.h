@@ -9,6 +9,7 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 
 #define HASH_TABLE_SIZE 15
 #define EMPTY_STRING ""
+#define ZERO 0
 
 #include "data.h"
 

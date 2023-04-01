@@ -7,7 +7,7 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 #include "hashtable.h"
 
 HashTable::HashTable() {
-    count = 0;
+    count = ZERO;
     hashTable = new LinkedList[HASH_TABLE_SIZE];
 }
 
@@ -19,7 +19,7 @@ bool HashTable::insertEntry(int id, string* inputData) {
     bool success = false;
     int hashedId = hash(id);
 
-    if(id > 0 && *inputData != EMPTY_STRING) {
+    if(id > ZERO && *inputData != EMPTY_STRING) {
         if(!hashtable[hashedId].exists(id)) {
             success = hashtable[hashedId].addNode(id, inputData);
         }
@@ -60,7 +60,7 @@ int HashTable::getCount() {
 
 void HashTable::printTable() {
     std::cout << "Printing Table..." << std::endl;
-    for(int i = 0; i < HASH_TABLE_SIZE; i++){
+    for(int i = ZERO; i < HASH_TABLE_SIZE; i++){
         std::cout << " Entry " << (i+1) << ": " << std::endl;
         hashtable[i].printList();
         std::cout << std::endl;
