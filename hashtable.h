@@ -24,6 +24,7 @@ public:
 
 private:
     int count;
+    LinkedList *hashtable;
 
     int hash(int);
 };

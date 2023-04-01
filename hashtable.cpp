@@ -7,14 +7,18 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 #include "hashtable.h"
 
 HashTable::HashTable() {
-    // ToDo: Implement as an array of linked list objects
+    count = 0;
+
+    for (int i = 0; i < HASHTABLESIZE; i++){
+        hashTable = new LinkedList[HASHTABLESIZE];
+    }
 }
 
 HashTable::~HashTable() {
     // ToDo: Destroy each linked list object and deallocate the hash table itself
 }
 
-bool HashTable::insertEntry(int, string*) {
+bool HashTable::insertEntry(int id, string* inputData) {
     // ToDo: Check that input is greater than zero and a string that is not empty
     // ToDo: Find appropriate linked list object
     // ToDo: Check for unique id by calling exists on the linked list
@@ -22,12 +26,12 @@ bool HashTable::insertEntry(int, string*) {
     // ToDo: Increment count attribute on hash table implementation
 }
 
-string HashTable::getData(int) {
+string HashTable::getData(int id) {
     // ToDo: Look up id in linked list and return data string associated with that id
     // ToDo: Return empty string if the id doesn't exist
 }
 
-bool HashTable::removeEntry(int) {
+bool HashTable::removeEntry(int id) {
     // ToDo: Delegate to deleteNode method
     // ToDo: Return true or false to indicate success
     // ToDo: Decrement count attribute on hash table implementation
