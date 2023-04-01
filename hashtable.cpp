@@ -20,17 +20,14 @@ HashTable::~HashTable() {
 
 bool HashTable::insertEntry(int id, string* inputData) {
     bool success = false;
-    // ToDo: Find appropriate linked list object
     int hashedId = hash(id);
-    // ToDo: Check that input is greater than zero and a string that is not empty
+
     if(id > 0 && *inputData != EMPTY_STRING) {
-        // ToDo: Check for unique id by calling exists on the linked list
         if(!hashtable[hashedId].exists(id)) {
-            // ToDo: Delegate to linked list for insertion
             success = hashtable[hashedId].addNode(id, inputData);
         }
     }
-    // ToDo: Increment count attribute on hash table implementation
+
     if(success) {
         count++;
     }
