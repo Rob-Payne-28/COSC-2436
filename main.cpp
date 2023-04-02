@@ -277,9 +277,9 @@ int main() {
     std::cout << std::endl;
     hashTable.printTable();
 
-    int randNum = arc4random();
+    int randNum = rand();
     int selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
-    int randId = arc4random() % testdatasize;
+    int randId = rand() % testdatasize;
     bool success;
     for (int i = ZERO; i < HASH_TABLE_SIZE * TEST_MULTIPLIER; i++) {
         std::string data;
@@ -336,9 +336,9 @@ int main() {
                 break;
         }
 
-        randNum = arc4random();
+        randNum = rand();
         selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
-        randId = arc4random() % testdatasize;
+        randId = rand() % testdatasize;
     }
     std::cout << std::endl;
 
