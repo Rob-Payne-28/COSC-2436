@@ -1,4 +1,4 @@
-# LinkedList
+# Hash Table
 A hash-table program backed by a doubly linked list (no tail pointer). Part of COSC-2436 (Data structures and algorithms).
 
 
