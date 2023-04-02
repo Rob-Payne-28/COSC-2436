@@ -12,11 +12,14 @@ Purpose: Assignment 07 - Hash Table backed by Doubly Linked List that is part of
 #include <time.h>       /* time */
 #include <string>       /* string */
 #include "hashtable.h"
+#include <cmath>
 
 #define BUFFERSIZE 8
 #define MAXID 100
 #define BASE 5
 #define OFFSET 20
+#define POSSIBLE_SELECTIONS 7
+#define TEST_MULTIPLIER 10
 
 using std::cout;
 using std::endl;

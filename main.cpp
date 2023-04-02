@@ -188,7 +188,7 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "            Filling table for full tests..." << std::endl;
+    std::cout << "            Filling table for testing..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
 
@@ -216,13 +216,12 @@ int main() {
     }
     std::cout << std::endl;
 
-
     std::cout << "=====================================================" << std::endl;
     std::cout << "            Attempting to add invalid numbers..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
 
-    for (int i = ZERO; i > -HASH_TABLE_SIZE; i--) {
+    for (int i = ZERO; i > -testdatasize; i--) {
         Data data;
         data.id = i;
         data.data = strs[-i];
@@ -250,6 +249,83 @@ int main() {
         } else {
             std::cout << " Failed to insert entry with id " << data.id << " and data \'" << data.data << "\'" << std::endl;
         }
+    }
+    std::cout << std::endl;
+
+
+    /*
+     * These tests will exercise methods in a random order to test for unpredictable behavior
+    */
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << " Executing random tests..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "            Filling table for testing..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    for (int i = ZERO; i < testdatasize / 2; i++) {
+        hashTable.insertEntry(ids[i], &strs[i]);
+    }
+    std::cout << " Table filled with test data for full edge case tests" << std::endl;
+    std::cout << std::endl;
+    std::cout << " Number of entries: " << hashTable.getCount() << std::endl;
+    std::cout << std::endl;
+    hashTable.printTable();
+
+    int randNum = arc4random();
+    int selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
+    int randId = arc4random() % HASH_TABLE_SIZE;
+    for (int i = ZERO; i < HASH_TABLE_SIZE * TEST_MULTIPLIER; i++) {
+        std::string data;
+        switch (selection) {
+            case 1:
+            case 2:
+                // ToDo: Replace with Insert Statement
+                std::cout << "Insert place holder" << std::endl;
+                break;
+            case 3:
+            case 4:
+                // ToDo: Replace with Remove Statement
+                std::cout << "Remove place holder" << std::endl;
+                break;
+            case 5:
+                std::cout << "=====================================================" << std::endl;
+                std::cout << "            Getting data..." << std::endl;
+                std::cout << "=====================================================" << std::endl;
+                std::cout << std::endl;
+
+                data = hashTable.getData(ids[randId]);
+                if (!data.empty()) {
+                    std::cout << " Retrieved data for id " << ids[randId] << ": \'" << data << "\'" << std::endl;
+                } else {
+                    std::cout << " No data found for id " << ids[randId] << std::endl;
+                }
+                std::cout << std::endl;
+                break;
+            case 6:
+                std::cout << "=====================================================" << std::endl;
+                std::cout << "            Getting count..." << std::endl;
+                std::cout << "=====================================================" << std::endl;
+                std::cout << std::endl;
+                std::cout << " Number of entries: " << hashTable.getCount() << std::endl;
+                std::cout << std::endl;
+                break;
+            case 7:
+                std::cout << "=====================================================" << std::endl;
+                std::cout << "            Printing table..." << std::endl;
+                std::cout << "=====================================================" << std::endl;
+                std::cout << std::endl;
+                hashTable.printTable();
+                break;
+        }
+        randNum = arc4random();
+        selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
+        randId = arc4random() % HASH_TABLE_SIZE;
     }
     std::cout << std::endl;
 
