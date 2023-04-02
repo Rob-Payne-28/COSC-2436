@@ -35,7 +35,7 @@ string HashTable::getData(int id) {
     int hashedId = hash(id);
     Data data;
 
-    if(!hashTable[hashedId].getNode(id, &data)){
+    if(id <= 0 || !hashTable[hashedId].getNode(id, &data)){
         data.data = "";
     }
 

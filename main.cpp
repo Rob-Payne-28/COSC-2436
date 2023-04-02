@@ -49,28 +49,41 @@ int main() {
      * it works.
      */
     
-    // create your hash table object here
     HashTable hashTable;
 
     std::cout << "Executing method tests..." << std::endl;
     std::cout << std::endl;
 
-    // show it is empty by calling getCount and printTable
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Getting count..." << std::endl;
+    std::cout << "            Getting count..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
     std::cout << "Number of entries: " << hashTable.getCount() << std::endl;
     std::cout << std::endl;
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Printing table..." << std::endl;
+    std::cout << "            Printing table..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
     hashTable.printTable();
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Filling table..." << std::endl;
+    std::cout << "            Getting data on empty table..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    for (int i = ZERO; i < testdatasize; i++) {
+        std::string data = hashTable.getData(ids[i]);
+        if (!data.empty()) {
+            std::cout << "Retrieved data for id " << ids[i] << ": \'" << data << "\'" << std::endl;
+        } else {
+            std::cout << "No data found for id " << ids[i] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "            Filling table..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
 
@@ -85,20 +98,35 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Getting count..." << std::endl;
+    std::cout << "            Getting count..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
     std::cout << "Number of entries: " << hashTable.getCount() << std::endl;
     std::cout << std::endl;
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Printing table..." << std::endl;
+    std::cout << "            Printing table..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
     hashTable.printTable();
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Emptying table..." << std::endl;
+    std::cout << "            Getting data on full table..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    for (int i = ZERO; i < testdatasize; i++) {
+        std::string data = hashTable.getData(ids[i]);
+        if (!data.empty()) {
+            std::cout << "Retrieved data for id " << ids[i] << ": \'" << data << "\'" << std::endl;
+        } else {
+            std::cout << "No data found for id " << ids[i] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "            Emptying table..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
 
@@ -113,7 +141,7 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Getting empty count..." << std::endl;
+    std::cout << "            Getting empty count..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
 
@@ -121,7 +149,7 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "=====================================================" << std::endl;
-    std::cout << "                    Printing empty table..." << std::endl;
+    std::cout << "            Printing empty table..." << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::endl;
     hashTable.printTable();
