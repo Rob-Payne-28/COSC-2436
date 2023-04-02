@@ -279,26 +279,41 @@ int main() {
 
     int randNum = arc4random();
     int selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
-    int randId = arc4random() % HASH_TABLE_SIZE;
+    int randId = arc4random() % testdatasize;
+    bool success;
     for (int i = ZERO; i < HASH_TABLE_SIZE * TEST_MULTIPLIER; i++) {
         std::string data;
         switch (selection) {
+
+            // Inserts a random entry from the test data
             case 1:
             case 2:
-                // ToDo: Replace with Insert Statement
-                std::cout << "Insert place holder" << std::endl;
+                std::cout << " Insert data..." << std::endl;
+                success = hashTable.insertEntry(ids[randId], &strs[randId]);
+                if (success) {
+                    std::cout << " Inserted entry with id " << ids[randId] << " and data \'" << strs[randId] << "\'" << std::endl;
+                } else {
+                    std::cout << " Failed to insert entry with id " << ids[randId] << " and data \'" << strs[randId] << "\'" << std::endl;
+                }
+                std::cout << std::endl;
                 break;
+
+            // Removes a random entry from the test data
             case 3:
             case 4:
-                // ToDo: Replace with Remove Statement
-                std::cout << "Remove place holder" << std::endl;
-                break;
-            case 5:
-                std::cout << "=====================================================" << std::endl;
-                std::cout << "            Getting data..." << std::endl;
-                std::cout << "=====================================================" << std::endl;
+                std::cout << " Remove data..." << std::endl;
+                success = hashTable.removeEntry(ids[randId]);
+                if (success) {
+                    std::cout << " Removed the entry with id " << ids[randId] << std::endl;
+                } else {
+                    std::cout << " Failed to remove the entry with id " << ids[randId] << std::endl;
+                }
                 std::cout << std::endl;
+                break;
 
+            // Gets data of a random entry in the test data
+            case 5:
+                std::cout << " Getting data..." << std::endl;
                 data = hashTable.getData(ids[randId]);
                 if (!data.empty()) {
                     std::cout << " Retrieved data for id " << ids[randId] << ": \'" << data << "\'" << std::endl;
@@ -307,25 +322,23 @@ int main() {
                 }
                 std::cout << std::endl;
                 break;
+
+            // Gets a count of the items within the hash table
             case 6:
-                std::cout << "=====================================================" << std::endl;
-                std::cout << "            Getting count..." << std::endl;
-                std::cout << "=====================================================" << std::endl;
-                std::cout << std::endl;
+                std::cout << " Getting count..." << std::endl;
                 std::cout << " Number of entries: " << hashTable.getCount() << std::endl;
                 std::cout << std::endl;
                 break;
+
+            // Prints the hash table
             case 7:
-                std::cout << "=====================================================" << std::endl;
-                std::cout << "            Printing table..." << std::endl;
-                std::cout << "=====================================================" << std::endl;
-                std::cout << std::endl;
                 hashTable.printTable();
                 break;
         }
+
         randNum = arc4random();
         selection = std::abs(randNum) % POSSIBLE_SELECTIONS + 1;
-        randId = arc4random() % HASH_TABLE_SIZE;
+        randId = arc4random() % testdatasize;
     }
     std::cout << std::endl;
 
