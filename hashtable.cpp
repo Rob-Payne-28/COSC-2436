@@ -35,8 +35,8 @@ string HashTable::getData(int id) {
     int hashedId = hash(id);
     Data data;
 
-    if(id <= 0 || !hashTable[hashedId].getNode(id, &data)){
-        data.data = "";
+    if(id <= ZERO || !hashTable[hashedId].getNode(id, &data)){
+        data.data = EMPTY_STRING;
     }
 
     return data.data;
@@ -46,7 +46,7 @@ bool HashTable::removeEntry(int id) {
     bool success = false;
     int hashedId = hash(id);
 
-    if(id > 0 && hashTable[hashedId].deleteNode(id)){
+    if(id > ZERO && hashTable[hashedId].deleteNode(id)){
         count--;
         success = true;
     }
