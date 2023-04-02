@@ -46,7 +46,7 @@ bool HashTable::removeEntry(int id) {
     bool success = false;
     int hashedId = hash(id);
 
-    if(hashTable[hashedId].deleteNode(id)){
+    if(id > 0 && hashTable[hashedId].deleteNode(id)){
         count--;
         success = true;
     }

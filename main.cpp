@@ -100,6 +100,21 @@ int main() {
     hashTable.printTable();
     std::cout << std::endl;
 
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "                    Emptying table..." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::endl;
+
+    for (int i = ZERO; i < testdatasize; i++) {
+        bool success = hashTable.removeEntry(ids[i]);
+        if (success) {
+            std::cout << "Removed the entry with id " << ids[i] << std::endl;
+        } else {
+            std::cout << "Failed to remove the entry with id " << ids[i] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
