@@ -34,7 +34,7 @@ private:
     DataNode *root;
     int count;
 
-    void clear(DataNode*)
+    void clear(DataNode*);
     bool addNode(DataNode*, DataNode**);
     DataNode* removeNode(int, DataNode*);
     bool getNode(Data*, int, DataNode*);
