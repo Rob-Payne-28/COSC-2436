@@ -17,6 +17,16 @@ public:
     bool getRootData(Data*);
     void displayTree();
 
+    void clear();
+    bool addNode(int, const string*);
+    bool removeNode(int);
+    bool getNode(Data*, int);
+    bool contains(int);
+    int getHeight();
+    void displayPreOrder();
+    void displayPostOrder();
+    void displayInOrder();
+
 private:
 
 };
