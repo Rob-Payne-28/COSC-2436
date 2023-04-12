@@ -97,24 +97,42 @@ bool BinTree::contains(int id, DataNode* dataNode) {
 
 void BinTree::displayPreOrder() {
     // ToDo: Pre-order traversal, printing as you go
+    // Print right
+    // Print left
+    // Print node
 };
 
 void BinTree::displayPreOrder(DataNode* dataNode) {
     // ToDo: Pre-order traversal, printing as you go
+    // Print right
+    // Print left
+    // Print node
 };
 
 void BinTree::displayPostOrder() {
     // ToDo: Post-order traversal, printing as you go
+    // Print left
+    // Print right
+    // Print node
 };
 
 void BinTree::displayPostOrder(DataNode* dataNode) {
     // ToDo: Post-order traversal, printing as you go
+    // Print left
+    // Print right
+    // Print node
 };
 
 void BinTree::displayInOrder() {
     // ToDo: IJN-order traversal, printing as you go
+    // Print node
+    // Print left
+    // Print right
 };
 
 void BinTree::displayInOrder(DataNode* dataNode) {
     // ToDo: IJN-order traversal, printing as you go
+    // Print node
+    // Print left
+    // Print right
 };
