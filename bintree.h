@@ -29,6 +29,16 @@ public:
 
 private:
 
+    void clear(DataNode*)
+    bool addNode(DataNode*, DataNode**);
+    DataNode* removeNode(int, DataNode*);
+    bool getNode(Data*, int, DataNode*);
+    bool contains(int, DataNode*);
+    int getHeight(DataNode*);
+    void displayPreOrder(DataNode*);
+    void displayPostOrder(DataNode*);
+    void displayInOrder(DataNode*);
+
 };
 
 
