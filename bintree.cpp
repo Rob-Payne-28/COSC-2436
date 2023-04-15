@@ -43,13 +43,38 @@ void BinTree::clear(DataNode* dataNode) {
 };
 
 bool BinTree::addNode(int id, const string* value) {
-    return false;
-    // ToDo: pass in and return. Accept duplicate ids.
+
+    DataNode* tempNode = new DataNode;
+    tempNode->data.id = id;
+    tempNode->data.information = *value;
+    tempNode->left = nullptr;
+    tempNode->right = nullptr;
+
+    bool success = addNode(tempNode, &root);
+
+    if(success) {
+        count += 1;
+    }
+
+    return success;
 };
 
-bool BinTree::addNode(DataNode* parentNode, DataNode** childNodes) {
-    return false;
-    // ToDo: pass in and return. Accept duplicate ids.
+bool BinTree::addNode(DataNode* nodeToAdd, DataNode** rootNode) {
+    bool success = false;
+
+    // Add root
+    if(*rootNode == nullptr) {
+        *rootNode = nodeToAdd;
+        success = true;
+    } else if(nodeToAdd->data.id <= (*rootNode)->data.id) {
+    // Add left
+       success = addNode(nodeToAdd, &(*rootNode)->left);
+    } else if(nodeToAdd->data.id > (*rootNode)->data.id) {
+    // Add right
+       success = addNode(nodeToAdd, &(*rootNode)->right);
+    }
+
+    return success;
 };
 
 bool BinTree::removeNode(int id) {
