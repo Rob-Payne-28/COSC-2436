@@ -69,7 +69,9 @@ void BinTree::displayTree() {
 
 
 void BinTree::clear() {
-    // ToDo: deallocate the tree and set it back to empty
+    clear(root);
+    root = nullptr;
+    count = 0;
 }
 
 void BinTree::clear(DataNode* dataNode) {
