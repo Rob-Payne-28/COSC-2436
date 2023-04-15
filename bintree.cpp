@@ -78,9 +78,8 @@ void BinTree::clear(DataNode* tempNode) {
     if(tempNode != nullptr) {
         clear(tempNode->left);
         clear(tempNode->right);
+        delete tempNode;
     }
-
-    delete tempNode;
 }
 
 bool BinTree::addNode(int id, const string* value) {
