@@ -118,14 +118,49 @@ bool BinTree::addNode(DataNode* nodeToAdd, DataNode** rootNode) {
 }
 
 bool BinTree::removeNode(int id) {
-    return false;
-    // ToDo: pass in and return T/F
+    int oldCount = count;
+
+    root = removeNode(id, root);
+
+    return oldCount > count;
 }
 
 DataNode* BinTree::removeNode(int id, DataNode* dataNode) {
-    DataNode *node = new DataNode();
-    return node;
-    // ToDo: pass in and return T/F
+    // If the node isn't null, keep looking
+    if(dataNode != nullptr){
+        // If the targetId is less than the node's id, go left
+        if(id < dataNode->data.id){
+            dataNode->left = removeNode(id, dataNode->left);
+        // If the targetId is greater than the node's id, go right
+        } else if (id > dataNode->data.id){
+            dataNode->right = removeNode(id, dataNode->right);
+        // Otherwise, we're at our target and can begin handling cases based on how many children the node has
+        } else {
+            DataNode* tempNode = nullptr;
+            if(dataNode->left == nullptr && dataNode->right == nullptr){
+                delete dataNode;
+                dataNode = nullptr;
+                count -= 1;
+            } else if(dataNode->left != nullptr && dataNode->right == nullptr){
+                tempNode = dataNode->left;
+                delete dataNode;
+                dataNode = tempNode;
+                count -= 1;
+            } else if(dataNode->left == nullptr && dataNode->right != nullptr){
+                tempNode = dataNode->right;
+                delete dataNode;
+                dataNode = tempNode;
+                count -= 1;
+            } else {
+                DataNode* minNode = minValueNode(dataNode->right);
+                dataNode->data.id = minNode->data.id;
+                dataNode->data.information = minNode->data.information;
+                dataNode->right = removeNode(minNode->data.id, dataNode->right);
+                count -= 1;
+            }
+        }
+    }
+    return dataNode;
 }
 
 int BinTree::getHeight() {
@@ -201,4 +236,12 @@ void BinTree::displayInOrder(DataNode* dataNode) {
     // Print node
     // Print left
     // Print right
+}
+
+DataNode* BinTree::minValueNode(DataNode* node) {
+    DataNode* current = node;
+    while (current && current->left != NULL) {
+        current = current->left;
+    }
+    return current;
 }

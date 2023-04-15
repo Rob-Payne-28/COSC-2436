@@ -48,6 +48,7 @@ private:
     void displayPostOrder(DataNode*);
     void displayInOrder(DataNode*);
 
+    DataNode* minValueNode(DataNode*);
 };
 
 
