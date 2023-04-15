@@ -12,7 +12,7 @@ BinTree::BinTree() {
 };
 
 BinTree::~BinTree() {
-    // ToDo: call clearTree
+    clear();
 };
 
 bool BinTree::isEmpty() {
