@@ -65,8 +65,6 @@ void BinTree::displayTree() {
 
     std::cout << "==============================================" << std::endl;
     std::cout << std::endl;
-
-    // ToDo: display all stats for the tree as shown, and call all display order methods
 }
 
 
