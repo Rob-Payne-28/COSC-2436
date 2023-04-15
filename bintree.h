@@ -9,6 +9,7 @@ Purpose: Assignment 07 - Binary Search Tree that is part of COSC-2436.
 
 #include "data.h"
 #include <iostream>
+#include <algorithm> // max function
 
 #define EMPTY_STRING ""
 #define EMPTY_INT -1

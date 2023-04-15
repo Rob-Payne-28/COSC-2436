@@ -162,14 +162,20 @@ DataNode* BinTree::removeNode(int id, DataNode* dataNode) {
 }
 
 int BinTree::getHeight() {
-    return 0;
-    // ToDo: dynamically calculate the height of the tree
+    return getHeight(root);
 }
 
 int BinTree::getHeight(DataNode* dataNode) {
-    return 0;
-    // ToDo: dynamically calculate the height of the tree
+    int maxValue = 0;
+    if(dataNode != nullptr){
+        int left = getHeight(dataNode->left);
+        int right = getHeight(dataNode->right);
 
+        maxValue = std::max(left, right);
+
+        maxValue += 1;
+    }
+    return maxValue;
 }
 
 bool BinTree::getNode(Data* data, int id) {
