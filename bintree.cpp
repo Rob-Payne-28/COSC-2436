@@ -7,7 +7,8 @@ Purpose: Assignment 07 - Binary Search Tree that is part of COSC-2436.
 #include "bintree.h"
 
 BinTree::BinTree() {
-    // ToDo: Initalize member variables
+    root = nullptr;
+    count = 0;
 };
 
 BinTree::~BinTree() {
