@@ -24,9 +24,18 @@ int BinTree::getCount() {
 }
 
 bool BinTree::getRootData(Data* data) {
-    return false;
-    // ToDo: take empty struct and fill it with root's data if the tree is not empty. If empty fill with, -1 and "".
-    // Return T/F to indicate success
+    bool success = false;
+
+    if(root == nullptr) {
+        data->id = EMPTY_INT;
+        data->information = EMPTY_STRING;
+    } else {
+        data->id = root->data.id;
+        data->information = root->data.information;
+        success = true;
+    }
+
+    return success;
 }
 
 void BinTree::displayTree() {
