@@ -30,6 +30,30 @@ bool BinTree::getRootData(Data* data) {
 }
 
 void BinTree::displayTree() {
+    std::cout << "DISPLAY TREE" << std::endl;
+    std::cout << "==============================================" << std::endl;
+
+    if(isEmpty()) {
+        std::cout << "Tree is empty" << std::endl;
+    } else {
+        std::cout << "Tree is NOT empty" << std::endl;
+    }
+
+    std::cout << "Height "<< getHeight() << std::endl;
+    std::cout << "Node count: " << getCount() << std::endl;
+    std::cout << std::endl;
+
+    displayPreOrder();
+    std::cout << std::endl;
+
+    displayInOrder();
+    std::cout << std::endl;
+
+    displayPostOrder();
+
+    std::cout << "==============================================" << std::endl;
+    std::cout << std::endl;
+
     // ToDo: display all stats for the tree as shown, and call all display order methods
 }
 
@@ -121,6 +145,7 @@ bool BinTree::contains(int id, DataNode* dataNode) {
 
 
 void BinTree::displayPreOrder() {
+    std::cout << "Pre-Order Traversal" << std::endl;
     // ToDo: Pre-order traversal, printing as you go
     // Print right
     // Print left
@@ -135,6 +160,7 @@ void BinTree::displayPreOrder(DataNode* dataNode) {
 }
 
 void BinTree::displayPostOrder() {
+    std::cout << "Post-Order Traversal" << std::endl;
     // ToDo: Post-order traversal, printing as you go
     // Print left
     // Print right
@@ -149,6 +175,8 @@ void BinTree::displayPostOrder(DataNode* dataNode) {
 }
 
 void BinTree::displayInOrder() {
+    std::cout << "In-Order Traversal" << std::endl;
+
     // ToDo: IJN-order traversal, printing as you go
     // Print node
     // Print left
