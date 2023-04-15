@@ -126,16 +126,14 @@ bool BinTree::removeNode(int id) {
 }
 
 DataNode* BinTree::removeNode(int id, DataNode* dataNode) {
-    // If the node isn't null, keep looking
     if(dataNode != nullptr){
-        // If the targetId is less than the node's id, go left
+
         if(id < dataNode->data.id){
             dataNode->left = removeNode(id, dataNode->left);
-        // If the targetId is greater than the node's id, go right
         } else if (id > dataNode->data.id){
             dataNode->right = removeNode(id, dataNode->right);
-        // Otherwise, we're at our target and can begin handling cases based on how many children the node has
         } else {
+
             DataNode* tempNode = nullptr;
             if(dataNode->left == nullptr && dataNode->right == nullptr){
                 delete dataNode;
