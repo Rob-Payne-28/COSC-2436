@@ -74,8 +74,13 @@ void BinTree::clear() {
     count = 0;
 }
 
-void BinTree::clear(DataNode* dataNode) {
-    // ToDo: deallocate the tree and set it back to empty, should call itself recursively
+void BinTree::clear(DataNode* tempNode) {
+    if(tempNode != nullptr) {
+        clear(tempNode->left);
+        clear(tempNode->right);
+    }
+
+    delete tempNode;
 }
 
 bool BinTree::addNode(int id, const string* value) {
