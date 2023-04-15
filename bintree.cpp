@@ -15,8 +15,7 @@ BinTree::~BinTree() {
 };
 
 bool BinTree::isEmpty() {
-    return false;
-    // ToDo: test for empty and return T/F
+    return (count == 0);
 };
 
 int BinTree::getCount() {
