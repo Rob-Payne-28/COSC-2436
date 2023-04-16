@@ -226,17 +226,15 @@ bool BinTree::contains(int id, DataNode* dataNode) {
 }
 
 void BinTree::displayPreOrder() {
-    // ToDo: Pre-order traversal, printing as you go
-    // Print right
-    // Print left
-    // Print node
+    displayPreOrder(root);
 }
 
 void BinTree::displayPreOrder(DataNode* dataNode) {
-    // ToDo: Pre-order traversal, printing as you go
-    // Print right
-    // Print left
-    // Print node
+    if(dataNode != nullptr){
+        std::cout << dataNode->data.id << ": " << dataNode->data.information << std::endl;
+        displayPreOrder(dataNode->left);
+        displayPreOrder(dataNode->right);
+    }
 }
 
 void BinTree::displayPostOrder() {
