@@ -240,7 +240,7 @@ void BinTree::displayPreOrder() {
 
 void BinTree::displayPreOrder(DataNode* dataNode) {
     if(dataNode != nullptr){
-        std::cout << dataNode->data.id << " "  << dataNode->data.information << std::endl;
+        std::cout << dataNode->data.id << SEPARATOR  << dataNode->data.information << std::endl;
         displayPreOrder(dataNode->left);
         displayPreOrder(dataNode->right);
     }
@@ -254,7 +254,7 @@ void BinTree::displayPostOrder(DataNode* dataNode) {
     if(dataNode != nullptr){
         displayPostOrder(dataNode->left);
         displayPostOrder(dataNode->right);
-        std::cout << dataNode->data.id << " "  << dataNode->data.information << std::endl;
+        std::cout << dataNode->data.id << SEPARATOR  << dataNode->data.information << std::endl;
     }
 }
 
@@ -265,7 +265,7 @@ void BinTree::displayInOrder() {
 void BinTree::displayInOrder(DataNode* dataNode) {
     if(dataNode != nullptr){
         displayInOrder(dataNode->left);
-        std::cout << dataNode->data.id << " " << dataNode->data.information << std::endl;
+        std::cout << dataNode->data.id << SEPARATOR << dataNode->data.information << std::endl;
         displayInOrder(dataNode->right);
     }
 }
