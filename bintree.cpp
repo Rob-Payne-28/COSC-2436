@@ -84,7 +84,7 @@ void BinTree::clear(DataNode* tempNode) {
 
 bool BinTree::addNode(int id, const string* value) {
     bool success = false;
-    if(id > 0 && !(value->empty())) {
+    if(id > 0 && value != nullptr && !(value->empty())) {
         DataNode *tempNode = new DataNode;
         tempNode->data.id = id;
         tempNode->data.information = *value;
