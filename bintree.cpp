@@ -199,15 +199,31 @@ bool BinTree::getNode(Data* data, int id, DataNode* dataNode) {
 }
 
 bool BinTree::contains(int id) {
-    return false;
-    // ToDo: pass in and return T/F
+    bool success = false;
+
+    if(id > 0){
+        success = contains(id, root);
+    }
+
+    return success;
 }
 
 bool BinTree::contains(int id, DataNode* dataNode) {
-    return false;
-    // ToDo: pass in and return T/F
-}
+    bool success = false;
 
+    if(dataNode != nullptr){
+
+        if(id < dataNode->data.id){
+            success = contains(id, dataNode->left);
+        } else if(id > dataNode->data.id){
+            success = contains(id, dataNode->right);
+        } else {
+            success = true;
+        }
+    }
+
+    return success;
+}
 
 void BinTree::displayPreOrder() {
     // ToDo: Pre-order traversal, printing as you go
