@@ -102,15 +102,12 @@ bool BinTree::addNode(int id, const string* value) {
 bool BinTree::addNode(DataNode* nodeToAdd, DataNode** rootNode) {
     bool success = false;
 
-    // Add root
     if(*rootNode == nullptr) {
         *rootNode = nodeToAdd;
         success = true;
     } else if(nodeToAdd->data.id <= (*rootNode)->data.id) {
-    // Add left
        success = addNode(nodeToAdd, &(*rootNode)->left);
     } else if(nodeToAdd->data.id > (*rootNode)->data.id) {
-    // Add right
        success = addNode(nodeToAdd, &(*rootNode)->right);
     }
 
@@ -179,13 +176,26 @@ int BinTree::getHeight(DataNode* dataNode) {
 }
 
 bool BinTree::getNode(Data* data, int id) {
-    return false;
-    // ToDo: pass in and return as normal. Must use binary search
+    return getNode(data, id, root);
 }
 
 bool BinTree::getNode(Data* data, int id, DataNode* dataNode) {
-    return false;
-    // ToDo: pass in and return as normal. Must use binary search
+    bool success = false;
+
+    if(dataNode != nullptr){
+
+        if(id < dataNode->data.id){
+            success = getNode(data, id, dataNode->left);
+        } else if(id > dataNode->data.id){
+            success = getNode(data, id, dataNode->right);
+        } else {
+            data->id = dataNode->data.id;
+            data->information = dataNode->data.information;
+            success = true;
+        }
+    }
+
+    return success;
 }
 
 bool BinTree::contains(int id) {
