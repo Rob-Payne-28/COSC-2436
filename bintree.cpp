@@ -8,7 +8,7 @@ Purpose: Assignment 07 - Binary Search Tree that is part of COSC-2436.
 
 BinTree::BinTree() {
     root = nullptr;
-    count = 0;
+    count = ZERO;
 }
 
 BinTree::~BinTree() {
@@ -16,7 +16,7 @@ BinTree::~BinTree() {
 }
 
 bool BinTree::isEmpty() {
-    return (count == 0);
+    return (count == ZERO);
 }
 
 int BinTree::getCount() {
@@ -71,7 +71,7 @@ void BinTree::displayTree() {
 void BinTree::clear() {
     clear(root);
     root = nullptr;
-    count = 0;
+    count = ZERO;
 }
 
 void BinTree::clear(DataNode* tempNode) {
@@ -84,7 +84,7 @@ void BinTree::clear(DataNode* tempNode) {
 
 bool BinTree::addNode(int id, const string* value) {
     bool success = false;
-    if(id > 0 && value != nullptr && !(value->empty())) {
+    if(id > ZERO && value != nullptr && !(value->empty())) {
         DataNode *tempNode = new DataNode;
         tempNode->data.id = id;
         tempNode->data.information = *value;
@@ -94,7 +94,7 @@ bool BinTree::addNode(int id, const string* value) {
         success = addNode(tempNode, &root);
 
         if (success) {
-            count += 1;
+            count++;
         }
     }
     return success;
@@ -118,7 +118,7 @@ bool BinTree::addNode(DataNode* nodeToAdd, DataNode** rootNode) {
 bool BinTree::removeNode(int id) {
     int oldCount = count;
 
-    if(id > 0) {
+    if(id > ZERO) {
         root = removeNode(id, root);
     }
 
@@ -138,23 +138,23 @@ DataNode* BinTree::removeNode(int id, DataNode* dataNode) {
             if(dataNode->left == nullptr && dataNode->right == nullptr){
                 delete dataNode;
                 dataNode = nullptr;
-                count -= 1;
+                count--;
             } else if(dataNode->left != nullptr && dataNode->right == nullptr){
                 tempNode = dataNode->left;
                 delete dataNode;
                 dataNode = tempNode;
-                count -= 1;
+                count--;
             } else if(dataNode->left == nullptr && dataNode->right != nullptr){
                 tempNode = dataNode->right;
                 delete dataNode;
                 dataNode = tempNode;
-                count -= 1;
+                count--;
             } else {
                 DataNode* minNode = minValueNode(dataNode->right);
                 dataNode->data.id = minNode->data.id;
                 dataNode->data.information = minNode->data.information;
                 dataNode->right = removeNode(minNode->data.id, dataNode->right);
-                count -= 1;
+                count--;
             }
         }
     }
@@ -166,14 +166,14 @@ int BinTree::getHeight() {
 }
 
 int BinTree::getHeight(DataNode* dataNode) {
-    int maxValue = 0;
+    int maxValue = ZERO;
     if(dataNode != nullptr){
         int left = getHeight(dataNode->left);
         int right = getHeight(dataNode->right);
 
         maxValue = std::max(left, right);
 
-        maxValue += 1;
+        maxValue++;
     }
     return maxValue;
 }
@@ -181,7 +181,7 @@ int BinTree::getHeight(DataNode* dataNode) {
 bool BinTree::getNode(Data* data, int id) {
     bool success = false;
 
-    if(id > 0){
+    if(id > ZERO){
         success = getNode(data, id, root);
     }
 
@@ -210,7 +210,7 @@ bool BinTree::getNode(Data* data, int id, DataNode* dataNode) {
 bool BinTree::contains(int id) {
     bool success = false;
 
-    if(id > 0){
+    if(id > ZERO){
         success = contains(id, root);
     }
 
