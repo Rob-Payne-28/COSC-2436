@@ -83,19 +83,20 @@ void BinTree::clear(DataNode* tempNode) {
 }
 
 bool BinTree::addNode(int id, const string* value) {
+    bool success = false;
+    if(id > 0 && !(value->empty())) {
+        DataNode *tempNode = new DataNode;
+        tempNode->data.id = id;
+        tempNode->data.information = *value;
+        tempNode->left = nullptr;
+        tempNode->right = nullptr;
 
-    DataNode* tempNode = new DataNode;
-    tempNode->data.id = id;
-    tempNode->data.information = *value;
-    tempNode->left = nullptr;
-    tempNode->right = nullptr;
+        success = addNode(tempNode, &root);
 
-    bool success = addNode(tempNode, &root);
-
-    if(success) {
-        count += 1;
+        if (success) {
+            count += 1;
+        }
     }
-
     return success;
 }
 
@@ -117,7 +118,9 @@ bool BinTree::addNode(DataNode* nodeToAdd, DataNode** rootNode) {
 bool BinTree::removeNode(int id) {
     int oldCount = count;
 
-    root = removeNode(id, root);
+    if(id > 0) {
+        root = removeNode(id, root);
+    }
 
     return oldCount > count;
 }
@@ -176,7 +179,13 @@ int BinTree::getHeight(DataNode* dataNode) {
 }
 
 bool BinTree::getNode(Data* data, int id) {
-    return getNode(data, id, root);
+    bool success = false;
+
+    if(id > 0){
+        success = getNode(data, id, root);
+    }
+
+    return success;
 }
 
 bool BinTree::getNode(Data* data, int id, DataNode* dataNode) {
