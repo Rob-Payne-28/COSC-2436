@@ -231,24 +231,22 @@ void BinTree::displayPreOrder() {
 
 void BinTree::displayPreOrder(DataNode* dataNode) {
     if(dataNode != nullptr){
-        std::cout << dataNode->data.id << ": " << dataNode->data.information << std::endl;
+        std::cout << dataNode->data.id << dataNode->data.information << std::endl;
         displayPreOrder(dataNode->left);
         displayPreOrder(dataNode->right);
     }
 }
 
 void BinTree::displayPostOrder() {
-    // ToDo: Post-order traversal, printing as you go
-    // Print left
-    // Print right
-    // Print node
+    displayPostOrder(root);
 }
 
 void BinTree::displayPostOrder(DataNode* dataNode) {
-    // ToDo: Post-order traversal, printing as you go
-    // Print left
-    // Print right
-    // Print node
+    if(dataNode != nullptr){
+        displayPostOrder(dataNode->left);
+        displayPostOrder(dataNode->right);
+        std::cout << dataNode->data.id << dataNode->data.information << std::endl;
+    }
 }
 
 void BinTree::displayInOrder() {
