@@ -16,18 +16,16 @@ Graph::~Graph() {
 
 // Methods to build and remove nodes/edges
 bool Graph::addVertex(int id, string* information) {
-    // define return variable
     bool success = false;
 
-    if(id > 1 && *information != "") {
+    if(id > 0 && *information != "") {
         // check to see if this node is already in the graph
         if(vertices.find(id) != vertices.end()) {
-            // if not, create a new one and add the attributes
+
             Vertex newVertex;
             newVertex.id = id;
             newVertex.information = *information;
 
-            // add it to the map
             vertices[id] = newVertex;
             success = true;
         }
@@ -40,8 +38,30 @@ bool Graph::removeVertex(int) {
     return false; // ToDo - removeVertex
 }
 
-bool Graph::addEdge(int, int) {
-    return false; // ToDo - addEdge
+bool Graph::addEdge(int vertex1, int vertex2) {
+    bool success = false;
+
+    // ToDo - clean this up
+
+    // check incoming data
+    if(vertex1 > 0 || vertex2 > 0) {
+        // check that vertices exist in graph
+        if(vertices.find(vertex1) != vertices.end() && vertices.find(vertex2) != vertices.end()) {
+
+            // check that edge doesn't already exist
+            std::vector<int>& vertex1Edges = adjacencyList[vertex1];
+            for (int i = 0; i < vertex1Edges.size(); ++i) {
+                if(vertex1Edges[i] != vertex2) {
+                    // push data to both vertices
+                    adjacencyList[vertex1].push_back(vertex2);
+                    adjacencyList[vertex2].push_back(vertex1);
+                    success = true;
+                }
+            }
+        }
+    }
+
+    return success;
 }
 
 bool Graph::removeEdge(int, int) {
