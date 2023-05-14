@@ -108,5 +108,21 @@ void Graph::printAdjacencyMatrix() {
 }
 
 void Graph::printAdjacencyList() {
-    // ToDo - printAdjacencyList
+    int mapSize = adjacencyList.size();
+
+    // C++ has type inference!! https://www.geeksforgeeks.org/type-inference-in-c-auto-and-decltype/
+    auto iterator = adjacencyList.begin();
+
+    for(int i = 0; i < mapSize; ++i, ++iterator) {
+        int vertexID = iterator->first;
+        const vector<int>& edges = iterator->second;
+
+        std::cout << "Vertex " << vertexID << " is connected to: ";
+
+        for(int j = 0; j < edges.size(); ++j) {
+            std::cout << edges[j] << " ";
+        }
+
+        std::cout << std::endl;
+    }
 }

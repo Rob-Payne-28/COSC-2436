@@ -13,5 +13,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include <ostream>
 #include <iostream>
 
+using std::cout;
+using std::endl;
 
 #endif //MAIN_H
