@@ -183,8 +183,36 @@ int Graph::size() {
 }
 
 // Not sure if we're going to need these, but they'd be nice to add if we have time
-bool Graph::breadthFirstSearch(int, vector <Vertex> &) {
-    return false; // ToDo - BFS
+bool Graph::breadthFirstSearch(int startId, vector <Vertex> &visitedOrder) {
+    bool success = false;
+    if (vertices.find(startId) != vertices.end()) {
+
+        map<int, bool> visited;
+        queue<int> toVisit;
+
+        for (auto &vertex : vertices) {
+            visited[vertex.first] = false;
+        }
+
+        visited[startId] = true;
+        toVisit.push(startId);
+
+        while (!toVisit.empty()) {
+            int currentId = toVisit.front();
+            toVisit.pop();
+            visitedOrder.push_back(vertices[currentId]);
+
+            for (auto i = adjacencyList[currentId].begin(); i != adjacencyList[currentId].end(); ++i) {
+                if (!visited[*i]) {
+                    toVisit.push(*i);
+                    visited[*i] = true;
+                }
+            }
+        }
+        success = true;
+    }
+
+    return success;
 }
 
 bool Graph::depthFirstSearch(int, vector <Vertex> &) {

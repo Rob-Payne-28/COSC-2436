@@ -12,6 +12,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <queue> // For BFS
 #include "vertex.h"
 #include "edge.h"
 
@@ -21,6 +22,7 @@ using std::string;
 using std::find;
 using std::cout;
 using std::endl;
+using std::queue;
 
 class Graph {
 
