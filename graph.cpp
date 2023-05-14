@@ -126,6 +126,7 @@ bool Graph::getEdges(vector <Edge> &edgesToReturn) {
     bool success = false;
 
     if (!adjacencyList.empty()) {
+        // ToDo - swap standard for loops for these "enhanced" loops
         for (auto& vertex : adjacencyList) {
             int vertexId = vertex.first;
             for (int neighbor : vertex.second) {
@@ -142,8 +143,21 @@ bool Graph::getEdges(vector <Edge> &edgesToReturn) {
     return success;
 }
 
-bool Graph::getAdjacent(int, vector <Vertex> &) {
-    return false; // ToDo - getAdjacent
+bool Graph::getAdjacent(int id, vector <Vertex> &adjacent) {
+    bool success = false;
+
+    if (vertices.find(id) != vertices.end()) {
+        vector<int>& adjacencies = adjacencyList[id];
+        for (int adjacentId : adjacencies) {
+            if (vertices.find(adjacentId) != vertices.end()) {
+                adjacent.push_back(vertices[adjacentId]);
+            }
+        }
+        // ToDo - What happens if there are no adjacencies?
+        success = true;
+    }
+
+    return success;
 }
 
 // Helper methods (called by other methods to reduce complexity)
