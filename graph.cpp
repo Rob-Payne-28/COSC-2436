@@ -166,8 +166,16 @@ bool Graph::hasVertex(int id) {
     return vertices.find(id) != vertices.end();
 }
 
-bool Graph::hasEdge(int, int) {
-    return false; // ToDo - hasEdge
+bool Graph::hasEdge(int vertexOneId, int vertexTwoId) {
+    bool success = false;
+
+    if (vertices.find(vertexOneId) != vertices.end() && vertices.find(vertexTwoId) != vertices.end()) {
+        auto& edges = adjacencyList[vertexOneId];
+
+        success = find(edges.begin(), edges.end(), vertexTwoId) != edges.end();
+    }
+    
+    return success;
 }
 
 int Graph::size() {
