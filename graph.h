@@ -26,7 +26,7 @@ public:
     // Methods to find things
     bool getVertices(std::vector<Vertex>&);
     bool getEdges(); // ToDo - figure out how I'm going to do this from the adjacency list
-    // ToDo - getAdjacent
+    bool getAdjacent(int, std::vector<Vertex>&);
 
     // Helper methods (called by other methods to reduce complexity)
     bool hasVertex(int);
