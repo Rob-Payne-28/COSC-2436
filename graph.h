@@ -10,6 +10,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include <map>
 #include <vector>
 #include <string>
+#include <iostream>
 #include "vertex.h"
 #include "edge.h"
 
