@@ -30,7 +30,7 @@ public:
 
     // Methods to find things
     bool getVertices(vector<Vertex>&);
-    bool getEdges(vector<Edge>&); // print each
+    bool getEdges(vector<Edge>&);
     bool getAdjacent(int, vector<Vertex>&);
 
     // Helper methods (called by other methods to reduce complexity)
@@ -48,8 +48,6 @@ private:
     // Member variables
     map<int, Vertex> vertices;
     map<int, vector<int>> adjacencyList;
-
-    // Private methods (May move helper methods here)
 
 };
 
