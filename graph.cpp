@@ -122,8 +122,24 @@ bool Graph::getVertices(vector <Vertex> &verticesToReturn) {
     return success;
 }
 
-bool Graph::getEdges(vector <Edge> &) {
-    return false; // ToDo - getEdges
+bool Graph::getEdges(vector <Edge> &edgesToReturn) {
+    bool success = false;
+
+    if (!adjacencyList.empty()) {
+        for (auto& vertex : adjacencyList) {
+            int vertexId = vertex.first;
+            for (int neighbor : vertex.second) {
+                if (vertexId < neighbor) {
+                    Edge edge;
+                    edge.vertex1 = vertexId;
+                    edge.vertex2 = neighbor;
+                    edgesToReturn.push_back(edge);
+                }
+            }
+        }
+        success = true;
+    }
+    return success;
 }
 
 bool Graph::getAdjacent(int, vector <Vertex> &) {
