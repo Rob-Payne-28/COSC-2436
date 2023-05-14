@@ -161,8 +161,9 @@ bool Graph::getAdjacent(int id, vector <Vertex> &adjacent) {
 }
 
 // Helper methods (called by other methods to reduce complexity)
-bool Graph::hasVertex(int) {
-    return false; // ToDo - hasVertex
+bool Graph::hasVertex(int id) {
+    // ToDo - replace these checks with a call to this method
+    return vertices.find(id) != vertices.end();
 }
 
 bool Graph::hasEdge(int, int) {
