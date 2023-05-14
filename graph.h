@@ -11,6 +11,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include "vertex.h"
 #include "edge.h"
 
