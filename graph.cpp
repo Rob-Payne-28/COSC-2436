@@ -18,9 +18,9 @@ Graph::~Graph() {
 bool Graph::addVertex(int id, string* information) {
     bool success = false;
 
-    if(id > 0 && *information != "") {
+    if(id > 0 && information && *information != "") {
         // check to see if this node is already in the graph
-        if(vertices.find(id) != vertices.end()) {
+        if(vertices.find(id) == vertices.end()) {
 
             Vertex newVertex;
             newVertex.id = id;
