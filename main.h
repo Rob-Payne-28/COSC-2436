@@ -13,9 +13,11 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include <ostream>
 #include <iostream>
 #include <cstdlib>
+#include <set>
 
 using std::cout;
 using std::endl;
+using std::set;
 
 #define testDataSize 10
 

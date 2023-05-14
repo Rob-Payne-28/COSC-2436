@@ -191,12 +191,25 @@ bool Graph::depthFirstSearch(int, vector <Vertex> &) {
 }
 
 void Graph::printAdjacencyMatrix() {
+    // Map vertex ids to indices and vice versa
+    std::map<int, int> vertexIdToIndex;
+    std::vector<int> indexToVertexId;
+    int index = 1;
+    for (auto& vertex : vertices) {
+        vertexIdToIndex[vertex.first] = index;
+        indexToVertexId.push_back(vertex.first);
+        ++index;
+    }
+
     int size = vertices.size();
 
     vector<vector<int>> matrix(size+1, vector<int>(size+1, 0));
 
-    for (int i = 1; i <= size; ++i) {
-        for (int j : adjacencyList[i]) {
+    for (auto& vertex : vertices) {
+        int i = vertexIdToIndex[vertex.first];
+        for (int vertexId : adjacencyList[vertex.first]) {
+            int j = vertexIdToIndex[vertexId];
+
             // Set the corresponding cells to 1
             matrix[i][j] = 1;
             matrix[j][i] = 1;
@@ -205,12 +218,12 @@ void Graph::printAdjacencyMatrix() {
 
     cout << setw(3) << " ";
     for (int i = 1; i <= size; ++i) {
-        cout << setw(3) << i;
+        cout << setw(3) << indexToVertexId[i-1];
     }
     cout << endl;
 
     for (int i = 1; i <= size; ++i) {
-        cout << setw(3) << i;
+        cout << setw(3) << indexToVertexId[i-1];
         for (int j = 1; j <= size; ++j) {
             cout << setw(3) << matrix[i][j];
         }
