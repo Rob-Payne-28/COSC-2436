@@ -12,8 +12,23 @@ Graph::Graph() {}
 Graph::~Graph() {}
 
 // Methods to build and remove nodes/edges
-bool Graph::addVertex(int, std::string) {
-    return false; // ToDo - addVertex
+bool Graph::addVertex(int id, string information) {
+    // define return variable
+    bool success = false;
+
+    // check to see if this node is already in the graph
+    if(!vertices.find(id)) {
+        // if not, create a new one and add the attributes
+        Vertex newVertex;
+        newVertex.id = id;
+        newVertex.information = information;
+
+        // add it to the map
+        vertices[id] = newVertex;
+        success = true;
+    }
+
+    return success;
 }
 
 bool Graph::removeVertex(int) {
