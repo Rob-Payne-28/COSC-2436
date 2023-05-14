@@ -109,8 +109,17 @@ bool Graph::removeEdge(int vertexOneId, int vertexTwoId) {
 }
 
 // Methods to find things
-bool Graph::getVertices(vector <Vertex> &) {
-    return false; // ToDo - getVertices
+bool Graph::getVertices(vector <Vertex> &verticesToReturn) {
+    bool success = false;
+
+    if (!vertices.empty()) {
+        for (auto& vertex : vertices) {
+            verticesToReturn.push_back(vertex.second);
+        }
+        success = true;
+    }
+
+    return success;
 }
 
 bool Graph::getEdges(vector <Edge> &) {
