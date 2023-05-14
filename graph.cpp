@@ -192,7 +192,25 @@ bool Graph::depthFirstSearch(int, vector <Vertex> &) {
 }
 
 void Graph::printAdjacencyMatrix() {
-    // ToDo - printAdjacencyMatrix
+    int size = vertices.size();
+
+    vector<vector<int>> matrix(size+1, vector<int>(size+1, 0)); // adjust size
+
+    for (int i = 1; i <= size; ++i) {
+        for (int j : adjacencyList[i]) {
+            // Set the corresponding cells to 1
+            matrix[i][j] = 1;
+            matrix[j][i] = 1;
+        }
+    }
+
+    // Print ToDo - make this print labels too
+    for (int i = 1; i <= size; ++i) {
+        for (int j = 1; j <= size; ++j) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
 
 void Graph::printAdjacencyList() {
@@ -205,12 +223,12 @@ void Graph::printAdjacencyList() {
         int vertexID = iterator->first;
         vector<int>& edges = iterator->second;
 
-        std::cout << "Vertex " << vertexID << " is connected to: ";
+        cout << "Vertex " << vertexID << " is connected to: ";
 
         for(int j = 0; j < edges.size(); ++j) {
-            std::cout << edges[j] << " ";
+            cout << edges[j] << " ";
         }
 
-        std::cout << std::endl;
+        cout << endl;
     }
 }

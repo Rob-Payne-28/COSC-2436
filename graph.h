@@ -19,6 +19,8 @@ using std::vector;
 using std::map;
 using std::string;
 using std::find;
+using std::cout;
+using std::endl;
 
 class Graph {
 
