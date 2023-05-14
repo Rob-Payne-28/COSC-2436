@@ -39,8 +39,8 @@ public:
     int size();
 
     // Not sure if we're going to need these, but they'd be nice to add if we have time
-    bool breadthFirstSearch(int, vector<Vertex>);
-    bool depthFirstSearch(int, vector<Vertex>);
+    bool breadthFirstSearch(int, vector<Vertex>&);
+    bool depthFirstSearch(int, vector<Vertex>&);
     void printAdjacencyMatrix();
     void printAdjacencyList();
 
