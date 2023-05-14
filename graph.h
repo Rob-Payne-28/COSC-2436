@@ -14,6 +14,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include "edge.h"
 
 using std::vector;
+using std::map;
 
 class Graph {
 
@@ -38,15 +39,15 @@ public:
     int size();
 
     // Not sure if we're going to need these, but they'd be nice to add if we have time
-    bool breadthFirstSearch(); // ToDo - figure out what to pass in. Start id and a vector to return values?
-    bool depthFirstSearch(); // ToDo - figure out what to pass in. Start id and a vector to return values?
-    void printAdjacencyMatrix(); // ToDo - printAdjacencyMatrix
-    void printAdjacencyList(); // ToDo - printAdjacencyList
+    bool breadthFirstSearch(int, vector<Vertex>);
+    bool depthFirstSearch(int, vector<Vertex>);
+    void printAdjacencyMatrix();
+    void printAdjacencyList();
 
 private:
     // Member variables
-    std::map<int, Vertex> vertices;
-    std::map<int, vector<int>> adjacencyList;
+    map<int, Vertex> vertices;
+    map<int, vector<int>> adjacencyList;
 
     // Private methods (May move helper methods here)
 
