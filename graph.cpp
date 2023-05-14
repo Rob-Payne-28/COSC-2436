@@ -7,14 +7,11 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include "graph.h"
 
 Graph::Graph() {
-    // ToDo - Constructor
 }
 
 Graph::~Graph() {
-    // ToDo - Deconstructor
 }
 
-// Methods to build and remove nodes/edges
 bool Graph::addVertex(int id, string* information) {
     bool success = false;
 
@@ -86,7 +83,6 @@ bool Graph::removeEdge(int vertexOneId, int vertexTwoId) {
     return success;
 }
 
-// Methods to find things
 bool Graph::getVertices(vector <Vertex> &verticesToReturn) {
     bool success = false;
 
@@ -137,7 +133,6 @@ bool Graph::getAdjacent(int id, vector <Vertex> &adjacent) {
     return success;
 }
 
-// Helper methods (called by other methods to reduce complexity)
 bool Graph::hasVertex(int id) {
     return vertices.find(id) != vertices.end();
 }
@@ -145,7 +140,7 @@ bool Graph::hasVertex(int id) {
 bool Graph::hasEdge(int vertexOneId, int vertexTwoId) {
     bool success = false;
 
-    if (vertices.find(vertexOneId) != vertices.end() && vertices.find(vertexTwoId) != vertices.end()) {
+    if (hasVertex(vertexOneId) && hasVertex(vertexTwoId)) {
         auto& edges = adjacencyList[vertexOneId];
 
         success = find(edges.begin(), edges.end(), vertexTwoId) != edges.end();
