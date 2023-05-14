@@ -174,12 +174,12 @@ bool Graph::hasEdge(int vertexOneId, int vertexTwoId) {
 
         success = find(edges.begin(), edges.end(), vertexTwoId) != edges.end();
     }
-    
+
     return success;
 }
 
 int Graph::size() {
-    return 0;// ToDo - size
+    return vertices.size();
 }
 
 // Not sure if we're going to need these, but they'd be nice to add if we have time
