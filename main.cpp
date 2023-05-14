@@ -11,9 +11,9 @@ int main() {
     Graph myGraph;
 
     // ToDo - Add test data generation (make this more robust)
-    int testdatasize = 5;
-    vector<int> ids{1, 2, 3, 4, 5};
-    vector<string> strs{"First", "Second", "Third", "Fourth", "Fifth"};
+    int testdatasize = 10;
+    vector<int> ids{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    vector<string> strs{"First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"};
 
     // ToDo - Add method testing
     cout << "=====================================================" << endl;

@@ -33,8 +33,22 @@ bool Graph::addVertex(int id, string* information) {
     return success;
 }
 
-bool Graph::removeVertex(int) {
-    return false; // ToDo - removeVertex
+bool Graph::removeVertex(int id) {
+    bool success = false;
+
+    // validate input
+    // make sure vertex exists
+    if(id > 0 && vertices.find(id) != vertices.end()) {
+        // remove from map
+        vertices.erase(id);
+
+        // ToDo - remove edges using remove edge method
+
+        adjacencyList.erase(id);
+        success = true;
+    }
+
+    return success;
 }
 
 bool Graph::addEdge(int vertex1, int vertex2) {
