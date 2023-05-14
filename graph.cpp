@@ -17,7 +17,7 @@ bool Graph::addVertex(int id, string information) {
     bool success = false;
 
     // check to see if this node is already in the graph
-    if(!vertices.find(id)) {
+    if(vertices.find(id) != vertices.end()) {
         // if not, create a new one and add the attributes
         Vertex newVertex;
         newVertex.id = id;
