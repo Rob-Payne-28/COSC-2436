@@ -42,7 +42,12 @@ bool Graph::removeVertex(int id) {
         // remove from map
         vertices.erase(id);
 
-        // ToDo - remove edges using remove edge method
+        // find all the edges associated with the vertex
+        auto& edges = adjacencyList[id];
+        // remove them in reverse order so we don't mess up the vector (they shift)
+        for (int i = edges.size() - 1; i >= 0; --i) {
+            removeEdge(id, edges[i]);
+        }
 
         adjacencyList.erase(id);
         success = true;
@@ -150,7 +155,7 @@ void Graph::printAdjacencyList() {
 
     for(int i = 0; i < mapSize; ++i, ++iterator) {
         int vertexID = iterator->first;
-        const vector<int>& edges = iterator->second;
+        vector<int>& edges = iterator->second;
 
         std::cout << "Vertex " << vertexID << " is connected to: ";
 
