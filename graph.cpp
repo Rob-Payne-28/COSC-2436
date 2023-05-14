@@ -13,54 +13,54 @@ Graph::~Graph() {}
 
 // Methods to build and remove nodes/edges
 bool Graph::addVertex(int, std::string) {
-    // ToDo - addVertex
+    return false; // ToDo - addVertex
 }
 
 bool Graph::removeVertex(int) {
-    // ToDo - removeVertex
+    return false; // ToDo - removeVertex
 }
 
 bool Graph::addEdge(int, int) {
-    // ToDo - addEdge
+    return false; // ToDo - addEdge
 }
 
 bool Graph::removeEdge(int, int) {
-    // ToDo - removeEdge
+    return false; // ToDo - removeEdge
 }
 
 // Methods to find things
 bool Graph::getVertices(vector <Vertex> &) {
-    // ToDo - getVertices
+    return false; // ToDo - getVertices
 }
 
 bool Graph::getEdges(vector <Edge> &) {
-    // ToDo - getEdges
+    return false; // ToDo - getEdges
 }
 
 bool Graph::getAdjacent(int, vector <Vertex> &) {
-    // ToDo - getAdjacent
+    return false; // ToDo - getAdjacent
 }
 
 // Helper methods (called by other methods to reduce complexity)
 bool Graph::hasVertex(int) {
-    // ToDo - hasVertex
+    return false; // ToDo - hasVertex
 }
 
 bool Graph::hasEdge(int, int) {
-    // ToDo - hasEdge
+    return false; // ToDo - hasEdge
 }
 
 int Graph::size() {
-    // ToDo - size
+    return 0;// ToDo - size
 }
 
 // Not sure if we're going to need these, but they'd be nice to add if we have time
 bool Graph::breadthFirstSearch(int, vector <Vertex> &) {
-    // ToDo - BFS
+    return false; // ToDo - BFS
 }
 
 bool Graph::depthFirstSearch(int, vector <Vertex> &) {
-    // ToDo - DFS
+    return false; // ToDo - DFS
 }
 
 void Graph::printAdjacencyMatrix() {
