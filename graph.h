@@ -37,8 +37,8 @@ public:
 
 private:
     // Member variables
-    // ToDo - Member variable for vertices list (possibly a map or vector?)
-    // ToDo - Member variable for the adjacency list (possibly a map or a vector?)
+    // ToDo - Member variable for vertices list (using a map here, not a vector)
+    // ToDo - Member variable for the adjacency list (using a map of vectors)
 
     // Private methods (May move helper methods here)
 
