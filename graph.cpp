@@ -62,17 +62,9 @@ bool Graph::addEdge(int vertex1, int vertex2) {
     if(vertex1 > 0 && vertex2 > 0) {
         if(vertices.find(vertex1) != vertices.end() && vertices.find(vertex2) != vertices.end()) {
 
-            std::vector<int>& vertex1Edges = adjacencyList[vertex1];
-            bool edgeExists = false;
+            auto& vertex1Edges = adjacencyList[vertex1];
 
-            for (int i = 0; i < vertex1Edges.size(); ++i) {
-                if(vertex1Edges[i] == vertex2) {
-                    edgeExists = true;
-                    break;
-                }
-            }
-
-            if (!edgeExists) {
+            if (find(vertex1Edges.begin(), vertex1Edges.end(), vertex2) == vertex1Edges.end()) {
                 adjacencyList[vertex1].push_back(vertex2);
                 adjacencyList[vertex2].push_back(vertex1);
                 success = true;
