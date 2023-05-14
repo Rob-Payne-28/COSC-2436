@@ -9,7 +9,11 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 
 #include <map>
 #include <vector>
+#include <string>
 #include "vertex.h"
+#include "edge.h"
+
+using std::vector;
 
 class Graph {
 
@@ -24,9 +28,9 @@ public:
     bool removeEdge(int, int);
 
     // Methods to find things
-    bool getVertices(std::vector<Vertex>&);
-    bool getEdges(); // ToDo - figure out how I'm going to do this from the adjacency list
-    bool getAdjacent(int, std::vector<Vertex>&);
+    bool getVertices(vector<Vertex>&);
+    bool getEdges(vector<Edge>&); // print each
+    bool getAdjacent(int, vector<Vertex>&);
 
     // Helper methods (called by other methods to reduce complexity)
     bool hasVertex(int);
@@ -42,7 +46,7 @@ public:
 private:
     // Member variables
     std::map<int, Vertex> vertices;
-    std::map<int, std::vector<int>> adjacencyList;
+    std::map<int, vector<int>> adjacencyList;
 
     // Private methods (May move helper methods here)
 
