@@ -15,6 +15,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 
 using std::vector;
 using std::map;
+using std::string;
 
 class Graph {
 
@@ -23,7 +24,7 @@ public:
     ~Graph();
 
     // Methods to build and remove nodes/edges
-    bool addVertex(int, std::string);
+    bool addVertex(int, string*);
     bool removeVertex(int);
     bool addEdge(int, int);
     bool removeEdge(int, int);

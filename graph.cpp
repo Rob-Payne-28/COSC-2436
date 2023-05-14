@@ -6,26 +6,31 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 
 #include "graph.h"
 
-// ToDo - Constructor
-Graph::Graph() {}
-// ToDo - Deconstructor
-Graph::~Graph() {}
+Graph::Graph() {
+    // ToDo - Constructor
+}
+
+Graph::~Graph() {
+    // ToDo - Deconstructor
+}
 
 // Methods to build and remove nodes/edges
-bool Graph::addVertex(int id, string information) {
+bool Graph::addVertex(int id, string* information) {
     // define return variable
     bool success = false;
 
-    // check to see if this node is already in the graph
-    if(vertices.find(id) != vertices.end()) {
-        // if not, create a new one and add the attributes
-        Vertex newVertex;
-        newVertex.id = id;
-        newVertex.information = information;
+    if(id > 1 && *information != "") {
+        // check to see if this node is already in the graph
+        if(vertices.find(id) != vertices.end()) {
+            // if not, create a new one and add the attributes
+            Vertex newVertex;
+            newVertex.id = id;
+            newVertex.information = *information;
 
-        // add it to the map
-        vertices[id] = newVertex;
-        success = true;
+            // add it to the map
+            vertices[id] = newVertex;
+            success = true;
+        }
     }
 
     return success;
