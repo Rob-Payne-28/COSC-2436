@@ -44,9 +44,9 @@ bool Graph::removeVertex(int id) {
 
         // find all the edges associated with the vertex
         auto& edges = adjacencyList[id];
-        // remove them in reverse order so we don't mess up the vector (they shift)
-        for (int i = edges.size() - 1; i >= 0; --i) {
-            removeEdge(id, edges[i]);
+        // remove them
+        for (auto& edge : edges) {
+            removeEdge(id, edge);
         }
 
         adjacencyList.erase(id);
