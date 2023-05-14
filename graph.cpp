@@ -203,19 +203,16 @@ void Graph::printAdjacencyMatrix() {
         }
     }
 
-    // Print ToDo - make this properly align the table
-    // looks like setw() is the answer to make these labels properly align
-    // https://stackoverflow.com/questions/63819154/why-wont-my-output-align-properly-in-columns
-    cout << "  ";
+    cout << setw(3) << " ";
     for (int i = 1; i <= size; ++i) {
-        cout << i << " ";
+        cout << setw(3) << i;
     }
     cout << endl;
 
     for (int i = 1; i <= size; ++i) {
-        cout << i << " ";
+        cout << setw(3) << i;
         for (int j = 1; j <= size; ++j) {
-            cout << matrix[i][j] << " ";
+            cout << setw(3) << matrix[i][j];
         }
         cout << endl;
     }
