@@ -17,6 +17,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 using std::vector;
 using std::map;
 using std::string;
+using std::find;
 
 class Graph {
 

@@ -78,8 +78,29 @@ bool Graph::addEdge(int vertex1, int vertex2) {
     return success;
 }
 
-bool Graph::removeEdge(int, int) {
-    return false; // ToDo - removeEdge
+bool Graph::removeEdge(int vertexOneId, int vertexTwoId) {
+    bool success = false;
+
+    // if both vertices are in our vertices map
+    if(vertices.find(vertexOneId) != vertices.end() && vertices.find(vertexTwoId) != vertices.end()) {
+
+        // get the adjacency list for each vertex
+        auto& edges1 = adjacencyList[vertexOneId];
+        auto& edges2 = adjacencyList[vertexTwoId];
+
+        // find the edge connecting the two vertices in each of the vectors
+        auto iterator1 = find(edges1.begin(), edges1.end(), vertexTwoId);
+        auto iterator2 = find(edges2.begin(), edges2.end(), vertexOneId);
+
+        // if the iterators find each of the edges, delete them and set succes to true
+        if(iterator1 != edges1.end() && iterator2 != edges2.end()) {
+            edges1.erase(iterator1);
+            edges2.erase(iterator2);
+            success = true;
+        }
+    }
+
+    return success;
 }
 
 // Methods to find things
