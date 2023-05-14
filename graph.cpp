@@ -19,8 +19,7 @@ bool Graph::addVertex(int id, string* information) {
     bool success = false;
 
     if(id > 0 && information && *information != "") {
-        if(vertices.find(id) == vertices.end()) {
-
+        if(!hasVertex(id)) {
             Vertex newVertex;
             newVertex.id = id;
             newVertex.information = *information;
@@ -36,15 +35,10 @@ bool Graph::addVertex(int id, string* information) {
 bool Graph::removeVertex(int id) {
     bool success = false;
 
-    // validate input
-    // make sure vertex exists
-    if(id > 0 && vertices.find(id) != vertices.end()) {
-        // remove from map
+    if(id > 0 && hasVertex(id)) {
         vertices.erase(id);
 
-        // find all the edges associated with the vertex
         auto& edges = adjacencyList[id];
-        // remove them
         for (auto& edge : edges) {
             removeEdge(id, edge);
         }
@@ -59,16 +53,13 @@ bool Graph::removeVertex(int id) {
 bool Graph::addEdge(int vertex1, int vertex2) {
     bool success = false;
 
-    if(vertex1 > 0 && vertex2 > 0) {
-        if(vertices.find(vertex1) != vertices.end() && vertices.find(vertex2) != vertices.end()) {
+    if(vertex1 > 0 && vertex2 > 0 && hasVertex(vertex1) && hasVertex(vertex2)) {
+        auto& vertex1Edges = adjacencyList[vertex1];
 
-            auto& vertex1Edges = adjacencyList[vertex1];
-
-            if (find(vertex1Edges.begin(), vertex1Edges.end(), vertex2) == vertex1Edges.end()) {
-                adjacencyList[vertex1].push_back(vertex2);
-                adjacencyList[vertex2].push_back(vertex1);
-                success = true;
-            }
+        if (!hasEdge(vertex1, vertex2)) {
+            adjacencyList[vertex1].push_back(vertex2);
+            adjacencyList[vertex2].push_back(vertex1);
+            success = true;
         }
     }
 
@@ -78,18 +69,13 @@ bool Graph::addEdge(int vertex1, int vertex2) {
 bool Graph::removeEdge(int vertexOneId, int vertexTwoId) {
     bool success = false;
 
-    // if both vertices are in our vertices map
-    if(vertices.find(vertexOneId) != vertices.end() && vertices.find(vertexTwoId) != vertices.end()) {
-
-        // get the adjacency list for each vertex
+    if(hasVertex(vertexOneId) && hasVertex(vertexTwoId)) {
         auto& edges1 = adjacencyList[vertexOneId];
         auto& edges2 = adjacencyList[vertexTwoId];
 
-        // find the edge connecting the two vertices in each of the vectors
         auto iterator1 = find(edges1.begin(), edges1.end(), vertexTwoId);
         auto iterator2 = find(edges2.begin(), edges2.end(), vertexOneId);
 
-        // if the iterators find each of the edges, delete them and set succes to true
         if(iterator1 != edges1.end() && iterator2 != edges2.end()) {
             edges1.erase(iterator1);
             edges2.erase(iterator2);
@@ -138,15 +124,14 @@ bool Graph::getEdges(vector <Edge> &edgesToReturn) {
 bool Graph::getAdjacent(int id, vector <Vertex> &adjacent) {
     bool success = false;
 
-    if (vertices.find(id) != vertices.end()) {
+    if (hasVertex(id)) {
         vector<int>& adjacencies = adjacencyList[id];
         for (int adjacentId : adjacencies) {
-            if (vertices.find(adjacentId) != vertices.end()) {
+            if (hasVertex(adjacentId)) {
                 adjacent.push_back(vertices[adjacentId]);
             }
         }
-        // ToDo - What happens if there are no adjacencies?
-        success = true;
+        success = !adjacent.empty();
     }
 
     return success;
@@ -177,8 +162,8 @@ int Graph::size() {
 // Not sure if we're going to need these, but they'd be nice to add if we have time
 bool Graph::breadthFirstSearch(int startId, vector <Vertex> &visitedOrder) {
     bool success = false;
-    if (vertices.find(startId) != vertices.end()) {
 
+    if (hasVertex(startId)) {
         map<int, bool> visited;
         queue<int> toVisit;
 
