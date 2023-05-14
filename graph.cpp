@@ -194,7 +194,7 @@ bool Graph::depthFirstSearch(int, vector <Vertex> &) {
 void Graph::printAdjacencyMatrix() {
     int size = vertices.size();
 
-    vector<vector<int>> matrix(size+1, vector<int>(size+1, 0)); // adjust size
+    vector<vector<int>> matrix(size+1, vector<int>(size+1, 0));
 
     for (int i = 1; i <= size; ++i) {
         for (int j : adjacencyList[i]) {
@@ -204,8 +204,17 @@ void Graph::printAdjacencyMatrix() {
         }
     }
 
-    // Print ToDo - make this print labels too
+    // Print ToDo - make this properly align the table
+    // looks like setw() is the answer to make these labels properly align
+    // https://stackoverflow.com/questions/63819154/why-wont-my-output-align-properly-in-columns
+    cout << "  ";
     for (int i = 1; i <= size; ++i) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    for (int i = 1; i <= size; ++i) {
+        cout << i << " ";
         for (int j = 1; j <= size; ++j) {
             cout << matrix[i][j] << " ";
         }
