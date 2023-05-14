@@ -7,7 +7,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #ifndef GRAPH_H
 #define GRAPH_H
 
-class graph {
+class Graph {
 
 public:
     // ToDo - Constructor
