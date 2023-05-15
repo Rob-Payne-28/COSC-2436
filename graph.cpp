@@ -15,7 +15,7 @@ Graph::~Graph() {
 bool Graph::addVertex(int id, string* information) {
     bool success = false;
 
-    if(id > ZERO && information && *information != "") {
+    if(id > ZERO && information && *information != EMPTY_STRING) {
         if(!hasVertex(id)) {
             Vertex newVertex;
             newVertex.id = id;

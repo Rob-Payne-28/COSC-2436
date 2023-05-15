@@ -20,6 +20,7 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #define ZERO 0
 #define ONE 1
 #define GRAPH_COLUMN_WIDTH 3
+#define EMPTY_STRING ""
 
 using std::vector;
 using std::map;
