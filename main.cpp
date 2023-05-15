@@ -48,6 +48,8 @@ int main() {
     cout << endl;
 
     Graph myGraph;
+    cout << "Complete!" << endl;
+    cout << endl;
 
     cout << "=====================================================" << endl;
     cout << "            Adding vertices..." << endl;
@@ -57,9 +59,9 @@ int main() {
     for (int i = 0; i < testDataSize; ++i) {
         bool success = myGraph.addVertex(ids[i], &strs[i]);
         if (success) {
-            cout << " Added vertex with id " << ids[i] << " and info \'" << strs[i] << "\'." << endl;
+            cout << " Added vertex with id " << ids[i] << " and info \'" << strs[i] << "\'" << endl;
         } else {
-            cout << " Failed to add vertex with id " << ids[i] << " and info \'" << strs[i] << "\'." << endl;
+            cout << " Failed to add vertex with id " << ids[i] << " and info \'" << strs[i] << "\'" << endl;
         }
     }
     cout << endl;
@@ -72,9 +74,9 @@ int main() {
     for (int i = 0; i < testDataSize - 1; ++i) {
         bool success = myGraph.addEdge(ids[i], ids[i+1]);
         if (success) {
-            cout << " Added edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+            cout << " Added edge between " << ids[i] << " and " << ids[i+1] << endl;
         } else {
-            cout << " Failed to add edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+            cout << " Failed to add edge between " << ids[i] << " and " << ids[i+1] << endl;
         }
     }
     cout << endl;
@@ -121,10 +123,10 @@ int main() {
         if (myGraph.getAdjacent(ids[i], adjacentVertices)) {
             cout << " Retrieved adjacent vertices for vertex " << ids[i] << ":" << endl;
             for (int j = 0; j < adjacentVertices.size(); ++j) {
-                cout << " Vertex with id " << adjacentVertices[j].id << " and information '" << adjacentVertices[j].information << "'" << endl;
+                cout << "  Vertex with id " << adjacentVertices[j].id << " and information '" << adjacentVertices[j].information << "'" << endl;
             }
         } else {
-            cout << " Failed to retrieve adjacent vertices for vertex " << ids[i] << "." << endl;
+            cout << "  Failed to retrieve adjacent vertices for vertex " << ids[i] << endl;
         }
     }
     cout << endl;
@@ -137,9 +139,9 @@ int main() {
     for (int i = 0; i < testDataSize - 1; ++i) {
         bool success = myGraph.removeEdge(ids[i], ids[i+1]);
         if (success) {
-            cout << " Removed edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+            cout << " Removed edge between " << ids[i] << " and " << ids[i+1] << endl;
         } else {
-            cout << " Failed to remove edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+            cout << " Failed to remove edge between " << ids[i] << " and " << ids[i+1] << endl;
         }
     }
     cout << endl;
@@ -152,9 +154,9 @@ int main() {
     for (int i = 0; i < testDataSize; ++i) {
         bool success = myGraph.removeVertex(ids[i]);
         if (success) {
-            cout << " Removed vertex with id " << ids[i] << "." << endl;
+            cout << " Removed vertex with id " << ids[i] << endl;
         } else {
-            cout << " Failed to remove vertex with id " << ids[i] << "." << endl;
+            cout << " Failed to remove vertex with id " << ids[i] << endl;
         }
     }
     cout << endl;
