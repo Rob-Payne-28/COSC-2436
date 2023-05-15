@@ -366,7 +366,60 @@ int main() {
      *  Start random testing
      */
 
+    cout << "=====================================================" << endl;
+    cout << "=====================================================" << endl;
+    cout << "            Executing random tests..." << endl;
+    cout << "=====================================================" << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "            Filling graph for testing..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = ZERO; i < TEST_DATA_SIZE / 2; i++) {
+        myGraph.addVertex(ids[i], &strs[i]);
+    }
+
+    for (int i = ZERO; i < TEST_DATA_SIZE / 2 - ONE; i++) {
+        myGraph.addEdge(ids[i], ids[i + ONE]);
+    }
+
+    cout << " Graph filled with test data for full random tests" << endl;
+    cout << endl;
+
+    myGraph.printAdjacencyList();
+    myGraph.printAdjacencyMatrix();
+
+    int randNum = rand();
+    int selection = std::abs(randNum) % POSSIBLE_SELECTIONS + ONE;
+    int randId = rand() % MAX_VERTEX_ID;
+    bool successful;
+    for (int i = ZERO; i < MAX_VERTEX_ID * TEST_MULTIPLIER; i++) {
+        switch (selection) {
+
+            case 1:
+                cout << " Add vertex..." << endl;
+                Vertex vertex;
+                vertex.id = randId;
+                vertex.information = "vertex_" + std::to_string(randId);
+                successful = myGraph.addVertex(randId, &vertex.information);
+                if (successful) {
+                    cout << " Added vertex with id " << randId << endl;
+                } else {
+                    cout << " Failed to add vertex with id " << randId << endl;
+                }
+                cout << endl;
+                break;
+
+
+
+        }
+        randNum = rand();
+        selection = std::abs(randNum) % POSSIBLE_SELECTIONS + ONE;
+        randId = rand() % MAX_VERTEX_ID;
+    }
 
     return 0;
 }

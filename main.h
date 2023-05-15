@@ -24,5 +24,8 @@ using std::set;
 #define ONE 1
 #define FIRST_BAD_ID 101
 #define SECOND_BAD_ID 102
+#define MAX_VERTEX_ID 100
+#define POSSIBLE_SELECTIONS 14
+#define TEST_MULTIPLIER 10
 
 #endif //MAIN_H
