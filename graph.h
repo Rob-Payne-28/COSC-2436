@@ -45,8 +45,9 @@ public:
     bool hasEdge(int, int);
     int size();
 
-    bool breadthFirstSearch(int, vector<Vertex>&);
-    bool depthFirstSearch(int, vector<Vertex>&);
+    void breadthFirstSearch(int, vector<Vertex>&);
+    void depthFirstSearch(int, vector<Vertex>&);
+    void DFSVisit(int, map<int, bool>&, vector<Vertex>&);
     void printAdjacencyMatrix();
     void printAdjacencyList();
 

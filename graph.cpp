@@ -153,10 +153,7 @@ int Graph::size() {
     return vertices.size();
 }
 
-// Not sure if we're going to need these, but they'd be nice to add if we have time
-bool Graph::breadthFirstSearch(int startId, vector <Vertex> &visitedOrder) {
-    bool success = false;
-
+void Graph::breadthFirstSearch(int startId, vector <Vertex> &visitedOrder) {
     if (hasVertex(startId)) {
         map<int, bool> visited;
         queue<int> toVisit;
@@ -180,15 +177,33 @@ bool Graph::breadthFirstSearch(int startId, vector <Vertex> &visitedOrder) {
                 }
             }
         }
-        success = true;
+    }
+}
+
+void Graph::depthFirstSearch(int startId, vector<Vertex> &visitedOrder) {
+    map<int, bool> visited;
+
+    for (auto &vertex : vertices) {
+        visited[vertex.first] = false;
     }
 
-    return success;
+    DFSVisit(startId, visited, visitedOrder);
 }
 
-bool Graph::depthFirstSearch(int, vector <Vertex> &) {
-    return false; // ToDo - DFS
+
+void Graph::DFSVisit(int startId, map<int, bool> &visited, vector<Vertex> &visitedOrder) {
+    if (hasVertex(startId)) {
+        visited[startId] = true;
+        visitedOrder.push_back(vertices[startId]);
+
+        for (auto i = adjacencyList[startId].begin(); i != adjacencyList[startId].end(); ++i) {
+            if (!visited[*i]) {
+                DFSVisit(*i, visited, visitedOrder);
+            }
+        }
+    }
 }
+
 
 void Graph::printAdjacencyMatrix() {
     // Map vertex ids to indices and vice versa
