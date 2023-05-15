@@ -402,6 +402,7 @@ int main() {
         Vertex vertex;
         vector<Vertex> vertices;
         vector<Edge> edges;
+        vector<Vertex> adjacentVertices;
         switch (selection) {
 
             case 1:
@@ -478,7 +479,32 @@ int main() {
                 cout << endl;
                 break;
 
+            case 7:
+                cout << " Get adjacent vertices..." << endl;
+                successful = myGraph.getAdjacent(randId, adjacentVertices);
+                if (successful) {
+                    cout << " Retrieved adjacent vertices for vertex " << randId << ":" << endl;
+                    for (unsigned int i = 0; i < adjacentVertices.size(); ++i) {
+                        cout << "  Vertex ID: " << adjacentVertices[i].id << ", Information: " << adjacentVertices[i].information << endl;
+                    }
+                } else {
+                    cout << " Failed to retrieve adjacent vertices for vertex " << randId << endl;
+                }
+                cout << endl;
+                break;
+
+            case 8:
+                cout << " Check if vertex exists..." << endl;
+                successful = myGraph.hasVertex(randId);
+                if (successful) {
+                    cout << " Vertex with id " << randId << " exists in the graph." << endl;
+                } else {
+                    cout << " Vertex with id " << randId << " does not exist in the graph." << endl;
+                }
+                cout << endl;
+                break;
                 
+
         }
         randNum = rand();
         selection = std::abs(randNum) % POSSIBLE_SELECTIONS + ONE;
