@@ -95,6 +95,22 @@ int main() {
     }
     cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "            Getting edges..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    vector<Edge> edges;
+    if (myGraph.getEdges(edges)) {
+        cout << " Retrieved edges:" << endl;
+        for (int i = 0; i < edges.size(); ++i) {
+            cout << " Edge between " << edges[i].vertex1 << " and " << edges[i].vertex2 << endl;
+        }
+    } else {
+        cout << " Failed to retrieve edges." << endl;
+    }
+    cout << endl;
+
 
     // ToDo - Add edge-case testing
 
