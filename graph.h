@@ -17,6 +17,10 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 #include "vertex.h"
 #include "edge.h"
 
+#define ZERO 0
+#define ONE 1
+#define GRAPH_COLUMN_WIDTH 3
+
 using std::vector;
 using std::map;
 using std::string;

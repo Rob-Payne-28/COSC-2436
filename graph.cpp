@@ -15,7 +15,7 @@ Graph::~Graph() {
 bool Graph::addVertex(int id, string* information) {
     bool success = false;
 
-    if(id > 0 && information && *information != "") {
+    if(id > ZERO && information && *information != "") {
         if(!hasVertex(id)) {
             Vertex newVertex;
             newVertex.id = id;
@@ -32,7 +32,7 @@ bool Graph::addVertex(int id, string* information) {
 bool Graph::removeVertex(int id) {
     bool success = false;
 
-    if(id > 0 && hasVertex(id)) {
+    if(id > ZERO && hasVertex(id)) {
         vector<int> edges = adjacencyList[id];
         for (auto& edge : edges) {
             removeEdge(id, edge);
@@ -50,7 +50,7 @@ bool Graph::removeVertex(int id) {
 bool Graph::addEdge(int vertex1, int vertex2) {
     bool success = false;
 
-    if(vertex1 > 0 && vertex2 > 0 && hasVertex(vertex1) && hasVertex(vertex2)) {
+    if(vertex1 > ZERO && vertex2 > ZERO && hasVertex(vertex1) && hasVertex(vertex2)) {
         auto& vertex1Edges = adjacencyList[vertex1];
 
         if (!hasEdge(vertex1, vertex2)) {
@@ -208,7 +208,7 @@ void Graph::DFSVisit(int startId, map<int, bool> &visited, vector<Vertex> &visit
 void Graph::printAdjacencyMatrix() {
     std::map<int, int> vertexIdToIndex;
     std::vector<int> indexToVertexId;
-    int index = 1;
+    int index = ONE;
     for (auto& vertex : vertices) {
         vertexIdToIndex[vertex.first] = index;
         indexToVertexId.push_back(vertex.first);
@@ -217,28 +217,28 @@ void Graph::printAdjacencyMatrix() {
 
     int size = vertices.size();
 
-    vector<vector<int>> matrix(size+1, vector<int>(size+1, 0));
+    vector<vector<int>> matrix(size + ONE, vector<int>(size + ONE, ZERO));
 
     for (auto& vertex : vertices) {
         int i = vertexIdToIndex[vertex.first];
         for (int vertexId : adjacencyList[vertex.first]) {
             int j = vertexIdToIndex[vertexId];
 
-            matrix[i][j] = 1;
-            matrix[j][i] = 1;
+            matrix[i][j] = ONE;
+            matrix[j][i] = ONE;
         }
     }
 
-    cout << setw(3) << " ";
-    for (int i = 1; i <= size; ++i) {
-        cout << setw(3) << indexToVertexId[i-1];
+    cout << setw(GRAPH_COLUMN_WIDTH) << " ";
+    for (int i = ONE; i <= size; ++i) {
+        cout << setw(GRAPH_COLUMN_WIDTH) << indexToVertexId[i-ONE];
     }
     cout << endl;
 
-    for (int i = 1; i <= size; ++i) {
-        cout << setw(3) << indexToVertexId[i-1];
-        for (int j = 1; j <= size; ++j) {
-            cout << setw(3) << matrix[i][j];
+    for (int i = ONE; i <= size; ++i) {
+        cout << setw(GRAPH_COLUMN_WIDTH) << indexToVertexId[i-ONE];
+        for (int j = ONE; j <= size; ++j) {
+            cout << setw(GRAPH_COLUMN_WIDTH) << matrix[i][j];
         }
         cout << endl;
     }
@@ -250,13 +250,13 @@ void Graph::printAdjacencyList() {
     // C++ has type inference!! https://www.geeksforgeeks.org/type-inference-in-c-auto-and-decltype/
     auto iterator = adjacencyList.begin();
 
-    for(int i = 0; i < mapSize; ++i, ++iterator) {
+    for(int i = ZERO; i < mapSize; ++i, ++iterator) {
         int vertexID = iterator->first;
         vector<int>& edges = iterator->second;
 
         cout << " Vertex " << vertexID << " is connected to: ";
 
-        for(int j = 0; j < edges.size(); ++j) {
+        for(int j = ZERO; j < edges.size(); ++j) {
             cout << edges[j] << " ";
         }
 
