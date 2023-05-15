@@ -144,6 +144,21 @@ int main() {
     }
     cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "            Removing vertices..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = 0; i < testDataSize; ++i) {
+        bool success = myGraph.removeVertex(ids[i]);
+        if (success) {
+            cout << " Removed vertex with id " << ids[i] << "." << endl;
+        } else {
+            cout << " Failed to remove vertex with id " << ids[i] << "." << endl;
+        }
+    }
+    cout << endl;
+
 
     // ToDo - Add edge-case testing
 
