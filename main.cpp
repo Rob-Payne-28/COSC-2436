@@ -111,6 +111,24 @@ int main() {
     }
     cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "            Getting adjacent vertices..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = 0; i < testDataSize; ++i) {
+        vector<Vertex> adjacentVertices;
+        if (myGraph.getAdjacent(ids[i], adjacentVertices)) {
+            cout << " Retrieved adjacent vertices for vertex " << ids[i] << ":" << endl;
+            for (int j = 0; j < adjacentVertices.size(); ++j) {
+                cout << " Vertex with id " << adjacentVertices[j].id << " and information '" << adjacentVertices[j].information << "'" << endl;
+            }
+        } else {
+            cout << " Failed to retrieve adjacent vertices for vertex " << ids[i] << "." << endl;
+        }
+    }
+    cout << endl;
+
 
     // ToDo - Add edge-case testing
 
