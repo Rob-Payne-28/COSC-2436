@@ -228,7 +228,7 @@ void Graph::printAdjacencyMatrix() {
         }
     }
 
-    cout << setw(GRAPH_COLUMN_WIDTH) << " ";
+    cout << setw(GRAPH_COLUMN_WIDTH) << GRAPH_SPACE;
     for (int i = ONE; i <= size; ++i) {
         cout << setw(GRAPH_COLUMN_WIDTH) << indexToVertexId[i-ONE];
     }
@@ -246,7 +246,6 @@ void Graph::printAdjacencyMatrix() {
 void Graph::printAdjacencyList() {
     int mapSize = adjacencyList.size();
 
-    // C++ has type inference!! https://www.geeksforgeeks.org/type-inference-in-c-auto-and-decltype/
     auto iterator = adjacencyList.begin();
 
     for(int i = ZERO; i < mapSize; ++i, ++iterator) {
@@ -256,7 +255,7 @@ void Graph::printAdjacencyList() {
         cout << " Vertex " << vertexID << " is connected to: ";
 
         for(int j = ZERO; j < edges.size(); ++j) {
-            cout << edges[j] << " ";
+            cout << edges[j] << GRAPH_SPACE;
         }
 
         cout << endl;
