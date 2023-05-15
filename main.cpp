@@ -74,12 +74,12 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = ZERO; i < TEST_DATA_SIZE - 1; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE - ONE; ++i) {
         bool success = myGraph.addEdge(ids[i], ids[i+1]);
         if (success) {
-            cout << " Added edge between " << ids[i] << " and " << ids[i+1] << endl;
+            cout << " Added edge between " << ids[i] << " and " << ids[i+ONE] << endl;
         } else {
-            cout << " Failed to add edge between " << ids[i] << " and " << ids[i+1] << endl;
+            cout << " Failed to add edge between " << ids[i] << " and " << ids[i+ONE] << endl;
         }
     }
     cout << endl;
@@ -162,7 +162,7 @@ int main() {
         cout << " Starting with " << ids[i] << ": ";
         for (int j = ZERO; j < bfsTraversal.size(); ++j) {
             cout << bfsTraversal[j].id;
-            if (j != bfsTraversal.size() - 1) {
+            if (j != bfsTraversal.size() - ONE) {
                 cout << " -> ";
             }
         }
@@ -182,7 +182,7 @@ int main() {
         cout << " Starting with " << ids[i] << ": ";
         for (int j = ZERO; j < dfsTraversal.size(); ++j) {
             cout << dfsTraversal[j].id;
-            if (j != dfsTraversal.size() - 1) {
+            if (j != dfsTraversal.size() - ONE) {
                 cout << " -> ";
             }
         }
@@ -195,7 +195,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = ZERO; i < TEST_DATA_SIZE - 1; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE - ONE; ++i) {
         bool success = myGraph.removeEdge(ids[i], ids[i+1]);
         if (success) {
             cout << " Removed edge between " << ids[i] << " and " << ids[i+1] << endl;
@@ -229,12 +229,12 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    myGraph.addVertex(ids[0], &strs[0]); // Add vertex before test
-    bool success = myGraph.addVertex(ids[0], &strs[0]);
+    myGraph.addVertex(ids[ZERO], &strs[ZERO]); // Add vertex before test
+    bool success = myGraph.addVertex(ids[ZERO], &strs[ZERO]);
     if (success) {
-        cout << " Added vertex with id " << ids[0] << " and information \'" << strs[0] << "\'" << endl;
+        cout << " Added vertex with id " << ids[ZERO] << " and information \'" << strs[ZERO] << "\'" << endl;
     } else {
-        cout << " Failed to add vertex with id " << ids[0] << " and information \'" << strs[0] << "\'" << endl;
+        cout << " Failed to add vertex with id " << ids[ZERO] << " and information \'" << strs[ZERO] << "\'" << endl;
     }
     cout << endl;
 
@@ -243,12 +243,12 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    myGraph.addEdge(ids[0], ids[1]); // Add edge before test
-    success = myGraph.addEdge(ids[0], ids[1]);
+    myGraph.addEdge(ids[ZERO], ids[ONE]); // Add edge before test
+    success = myGraph.addEdge(ids[ZERO], ids[ONE]);
     if (success) {
-        cout << " Added edge between vertices " << ids[0] << " and " << ids[1] << endl;
+        cout << " Added edge between vertices " << ids[ZERO] << " and " << ids[ONE] << endl;
     } else {
-        cout << " Failed to add edge between vertices " << ids[0] << " and " << ids[1] << endl;
+        cout << " Failed to add edge between vertices " << ids[ZERO] << " and " << ids[ONE] << endl;
     }
     cout << endl;
 
@@ -257,7 +257,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    success = myGraph.removeVertex(101);
+    success = myGraph.removeVertex(FIRST_BAD_ID);
     if (success) {
         cout << " Removed vertex 101" << endl;
     } else {
@@ -271,7 +271,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    success = myGraph.removeEdge(101, 102);
+    success = myGraph.removeEdge(FIRST_BAD_ID, SECOND_BAD_ID);
     if (success) {
         cout << " Removed edge between vertices 101 and 102" << endl;
     } else {
@@ -284,19 +284,20 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    bool exists = myGraph.hasVertex(101);
+    bool exists = myGraph.hasVertex(FIRST_BAD_ID);
     if (exists) {
         cout << " Vertex 101 exists" << endl;
     } else {
         cout << " Vertex 101 does not exist" << endl;
     }
+    cout << endl;
 
     cout << "=====================================================" << endl;
     cout << "Testing edge case: Checking for the existence of a non-existent edge..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;
 
-    exists = myGraph.hasEdge(101, 102);
+    exists = myGraph.hasEdge(FIRST_BAD_ID, SECOND_BAD_ID);
     if (exists) {
         cout << " Edge between vertices 101 and 102 exists" << endl;
     } else {
@@ -309,7 +310,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    success = myGraph.addEdge(101, 102);
+    success = myGraph.addEdge(FIRST_BAD_ID, SECOND_BAD_ID);
     if (success) {
         cout << " Added edge between vertices 101 and 102" << endl;
     } else {
@@ -317,7 +318,54 @@ int main() {
     }
     cout << endl;
 
-    // ToDo - Add random testing
+    cout << "=====================================================" << endl;
+    cout << "Testing edge case: Performing BFS from a non-existent vertex..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    vector<Vertex> bfsTraversal;
+    myGraph.breadthFirstSearch(FIRST_BAD_ID, bfsTraversal);
+
+    cout << " BFS starting with 101: ";
+    if (bfsTraversal.empty()) {
+        cout << "No such vertex found.";
+    } else {
+        for (int j = ZERO; j < bfsTraversal.size(); ++j) {
+            cout << bfsTraversal[j].id;
+            if (j != bfsTraversal.size() - ONE) {
+                cout << " -> ";
+            }
+        }
+    }
+    cout << endl;
+    cout << endl;
+
+    cout << "=====================================================" << endl;
+    cout << "Testing edge case: Performing DFS from a non-existent vertex..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    vector<Vertex> dfsTraversal;
+    myGraph.depthFirstSearch(FIRST_BAD_ID, dfsTraversal);
+
+    cout << " DFS starting with 101: ";
+    if (dfsTraversal.empty()) {
+        cout << "No such vertex found.";
+    } else {
+        for (int j = ZERO; j < dfsTraversal.size(); ++j) {
+            cout << dfsTraversal[j].id;
+            if (j != dfsTraversal.size() - ONE) {
+                cout << " -> ";
+            }
+        }
+    }
+    cout << endl;
+    cout << endl;
+
+    /*
+     *  Start random testing
+     */
+
 
     return 0;
 }

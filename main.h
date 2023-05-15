@@ -21,5 +21,8 @@ using std::set;
 
 #define TEST_DATA_SIZE 10
 #define ZERO 0
+#define ONE 1
+#define FIRST_BAD_ID 101
+#define SECOND_BAD_ID 102
 
 #endif //MAIN_H
