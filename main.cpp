@@ -405,6 +405,7 @@ int main() {
         vector<Vertex> adjacentVertices;
         int size;
         vector<Vertex> bfsVertices;
+        vector<Vertex> dfsVertices;
         switch (selection) {
 
             case 1:
@@ -534,6 +535,20 @@ int main() {
                     }
                 } else {
                     cout << " Failed to perform breadth-first search from vertex " << randId << endl;
+                }
+                cout << endl;
+                break;
+
+            case 12:
+                cout << " Perform depth-first search..." << endl;
+                myGraph.depthFirstSearch(randId, dfsVertices);
+                if (!dfsVertices.empty()) {
+                    cout << " Depth-first search starting from vertex " << randId << ": " << endl;
+                    for (int i = ZERO; i < dfsVertices.size(); ++i) {
+                        cout << "  Vertex ID: " << dfsVertices[i].id << ", Information: " << dfsVertices[i].information << endl;
+                    }
+                } else {
+                    cout << " Failed to perform depth-first search from vertex " << randId << endl;
                 }
                 cout << endl;
                 break;
