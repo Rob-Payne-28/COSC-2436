@@ -400,6 +400,8 @@ int main() {
     bool successful;
     for (int i = ZERO; i < MAX_VERTEX_ID * TEST_MULTIPLIER; i++) {
         Vertex vertex;
+        vector<Vertex> vertices;
+        vector<Edge> edges;
         switch (selection) {
 
             case 1:
@@ -437,7 +439,46 @@ int main() {
                 cout << endl;
                 break;
 
+            case 4:
+                cout << " Remove edge..." << endl;
+                successful = myGraph.removeEdge(randId, (randId + ONE) % MAX_VERTEX_ID);
+                if (successful) {
+                    cout << " Removed edge between vertices " << randId << " and " << (randId + ONE) % MAX_VERTEX_ID << endl;
+                } else {
+                    cout << " Failed to remove edge between vertices " << randId << " and " << (randId + ONE) % MAX_VERTEX_ID << endl;
+                }
+                cout << endl;
+                break;
 
+            case 5:
+                cout << " Get vertices..." << endl;
+                successful = myGraph.getVertices(vertices);
+                if (successful) {
+                    cout << " Retrieved vertices:" << endl;
+                    for (unsigned int i = 0; i < vertices.size(); ++i) {
+                        cout << "  Vertex ID: " << vertices[i].id << ", Information: " << vertices[i].information << endl;
+                    }
+                } else {
+                    cout << " Failed to retrieve vertices" << endl;
+                }
+                cout << endl;
+                break;
+
+            case 6:
+                cout << " Get edges..." << endl;
+                successful = myGraph.getEdges(edges);
+                if (successful) {
+                    cout << " Retrieved edges:" << endl;
+                    for (unsigned int i = 0; i < edges.size(); ++i) {
+                        cout << "  Edge between vertices " << edges[i].vertex1 << " and " << edges[i].vertex2 << endl;
+                    }
+                } else {
+                    cout << " Failed to retrieve edges" << endl;
+                }
+                cout << endl;
+                break;
+
+                
         }
         randNum = rand();
         selection = std::abs(randNum) % POSSIBLE_SELECTIONS + ONE;
