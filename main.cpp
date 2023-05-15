@@ -265,6 +265,25 @@ int main() {
     }
     cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "Testing edge case: Checking for the existence of a non-existent vertex and edge..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    bool exists = myGraph.hasVertex(101);
+    if (exists) {
+        cout << " Vertex 101 exists" << endl;
+    } else {
+        cout << " Vertex 101 does not exist" << endl;
+    }
+
+    exists = myGraph.hasEdge(101, 102);
+    if (exists) {
+        cout << " Edge between vertices 101 and 102 exists" << endl;
+    } else {
+        cout << " Edge between vertices 101 and 102 does not exist" << endl;
+    }
+    cout << endl;
 
 
     // ToDo - Add random testing
