@@ -12,14 +12,14 @@ Graph::Graph() {
 Graph::~Graph() {
 }
 
-bool Graph::addVertex(int id, string* information) {
+bool Graph::addVertex(int id, string* data) {
     bool success = false;
 
-    if(id > ZERO && information && *information != EMPTY_STRING) {
+    if(id > ZERO && data && *data != EMPTY_STRING) {
         if(!hasVertex(id)) {
             Vertex newVertex;
             newVertex.id = id;
-            newVertex.information = *information;
+            newVertex.data = *data;
 
             vertices[id] = newVertex;
             success = true;

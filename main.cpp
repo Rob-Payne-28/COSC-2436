@@ -139,7 +139,7 @@ int main() {
     if (myGraph.getVertices(vertices)) {
         cout << " Retrieved vertices:" << endl;
         for (int i = ZERO; i < vertices.size(); ++i) {
-            cout << " Vertex with id " << vertices[i].id << " and information '" << vertices[i].information << "'" << endl;
+            cout << " Vertex with id " << vertices[i].id << " and data '" << vertices[i].data << "'" << endl;
         }
     } else {
         cout << " Failed to retrieve vertices." << endl;
@@ -172,7 +172,7 @@ int main() {
         if (myGraph.getAdjacent(ids[i], adjacentVertices)) {
             cout << " Retrieved adjacent vertices for vertex " << ids[i] << ":" << endl;
             for (int j = ZERO; j < adjacentVertices.size(); ++j) {
-                cout << "  Vertex with id " << adjacentVertices[j].id << " and information '" << adjacentVertices[j].information << "'" << endl;
+                cout << "  Vertex with id " << adjacentVertices[j].id << " and data '" << adjacentVertices[j].data << "'" << endl;
             }
         } else {
             cout << "  Failed to retrieve adjacent vertices for vertex " << ids[i] << endl;
@@ -285,9 +285,9 @@ int main() {
     myGraph.addVertex(ids[ZERO], &strs[ZERO]);
     bool success = myGraph.addVertex(ids[ZERO], &strs[ZERO]);
     if (success) {
-        cout << " Added vertex with id " << ids[ZERO] << " and information \'" << strs[ZERO] << "\'" << endl;
+        cout << " Added vertex with id " << ids[ZERO] << " and data \'" << strs[ZERO] << "\'" << endl;
     } else {
-        cout << " Failed to add vertex with id " << ids[ZERO] << " and information \'" << strs[ZERO] << "\'" << endl;
+        cout << " Failed to add vertex with id " << ids[ZERO] << " and data \'" << strs[ZERO] << "\'" << endl;
     }
     cout << endl;
 
@@ -464,8 +464,8 @@ int main() {
             case 1:
                 cout << " Add vertex..." << endl;
                 vertex.id = randId;
-                vertex.information = "vertex_" + std::to_string(randId);
-                successful = myGraph.addVertex(randId, &vertex.information);
+                vertex.data = "vertex_" + std::to_string(randId);
+                successful = myGraph.addVertex(randId, &vertex.data);
                 if (successful) {
                     cout << " Added vertex with id " << randId << endl;
                 } else {
@@ -513,7 +513,7 @@ int main() {
                 if (successful) {
                     cout << " Retrieved vertices:" << endl;
                     for (int i = ZERO; i < vertices.size(); ++i) {
-                        cout << "  Vertex ID: " << vertices[i].id << ", Information: " << vertices[i].information << endl;
+                        cout << "  Vertex ID: " << vertices[i].id << ", data: " << vertices[i].data << endl;
                     }
                 } else {
                     cout << " Failed to retrieve vertices" << endl;
@@ -541,7 +541,7 @@ int main() {
                 if (successful) {
                     cout << " Retrieved adjacent vertices for vertex " << randId << ":" << endl;
                     for (int i = ZERO; i < adjacentVertices.size(); ++i) {
-                        cout << "  Vertex ID: " << adjacentVertices[i].id << ", Information: " << adjacentVertices[i].information << endl;
+                        cout << "  Vertex ID: " << adjacentVertices[i].id << ", data: " << adjacentVertices[i].data << endl;
                     }
                 } else {
                     cout << " Failed to retrieve adjacent vertices for vertex " << randId << endl;
@@ -584,7 +584,7 @@ int main() {
                 if (!bfsVertices.empty()) {
                     cout << " Breadth-first search starting from vertex " << randId << ": " << endl;
                     for (int i = ZERO; i < bfsVertices.size(); ++i) {
-                        cout << "  Vertex ID: " << bfsVertices[i].id << ", Information: " << bfsVertices[i].information << endl;
+                        cout << "  Vertex ID: " << bfsVertices[i].id << ", data: " << bfsVertices[i].data << endl;
                     }
                 } else {
                     cout << " Failed to perform breadth-first search from vertex " << randId << endl;
@@ -598,7 +598,7 @@ int main() {
                 if (!dfsVertices.empty()) {
                     cout << " Depth-first search starting from vertex " << randId << ": " << endl;
                     for (int i = ZERO; i < dfsVertices.size(); ++i) {
-                        cout << "  Vertex ID: " << dfsVertices[i].id << ", Information: " << dfsVertices[i].information << endl;
+                        cout << "  Vertex ID: " << dfsVertices[i].id << ", data: " << dfsVertices[i].data << endl;
                     }
                 } else {
                     cout << " Failed to perform depth-first search from vertex " << randId << endl;

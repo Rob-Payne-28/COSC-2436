@@ -12,7 +12,7 @@ using std::string;
 
 struct Vertex {
     int id;
-    string information;
+    string data;
 };
 
 #endif //VERTEX_H
