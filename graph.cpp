@@ -196,9 +196,9 @@ void Graph::DFSVisit(int startId, map<int, bool> &visited, vector<Vertex> &visit
     visited[startId] = true;
     visitedOrder.push_back(vertices[startId]);
 
-    for (auto i = adjacencyList[startId].begin(); i != adjacencyList[startId].end(); ++i) {
-        if (!visited[*i]) {
-            DFSVisit(*i, visited, visitedOrder);
+    for (auto &neighbor : adjacencyList[startId]) {
+        if (!visited[neighbor]) {
+            DFSVisit(neighbor, visited, visitedOrder);
         }
     }
 }
