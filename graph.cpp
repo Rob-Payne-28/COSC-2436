@@ -100,7 +100,6 @@ bool Graph::getEdges(vector <Edge> &edgesToReturn) {
     bool success = false;
 
     if (!adjacencyList.empty()) {
-        // ToDo - swap standard for loops for these "enhanced" loops
         for (auto& vertex : adjacencyList) {
             int vertexId = vertex.first;
             for (int neighbor : vertex.second) {

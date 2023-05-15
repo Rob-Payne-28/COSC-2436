@@ -47,7 +47,6 @@ public:
 
     void breadthFirstSearch(int, vector<Vertex>&);
     void depthFirstSearch(int, vector<Vertex>&);
-    void DFSVisit(int, map<int, bool>&, vector<Vertex>&);
     void printAdjacencyMatrix();
     void printAdjacencyList();
 
@@ -55,6 +54,8 @@ private:
     map<int, Vertex> vertices;
     map<int, vector<int>> adjacencyList;
 
+    // helper method for DFS
+    void DFSVisit(int, map<int, bool>&, vector<Vertex>&);
 };
 
 #endif //GRAPH_H
