@@ -91,6 +91,46 @@ int main() {
     cout << endl;
 
     cout << "=====================================================" << endl;
+    cout << "            Testing hasVertex..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = ZERO; i < TEST_DATA_SIZE - ONE; ++i) {
+        int testVertexId = ids[i];
+        if (myGraph.hasVertex(testVertexId)) {
+            cout << " Vertex with id " << testVertexId << " exists in the graph." << endl;
+        } else {
+            cout << " Vertex with id " << testVertexId << " does not exist in the graph." << endl;
+        }
+    }
+    cout << endl;
+
+    cout << "=====================================================" << endl;
+    cout << "            Testing hasEdge..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = ZERO; i < TEST_DATA_SIZE - ONE; ++i) {
+        int testVertexId1 = ids[i];
+        int testVertexId2 = ids[i + ONE];
+        if (myGraph.hasEdge(testVertexId1, testVertexId2)) {
+            cout << " Edge between " << testVertexId1 << " and " << testVertexId2 << " exists in the graph." << endl;
+        } else {
+            cout << " Edge between " << testVertexId1 << " and " << testVertexId2 << " does not exist in the graph."
+                 << endl;
+        }
+    }
+    cout << endl;
+
+    cout << "=====================================================" << endl;
+    cout << "            Testing size..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    cout << " The size of the graph is " << myGraph.size() << endl;
+    cout << endl;
+
+    cout << "=====================================================" << endl;
     cout << "            Getting vertices..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;
