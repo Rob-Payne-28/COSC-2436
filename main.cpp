@@ -403,6 +403,8 @@ int main() {
         vector<Vertex> vertices;
         vector<Edge> edges;
         vector<Vertex> adjacentVertices;
+        int size;
+        vector<Vertex> bfsVertices;
         switch (selection) {
 
             case 1:
@@ -456,7 +458,7 @@ int main() {
                 successful = myGraph.getVertices(vertices);
                 if (successful) {
                     cout << " Retrieved vertices:" << endl;
-                    for (unsigned int i = 0; i < vertices.size(); ++i) {
+                    for (int i = ZERO; i < vertices.size(); ++i) {
                         cout << "  Vertex ID: " << vertices[i].id << ", Information: " << vertices[i].information << endl;
                     }
                 } else {
@@ -470,7 +472,7 @@ int main() {
                 successful = myGraph.getEdges(edges);
                 if (successful) {
                     cout << " Retrieved edges:" << endl;
-                    for (unsigned int i = 0; i < edges.size(); ++i) {
+                    for (int i = ZERO; i < edges.size(); ++i) {
                         cout << "  Edge between vertices " << edges[i].vertex1 << " and " << edges[i].vertex2 << endl;
                     }
                 } else {
@@ -484,7 +486,7 @@ int main() {
                 successful = myGraph.getAdjacent(randId, adjacentVertices);
                 if (successful) {
                     cout << " Retrieved adjacent vertices for vertex " << randId << ":" << endl;
-                    for (unsigned int i = 0; i < adjacentVertices.size(); ++i) {
+                    for (int i = ZERO; i < adjacentVertices.size(); ++i) {
                         cout << "  Vertex ID: " << adjacentVertices[i].id << ", Information: " << adjacentVertices[i].information << endl;
                     }
                 } else {
@@ -503,7 +505,38 @@ int main() {
                 }
                 cout << endl;
                 break;
-                
+
+            case 9:
+                cout << " Check if edge exists..." << endl;
+                successful = myGraph.hasEdge(randId, (randId + ONE) % MAX_VERTEX_ID);
+                if (successful) {
+                    cout << " Edge between vertices " << randId << " and " << (randId + ONE) % MAX_VERTEX_ID << " exists in the graph." << endl;
+                } else {
+                    cout << " Edge between vertices " << randId << " and " << (randId + ONE) % MAX_VERTEX_ID << " does not exist in the graph." << endl;
+                }
+                cout << endl;
+                break;
+
+            case 10:
+                cout << " Get graph size..." << endl;
+                size = myGraph.size();
+                cout << " The size of the graph is: " << size << endl;
+                cout << endl;
+                break;
+
+            case 11:
+                cout << " Perform breadth-first search..." << endl;
+                myGraph.breadthFirstSearch(randId, bfsVertices);
+                if (!bfsVertices.empty()) {
+                    cout << " Breadth-first search starting from vertex " << randId << ": " << endl;
+                    for (int i = ZERO; i < bfsVertices.size(); ++i) {
+                        cout << "  Vertex ID: " << bfsVertices[i].id << ", Information: " << bfsVertices[i].information << endl;
+                    }
+                } else {
+                    cout << " Failed to perform breadth-first search from vertex " << randId << endl;
+                }
+                cout << endl;
+                break;
 
         }
         randNum = rand();
