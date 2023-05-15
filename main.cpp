@@ -390,18 +390,20 @@ int main() {
     cout << endl;
 
     myGraph.printAdjacencyList();
+    cout << endl;
     myGraph.printAdjacencyMatrix();
+    cout << endl;
 
     int randNum = rand();
     int selection = std::abs(randNum) % POSSIBLE_SELECTIONS + ONE;
     int randId = rand() % MAX_VERTEX_ID;
     bool successful;
     for (int i = ZERO; i < MAX_VERTEX_ID * TEST_MULTIPLIER; i++) {
+        Vertex vertex;
         switch (selection) {
 
             case 1:
                 cout << " Add vertex..." << endl;
-                Vertex vertex;
                 vertex.id = randId;
                 vertex.information = "vertex_" + std::to_string(randId);
                 successful = myGraph.addVertex(randId, &vertex.information);
@@ -413,6 +415,27 @@ int main() {
                 cout << endl;
                 break;
 
+            case 2:
+                cout << " Remove vertex..." << endl;
+                successful = myGraph.removeVertex(randId);
+                if (successful) {
+                    cout << " Removed vertex with id " << randId << endl;
+                } else {
+                    cout << " Failed to remove vertex with id " << randId << endl;
+                }
+                cout << endl;
+                break;
+
+            case 3:
+                cout << " Add edge..." << endl;
+                successful = myGraph.addEdge(randId, (randId + ONE) % MAX_VERTEX_ID);
+                if (successful) {
+                    cout << " Added edge between vertices " << randId << " and " << (randId + ONE) % MAX_VERTEX_ID << endl;
+                } else {
+                    cout << " Failed to add edge between vertices " << randId << " and " << (randId + ONE) % MAX_VERTEX_ID << endl;
+                }
+                cout << endl;
+                break;
 
 
         }
