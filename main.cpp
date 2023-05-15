@@ -64,6 +64,21 @@ int main() {
     }
     cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "            Adding edges..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = 0; i < testDataSize - 1; ++i) {
+        bool success = myGraph.addEdge(ids[i], ids[i+1]);
+        if (success) {
+            cout << " Added edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+        } else {
+            cout << " Failed to add edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+        }
+    }
+    cout << endl;
+
     // ToDo - Add edge-case testing
 
     // ToDo - Add random testing
