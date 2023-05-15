@@ -21,18 +21,18 @@ int main() {
     set<int> unique_ids;
 
     for (int i = ZERO; i < TEST_DATA_SIZE; ++i) {
-        int unique_id = rand() % 100 + 1;
+        int unique_id = rand() % MAX_ID + ONE;
 
         while (unique_ids.find(unique_id) != unique_ids.end()) {
-            unique_id = rand() % 100 + 1;
+            unique_id = rand() % MAX_ID + ONE;
         }
         unique_ids.insert(unique_id);
         ids[i] = unique_id;
 
         string str;
-        int length = rand() % 6 + 3;
+        int length = rand() % STRING_VARIANCE + MIN_STRING_LENGTH;
         for (int j = 0; j < length; ++j) {
-            str += 'a' + rand() % 26;
+            str += 'a' + rand() % MAX_LETTERS;
         }
         strs[i] = str;
     }
@@ -244,9 +244,9 @@ int main() {
     for (int i = ZERO; i < TEST_DATA_SIZE - ONE; ++i) {
         bool success = myGraph.removeEdge(ids[i], ids[i+1]);
         if (success) {
-            cout << " Removed edge between " << ids[i] << " and " << ids[i+1] << endl;
+            cout << " Removed edge between " << ids[i] << " and " << ids[i+ONE] << endl;
         } else {
-            cout << " Failed to remove edge between " << ids[i] << " and " << ids[i+1] << endl;
+            cout << " Failed to remove edge between " << ids[i] << " and " << ids[i+ONE] << endl;
         }
     }
     cout << endl;
@@ -282,7 +282,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    myGraph.addVertex(ids[ZERO], &strs[ZERO]); // Add vertex before test
+    myGraph.addVertex(ids[ZERO], &strs[ZERO]);
     bool success = myGraph.addVertex(ids[ZERO], &strs[ZERO]);
     if (success) {
         cout << " Added vertex with id " << ids[ZERO] << " and information \'" << strs[ZERO] << "\'" << endl;
@@ -296,7 +296,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    myGraph.addEdge(ids[ZERO], ids[ONE]); // Add edge before test
+    myGraph.addEdge(ids[ZERO], ids[ONE]);
     success = myGraph.addEdge(ids[ZERO], ids[ONE]);
     if (success) {
         cout << " Added edge between vertices " << ids[ZERO] << " and " << ids[ONE] << endl;
@@ -431,11 +431,11 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = ZERO; i < TEST_DATA_SIZE / 2; i++) {
+    for (int i = ZERO; i < TEST_DATA_SIZE / TWO; i++) {
         myGraph.addVertex(ids[i], &strs[i]);
     }
 
-    for (int i = ZERO; i < TEST_DATA_SIZE / 2 - ONE; i++) {
+    for (int i = ZERO; i < TEST_DATA_SIZE / TWO - ONE; i++) {
         myGraph.addEdge(ids[i], ids[i + ONE]);
     }
 
