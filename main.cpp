@@ -79,6 +79,23 @@ int main() {
     }
     cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "            Getting vertices..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    vector<Vertex> vertices;
+    if (myGraph.getVertices(vertices)) {
+        cout << " Retrieved vertices:" << endl;
+        for (int i = 0; i < vertices.size(); ++i) {
+            cout << " Vertex with id " << vertices[i].id << " and information '" << vertices[i].information << "'" << endl;
+        }
+    } else {
+        cout << " Failed to retrieve vertices." << endl;
+    }
+    cout << endl;
+
+
     // ToDo - Add edge-case testing
 
     // ToDo - Add random testing
