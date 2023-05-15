@@ -132,6 +132,22 @@ int main() {
     cout << endl;
 
     cout << "=====================================================" << endl;
+    cout << "            Printing adjacency matrix..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    myGraph.printAdjacencyMatrix();
+    cout << endl;
+
+    cout << "=====================================================" << endl;
+    cout << "            Printing adjacency list..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    myGraph.printAdjacencyList();
+    cout << endl;
+
+    cout << "=====================================================" << endl;
     cout << "            Removing edges..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;

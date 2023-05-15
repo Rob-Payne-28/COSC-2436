@@ -254,7 +254,7 @@ void Graph::printAdjacencyList() {
         int vertexID = iterator->first;
         vector<int>& edges = iterator->second;
 
-        cout << "Vertex " << vertexID << " is connected to: ";
+        cout << " Vertex " << vertexID << " is connected to: ";
 
         for(int j = 0; j < edges.size(); ++j) {
             cout << edges[j] << " ";
