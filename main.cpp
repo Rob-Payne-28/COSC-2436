@@ -129,6 +129,21 @@ int main() {
     }
     cout << endl;
 
+    cout << "=====================================================" << endl;
+    cout << "            Removing edges..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = 0; i < testDataSize - 1; ++i) {
+        bool success = myGraph.removeEdge(ids[i], ids[i+1]);
+        if (success) {
+            cout << " Removed edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+        } else {
+            cout << " Failed to remove edge between " << ids[i] << " and " << ids[i+1] << "." << endl;
+        }
+    }
+    cout << endl;
+
 
     // ToDo - Add edge-case testing
 
