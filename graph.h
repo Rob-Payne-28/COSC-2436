@@ -59,7 +59,6 @@ private:
     map<int, Vertex> vertices;
     map<int, vector<int>> adjacencyList;
 
-    // helper method for DFS
     void DFSVisit(int, map<int, bool>&, vector<Vertex>&);
 };
 
