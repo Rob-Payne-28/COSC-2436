@@ -33,14 +33,14 @@ bool Graph::removeVertex(int id) {
     bool success = false;
 
     if(id > 0 && hasVertex(id)) {
-        vertices.erase(id);
-
-        auto& edges = adjacencyList[id];
+        vector<int> edges = adjacencyList[id];
         for (auto& edge : edges) {
             removeEdge(id, edge);
         }
 
+        vertices.erase(id);
         adjacencyList.erase(id);
+        
         success = true;
     }
 
