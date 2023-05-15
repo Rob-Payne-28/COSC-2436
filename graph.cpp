@@ -169,14 +169,13 @@ void Graph::breadthFirstSearch(int startId, vector <Vertex> &visitedOrder) {
             toVisit.pop();
             visitedOrder.push_back(vertices[currentId]);
 
-            for (auto i = adjacencyList[currentId].begin(); i != adjacencyList[currentId].end(); ++i) {
-                if (!visited[*i]) {
-                    toVisit.push(*i);
-                    visited[*i] = true;
+            for (auto &neighbor : adjacencyList[currentId]) {
+                if (!visited[neighbor]) {
+                    toVisit.push(neighbor);
+                    visited[neighbor] = true;
                 }
             }
         }
-
     }
 }
 
