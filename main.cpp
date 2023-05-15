@@ -223,10 +223,9 @@ int main() {
     /*
      *  Start Edge Case testing
      */
-    // ToDo - Add edge-case testing
 
     cout << "=====================================================" << endl;
-    cout << "            Testing edge case: Adding an already existing vertex..." << endl;
+    cout << "Testing edge case: Adding an already existing vertex..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;
 
@@ -240,7 +239,7 @@ int main() {
     cout << endl;
 
     cout << "=====================================================" << endl;
-    cout << "            Testing edge case: Adding an already existing edge..." << endl;
+    cout << "Testing edge case: Adding an already existing edge..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;
 
@@ -253,7 +252,19 @@ int main() {
     }
     cout << endl;
 
-    
+    cout << "=====================================================" << endl;
+    cout << "Testing edge case: Removing a non-existent edge..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    success = myGraph.removeEdge(101, 102);
+    if (success) {
+        cout << " Removed edge between vertices 101 and 102" << endl;
+    } else {
+        cout << " Failed to remove edge between vertices 101 and 102" << endl;
+    }
+    cout << endl;
+
 
 
     // ToDo - Add random testing
