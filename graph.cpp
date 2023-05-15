@@ -40,7 +40,7 @@ bool Graph::removeVertex(int id) {
 
         vertices.erase(id);
         adjacencyList.erase(id);
-        
+
         success = true;
     }
 
@@ -176,36 +176,36 @@ void Graph::breadthFirstSearch(int startId, vector <Vertex> &visitedOrder) {
                 }
             }
         }
+
     }
 }
 
 void Graph::depthFirstSearch(int startId, vector<Vertex> &visitedOrder) {
-    map<int, bool> visited;
+    if (hasVertex(startId)) {
+        map<int, bool> visited;
 
-    for (auto &vertex : vertices) {
-        visited[vertex.first] = false;
+        for (auto &vertex : vertices) {
+            visited[vertex.first] = false;
+        }
+
+        DFSVisit(startId, visited, visitedOrder);
     }
-
-    DFSVisit(startId, visited, visitedOrder);
 }
 
 
 void Graph::DFSVisit(int startId, map<int, bool> &visited, vector<Vertex> &visitedOrder) {
-    if (hasVertex(startId)) {
-        visited[startId] = true;
-        visitedOrder.push_back(vertices[startId]);
+    visited[startId] = true;
+    visitedOrder.push_back(vertices[startId]);
 
-        for (auto i = adjacencyList[startId].begin(); i != adjacencyList[startId].end(); ++i) {
-            if (!visited[*i]) {
-                DFSVisit(*i, visited, visitedOrder);
-            }
+    for (auto i = adjacencyList[startId].begin(); i != adjacencyList[startId].end(); ++i) {
+        if (!visited[*i]) {
+            DFSVisit(*i, visited, visitedOrder);
         }
     }
 }
 
 
 void Graph::printAdjacencyMatrix() {
-    // Map vertex ids to indices and vice versa
     std::map<int, int> vertexIdToIndex;
     std::vector<int> indexToVertexId;
     int index = 1;
@@ -224,7 +224,6 @@ void Graph::printAdjacencyMatrix() {
         for (int vertexId : adjacencyList[vertex.first]) {
             int j = vertexIdToIndex[vertexId];
 
-            // Set the corresponding cells to 1
             matrix[i][j] = 1;
             matrix[j][i] = 1;
         }
