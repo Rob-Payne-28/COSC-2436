@@ -8,50 +8,61 @@ Purpose: Assignment 10 - Graph Abstract Data Type that is the final project for 
 
 int main() {
 
-    Graph myGraph;
+    /*
+     *  Test data generation
+     *  Generates test data with numbers between 1-100 and random strings
+     */
 
-    // ToDo - Add test data generation (make this more robust)
-    int testdatasize = 10;
-    vector<int> ids{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    vector<string> strs{"First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"};
+    srand(time(NULL));
+
+    vector<int> ids(testDataSize);
+    vector<string> strs(testDataSize);
+
+    set<int> unique_ids;
+
+    for (int i = 0; i < testDataSize; ++i) {
+        int unique_id = rand() % 100 + 1;
+
+        while (unique_ids.find(unique_id) != unique_ids.end()) {
+            unique_id = rand() % 100 + 1;
+        }
+        unique_ids.insert(unique_id);
+        ids[i] = unique_id;
+
+        string str;
+        int length = rand() % 6 + 3;
+        for (int j = 0; j < length; ++j) {
+            str += 'a' + rand() % 26;
+        }
+        strs[i] = str;
+    }
+
+    /*
+     *  End of test data generation
+     */
 
     // ToDo - Add method testing
+    cout << "=====================================================" << endl;
+    cout << "            Generating graph..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    Graph myGraph;
+
     cout << "=====================================================" << endl;
     cout << "            Adding vertices..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = 0; i < testdatasize; i++) {
+    for (int i = 0; i < testDataSize; ++i) {
         bool success = myGraph.addVertex(ids[i], &strs[i]);
         if (success) {
-            cout << " Added vertex with id " << ids[i] << " and information \'" << strs[i] << "\'" << endl;
+            cout << " Added vertex with id " << ids[i] << " and info \'" << strs[i] << "\'." << endl;
         } else {
-            cout << " Failed to add vertex with id " << ids[i] << " and information \'" << strs[i] << "\'" << endl;
+            cout << " Failed to add vertex with id " << ids[i] << " and info \'" << strs[i] << "\'." << endl;
         }
     }
     cout << endl;
-
-    cout << "=====================================================" << endl;
-    cout << "            Adding edges..." << endl;
-    cout << "=====================================================" << endl;
-    cout << endl;
-
-    for (int i = 0; i < testdatasize - 1; i++) {
-        bool success = myGraph.addEdge(ids[i], ids[i+1]);
-        if (success) {
-            cout << " Added edge between vertices " << ids[i] << " and " << ids[i+1] << endl;
-        } else {
-            cout << " Failed to add edge between vertices " << ids[i] << " and " << ids[i+1] << endl;
-        }
-    }
-    cout << endl;
-
-    cout << "=====================================================" << endl;
-    cout << "            Printing adjacency list..." << endl;
-    cout << "=====================================================" << endl;
-    cout << endl;
-
-    myGraph.printAdjacencyList();
 
     // ToDo - Add edge-case testing
 
