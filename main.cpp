@@ -230,7 +230,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    myGraph.addVertex(ids[0], &strs[0]);
+    myGraph.addVertex(ids[0], &strs[0]); // Add vertex before test
     bool success = myGraph.addVertex(ids[0], &strs[0]);
     if (success) {
         cout << " Added vertex with id " << ids[0] << " and information \'" << strs[0] << "\'" << endl;
@@ -238,6 +238,22 @@ int main() {
         cout << " Failed to add vertex with id " << ids[0] << " and information \'" << strs[0] << "\'" << endl;
     }
     cout << endl;
+
+    cout << "=====================================================" << endl;
+    cout << "            Testing edge case: Adding an already existing edge..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    myGraph.addEdge(ids[0], ids[1]); // Add edge before test
+    success = myGraph.addEdge(ids[0], ids[1]);
+    if (success) {
+        cout << " Added edge between vertices " << ids[0] << " and " << ids[1] << endl;
+    } else {
+        cout << " Failed to add edge between vertices " << ids[0] << " and " << ids[1] << endl;
+    }
+    cout << endl;
+
+    
 
 
     // ToDo - Add random testing
