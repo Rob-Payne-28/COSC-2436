@@ -223,8 +223,22 @@ int main() {
     /*
      *  Start Edge Case testing
      */
-
     // ToDo - Add edge-case testing
+
+    cout << "=====================================================" << endl;
+    cout << "            Testing edge case: Adding an already existing vertex..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    myGraph.addVertex(ids[0], &strs[0]);
+    bool success = myGraph.addVertex(ids[0], &strs[0]);
+    if (success) {
+        cout << " Added vertex with id " << ids[0] << " and information \'" << strs[0] << "\'" << endl;
+    } else {
+        cout << " Failed to add vertex with id " << ids[0] << " and information \'" << strs[0] << "\'" << endl;
+    }
+    cout << endl;
+
 
     // ToDo - Add random testing
 
