@@ -15,12 +15,12 @@ int main() {
 
     srand(time(NULL));
 
-    vector<int> ids(testDataSize);
-    vector<string> strs(testDataSize);
+    vector<int> ids(TEST_DATA_SIZE);
+    vector<string> strs(TEST_DATA_SIZE);
 
     set<int> unique_ids;
 
-    for (int i = 0; i < testDataSize; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE; ++i) {
         int unique_id = rand() % 100 + 1;
 
         while (unique_ids.find(unique_id) != unique_ids.end()) {
@@ -41,7 +41,6 @@ int main() {
      *  End of test data generation
      */
 
-    // ToDo - Add method testing
     cout << "=====================================================" << endl;
     cout << "            Generating graph..." << endl;
     cout << "=====================================================" << endl;
@@ -51,12 +50,16 @@ int main() {
     cout << "Complete!" << endl;
     cout << endl;
 
+    /*
+     *  Start Method Testing
+     */
+
     cout << "=====================================================" << endl;
     cout << "            Adding vertices..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = 0; i < testDataSize; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE; ++i) {
         bool success = myGraph.addVertex(ids[i], &strs[i]);
         if (success) {
             cout << " Added vertex with id " << ids[i] << " and info \'" << strs[i] << "\'" << endl;
@@ -71,7 +74,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = 0; i < testDataSize - 1; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE - 1; ++i) {
         bool success = myGraph.addEdge(ids[i], ids[i+1]);
         if (success) {
             cout << " Added edge between " << ids[i] << " and " << ids[i+1] << endl;
@@ -89,7 +92,7 @@ int main() {
     vector<Vertex> vertices;
     if (myGraph.getVertices(vertices)) {
         cout << " Retrieved vertices:" << endl;
-        for (int i = 0; i < vertices.size(); ++i) {
+        for (int i = ZERO; i < vertices.size(); ++i) {
             cout << " Vertex with id " << vertices[i].id << " and information '" << vertices[i].information << "'" << endl;
         }
     } else {
@@ -105,7 +108,7 @@ int main() {
     vector<Edge> edges;
     if (myGraph.getEdges(edges)) {
         cout << " Retrieved edges:" << endl;
-        for (int i = 0; i < edges.size(); ++i) {
+        for (int i = ZERO; i < edges.size(); ++i) {
             cout << " Edge between " << edges[i].vertex1 << " and " << edges[i].vertex2 << endl;
         }
     } else {
@@ -118,11 +121,11 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = 0; i < testDataSize; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE; ++i) {
         vector<Vertex> adjacentVertices;
         if (myGraph.getAdjacent(ids[i], adjacentVertices)) {
             cout << " Retrieved adjacent vertices for vertex " << ids[i] << ":" << endl;
-            for (int j = 0; j < adjacentVertices.size(); ++j) {
+            for (int j = ZERO; j < adjacentVertices.size(); ++j) {
                 cout << "  Vertex with id " << adjacentVertices[j].id << " and information '" << adjacentVertices[j].information << "'" << endl;
             }
         } else {
@@ -152,14 +155,34 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = 0; i < testDataSize; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE; ++i) {
         vector<Vertex> bfsTraversal;
         myGraph.breadthFirstSearch(ids[i], bfsTraversal);
 
         cout << " Starting with " << ids[i] << ": ";
-        for (int j = 0; j < bfsTraversal.size(); ++j) {
+        for (int j = ZERO; j < bfsTraversal.size(); ++j) {
             cout << bfsTraversal[j].id;
             if (j != bfsTraversal.size() - 1) {
+                cout << " -> ";
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+
+    cout << "=====================================================" << endl;
+    cout << "            Depth first search..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    for (int i = ZERO; i < TEST_DATA_SIZE; ++i) {
+        vector<Vertex> dfsTraversal;
+        myGraph.depthFirstSearch(ids[i], dfsTraversal);
+
+        cout << " Starting with " << ids[i] << ": ";
+        for (int j = ZERO; j < dfsTraversal.size(); ++j) {
+            cout << dfsTraversal[j].id;
+            if (j != dfsTraversal.size() - 1) {
                 cout << " -> ";
             }
         }
@@ -172,7 +195,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = 0; i < testDataSize - 1; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE - 1; ++i) {
         bool success = myGraph.removeEdge(ids[i], ids[i+1]);
         if (success) {
             cout << " Removed edge between " << ids[i] << " and " << ids[i+1] << endl;
@@ -187,7 +210,7 @@ int main() {
     cout << "=====================================================" << endl;
     cout << endl;
 
-    for (int i = 0; i < testDataSize; ++i) {
+    for (int i = ZERO; i < TEST_DATA_SIZE; ++i) {
         bool success = myGraph.removeVertex(ids[i]);
         if (success) {
             cout << " Removed vertex with id " << ids[i] << endl;
@@ -197,6 +220,9 @@ int main() {
     }
     cout << endl;
 
+    /*
+     *  Start Edge Case testing
+     */
 
     // ToDo - Add edge-case testing
 
