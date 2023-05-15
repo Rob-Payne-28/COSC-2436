@@ -253,6 +253,20 @@ int main() {
     cout << endl;
 
     cout << "=====================================================" << endl;
+    cout << "Testing edge case: Removing a non-existent vertex..." << endl;
+    cout << "=====================================================" << endl;
+    cout << endl;
+
+    success = myGraph.removeVertex(101);
+    if (success) {
+        cout << " Removed vertex 101" << endl;
+    } else {
+        cout << " Failed to remove vertex 101" << endl;
+    }
+    cout << endl;
+
+
+    cout << "=====================================================" << endl;
     cout << "Testing edge case: Removing a non-existent edge..." << endl;
     cout << "=====================================================" << endl;
     cout << endl;
