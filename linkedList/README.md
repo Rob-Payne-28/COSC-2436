@@ -1,6 +1,7 @@
 # LinkedList
 A doubly linked list program. Part of COSC-2436 (Data structures and algorithms).
 
+## [Assignment Instructions](./Assignment6LinkedLists.pdf)
 
 ## Use
 
