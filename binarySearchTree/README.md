@@ -1,6 +1,7 @@
 # Binary Search Tree
 A binary search tree program. Part of COSC-2436 (Data structures and algorithms).
 
+## [Assignment Instructions](./Assignment8BinarySearchTree.pdf)
 
 ## Use
 
