@@ -1,6 +1,7 @@
 # Stack
 A simple stack program. Part of COSC-2436 (Data structures and algorithms).
 
+## [Assignment Instructions](./Assignment5Stacks.pdf)
 
 ## Use
 
