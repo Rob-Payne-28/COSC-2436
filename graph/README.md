@@ -1,6 +1,7 @@
 # Final Project - Graphs
 A graph Abstract Data Type. Part of COSC-2436 (Data structures and algorithms).
 
+## [Assignment Instructions](./FinalProjectGraphs.pdf)
 
 ## Use
 
